@@ -38,9 +38,13 @@ biomass <- read.csv(file = "biomass-phenology.csv", as.is = TRUE)
 # ndvi, long form
 ndvi <- remote %>%
   filter(Type == "Phenology") %>%
-  select(starts_with("ndvi."), PlotVisit)
-  gather(key = PlotVisit, value = "NDVI")
-  
+  select(PlotVisit, starts_with("ndvi."), starts_with("doy.")) %>%
+  gather(RemoteDate, NDVI, -PlotVisit)
+ndvi$Date <- as.POSIXlt(substr(ndvi$PlotVisit, 5, 14))
+ndvi$VisitDOY <- ndvi$Date$yday  
+
+
+
 # evi, long form
   
 # all together now (phenology plots only)

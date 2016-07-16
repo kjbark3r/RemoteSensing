@@ -99,6 +99,40 @@ remote.data <- read.csv(file = "remotedata.csv") %>%
 #for ndvi and evi separately
 #THEN merge them with biomass
 
+#playing with gather
+
+#gather_ is programmatic
+#first try it naming the key column instead of storing it
+gather_cols <- c(colnames(ndvi[4:ncol(ndvi)]))
+test <- gather_(ndvi, RemoteDOY, NDVI, gather_cols)
+#nope gotta store
+
+keycol <- "RemoteDOY"
+valuecol <- "NDVI"
+gathercols <- c(colnames(ndvi[4:ncol(ndvi)]))
+test <- gather_(ndvi, key_col, value_col, gather_cols, na.rm=FALSE)
+#if this doesn't work, paste column names and move on
+#ok just one more quick thing
+test <- gather_(ndvi, keycol, valuecol, gathercols, na.rm=FALSE)
+
+#got gather to work (yay)
+#but need to figure out how to gather multiple columns
+  #bc need DOY and NDVI/EVI value
+#ex from extract() help file
+df <- data.frame(x = c(NA, "a-b", "a-d", "b-c", "d-e"))
+df %>% extract(x, "A")
+df %>% extract(x, c("A", "B"), "([[:alnum:]]+)-([[:alnum:]]+)")
+
+#need to write a regular expression to ID DOY and NDVI cols
+  #where the "(Q... mumbo jumbo is
+  #see r - Gather multiple sets of columns... answer by Hadley
+ndvi <- remote %>%
+  filter(Type == "Phenology") %>%
+  select(PlotVisit, starts_with("ndvi."), starts_with("doy.")) %>%
+  gather(RemoteDate, NDVI, -PlotVisit) %>%
+  extract(RemoteDate, c("NDVIDate", "RemoteDate"), "(ndvi.........)") %>%
+  spread(
+
 
 ########
 #### DELETED CODE
