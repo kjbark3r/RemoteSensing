@@ -20,30 +20,36 @@ rm(wd_workcomp, wd_laptop)
 
 ## PACKAGES
 library(dplyr)
+library(tidyr) #gather
 
 ## DATA
-  # remote sensing
+
+# remote sensing
 remote <- read.csv(file = "NSERP_AllPlots_NDVI-EVI.csv", as.is = TRUE) 
-remote$Date <- as.Date(as.POSIXct((remote$Date+0.1)/1000, origin="1970-01-01"))
+remote$Date <- as.Date(as.POSIXct((remote$Date+21600000)/1000, origin="1970-01-01", tz = "UTC"))
 remote$PlotVisit <- paste(remote$PlotID, ".", remote$Date, sep = "")
-  # herbaceous biomass
+
+# herbaceous biomass
 biomass <- read.csv(file = "biomass-phenology.csv", as.is = TRUE)
   biomass$VisitDate <- as.POSIXlt(biomass$Date)
   biomass$VisitDOY <- biomass$VisitDate$yday  
   biomass <- select(biomass, -c(PlotID, Date))
 
-  # both (phenology plots only)
-veg <- remote %>%
-    filter(Type == "Phenology") %>%
-###CODE FAILS HERE. I suspect it has something to do with the date conversion
-  #from Brady's file, because the issue seems to be that many plot visits don't
-  #match up (62 do; 47 don't)
-      # same <- as.data.frame(intersect(veg$PlotVisit, biomass$PlotVisit)
-      # diff <- as.data.frame(setdiff(veg$PlotVisit, biomass$PlotVisit))
-    full_join(biomass, by = "PlotVisit")
+# ndvi, long form
+ndvi <- remote %>%
+  filter(Type == "Phenology") %>%
+  select(starts_with("ndvi."), PlotVisit)
+  gather(key = PlotVisit, value = "NDVI")
+  
+# evi, long form
+  
+# all together now (phenology plots only)
+phen <- filter(remote, Type == "Phenology") 
+phen <- merge(phen, biomass)
+
+
 
 ## STILL TO DO
 #add latitude to remote sensing data
-#remove duplicate columns from joined data
 #make data long rather than wide
 #relate plotvisit date to remote sensing date
