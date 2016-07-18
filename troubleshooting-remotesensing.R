@@ -124,14 +124,159 @@ df %>% extract(x, "A")
 df %>% extract(x, c("A", "B"), "([[:alnum:]]+)-([[:alnum:]]+)")
 
 #need to write a regular expression to ID DOY and NDVI cols
-  #where the "(Q... mumbo jumbo is
   #see r - Gather multiple sets of columns... answer by Hadley
+#separate into doy.XXX and ndvi.XXX
 ndvi <- remote %>%
   filter(Type == "Phenology") %>%
   select(PlotVisit, starts_with("ndvi."), starts_with("doy.")) %>%
   gather(RemoteDate, NDVI, -PlotVisit) %>%
-  extract(RemoteDate, c("NDVIDate", "RemoteDate"), "(ndvi.........)") %>%
-  spread(
+  extract(RemoteDate, c("NDVIDate", "RemoteDate"), "(^doy)-(^ndvi)")
+#close - created columns without giving error message
+#but they're NA - no match - need to fix expression 
+
+ndvi <- remote %>%
+  filter(Type == "Phenology") %>%
+  select(PlotVisit, starts_with("ndvi."), starts_with("doy.")) %>%
+  gather(RemoteDate, NDVI, -PlotVisit) %>%
+  extract(RemoteDate, c("NDVIDate", "RemoteDate"), "(doy)-(ndvi)")
+#nope
+
+ndvi <- remote %>%
+  filter(Type == "Phenology") %>%
+  select(PlotVisit, starts_with("ndvi."), starts_with("doy.")) %>%
+  gather(RemoteDate, NDVI, -PlotVisit) %>%
+  extract(RemoteDate, c("NDVIDate", "RemoteDate"), "(doy.)-(ndvi.)")
+#nope
+
+ndvi <- remote %>%
+  filter(Type == "Phenology") %>%
+  select(PlotVisit, starts_with("ndvi."), starts_with("doy.")) %>%
+  gather(RemoteDate, NDVI, -PlotVisit) %>%
+  extract(RemoteDate, c("NDVIDate", "RemoteDate"), "("doy.")-("ndvi.")")
+#hey a new error message, oh boy
+#Error: unexpected symbol in:
+#"  gather(RemoteDate, NDVI, -PlotVisit) %>%
+#  extract(RemoteDate, c("NDVIDate", "RemoteDate"), "("doy."
+
+ndvi <- remote %>%
+  filter(Type == "Phenology") %>%
+  select(PlotVisit, starts_with("ndvi."), starts_with("doy.")) %>%
+  gather(RemoteDate, NDVI, -PlotVisit) %>%
+  extract(RemoteDate, c("NDVIDate", "RemoteDate"), "(^doy(.*))-(^ndvi(.*))")
+#still NAs but also new NA columns now
+
+ndvi <- remote %>%
+  filter(Type == "Phenology") %>%
+  select(PlotVisit, starts_with("ndvi."), starts_with("doy.")) %>%
+  gather(RemoteDate, NDVI, -PlotVisit) %>%
+  extract(RemoteDate, c("NDVIDate", "RemoteDate"), "(^doy(.*?))-(^ndvi(.*?))")
+#ditto
+
+ndvi <- remote %>%
+  filter(Type == "Phenology") %>%
+  select(PlotVisit, starts_with("ndvi."), starts_with("doy.")) %>%
+  gather(RemoteDate, NDVI, -PlotVisit) %>%
+  extract(RemoteDate, c("NDVIDate", "RemoteDate"), "(doy.*)-(ndvi.*)")
+#ok fuck this, let's try something else
+#this isn't even keeping the right NDVI values with the right plot visits
+
+########
+# finding closest remoteDOY to visitDOY
+
+which.min(abs(ndvi$RemoteDOY - 249))
+#um... no.
+which.min(abs((1:59876) - 249))
+#yes
+
+test <- ndvi %>%
+  group_by(PlotVisit) %>%
+  filter(which.min(abs(RemoteDOY - VisitDOY)))
+#r-splosion
+
+test <- ndvi %>%
+  group_by(PlotVisit) %>%
+  filter(which.min(abs(ndvi$RemoteDOY - ndvi$VisitDOY)))
+#r-splosion
+
+test <- ndvi %>%
+  mutate(doydiff = RemoteDOY-VisitDOY) %>%
+  group_by(PlotVisit) %>%
+  filter(min(doydiff))
+#not quite... time to steal code from stack
+
+test <- ndvi %>%
+  mutate(doydiff = RemoteDOY-VisitDOY) %>%
+  group_by(PlotVisit) %>%
+  filter(doydiff == min(doydiff))
+#STOP EXPLODING ON ME DAMNIT
+
+test <- ndvi %>%
+  mutate(doydiff = RemoteDOY-VisitDOY) %>%
+  group_by(PlotVisit) %>%
+  filter(doydiff == which.min(doydiff))
+#SRSLY
+
+test <- ndvi %>%
+  mutate(doydiff = RemoteDOY-VisitDOY) %>%
+  group_by(PlotVisit) %>%
+  slice(which.min(doydiff))
+#:(
+
+test <- ndvi %>%
+  mutate(doydiff = RemoteDOY-VisitDOY) %>%
+  group_by(PlotVisit) %>%
+  filter(row_number() ==n())
+#no
+
+test <- ndvi %>%
+  mutate(doydiff = RemoteDOY-VisitDOY) %>%
+  group_by(PlotVisit) %>%
+  filter(which.min(doydiff))
+#no
+#oh dude... the problem is group_by, not filter
+
+test <- ndvi %>%
+  mutate(doydiff = RemoteDOY-VisitDOY) %>%
+  group_by(VisitDate)
+
+test <- ndvi %>%
+  mutate(doydiff = abs(RemoteDOY-VisitDOY)) %>%
+  group_by(PlotVisit) %>%
+  filter(which.min(doydiff))
+#which.min isn't logical
+
+test <- ndvi %>%
+  mutate(doydiff = abs(RemoteDOY-VisitDOY)) %>%
+  group_by(PlotVisit) %>%
+  filter(doydiff < 16)
+#returns multiple values for some plot visits
+
+test <- ndvi %>%
+  mutate(doydiff = abs(RemoteDOY-VisitDOY)) %>%
+  group_by(PlotVisit) %>%
+  filter(doydiff == min(doydiff))
+#returns 0 observations
+
+test <- ndvi %>%
+  mutate(doydiff = abs(RemoteDOY-VisitDOY)) %>%
+  group_by(PlotVisit) %>%
+  filter(doydiff == which.min(doydiff)) 
+#returns 14 observations
+
+test <- ndvi %>%
+  mutate(doydiff = abs(RemoteDOY-VisitDOY)) %>%
+  group_by(PlotVisit) %>%
+  arrange(doydiff) %>%
+  filter(doydiff == min_rank(doydiff)) 
+#16 observations....
+  #all the ones with doydiff = 1
+
+test <- ndvi %>%
+  mutate(doydiff = abs(RemoteDOY-VisitDOY)) %>%
+  group_by(PlotVisit) %>%
+  arrange(doydiff) %>%
+  slice(which.min(doydiff)) 
+#yayyyyyyy
 
 
 ########
