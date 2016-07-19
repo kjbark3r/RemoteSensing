@@ -174,3 +174,89 @@ tab2 <- as.data.frame(tprep, row.names = c("All Herb", "Forage Herb", "All Forb"
 tab2 <- rename(tab2, AdjRsquared = V2)
 tab2 <- rename(tab2, StdError = V3)
 View(tab2)
+
+############
+## ADDING ELEV AND LANDCOVER TO MODELS
+
+#did landcov in arcmap; couldn't get it to work in r 
+landcov <- read.csv(file = "plots-landcov.txt") 
+landcov$Date <- as.Date(landcov$Date, format = "%m/%d/%Y")
+landcov <- landcov %>%
+  subset(Type == "Phenology") %>%
+  mutate(PlotVisit = paste(PlotID, ".", Date, sep = "")) %>%
+  subset(PlotVisit != "326.2015-09-23") %>%
+  rename(CovClass = RASTERVALU) %>%
+  dplyr::select(PlotVisit, CovClass) %>%
+  mutate(LandCov = ifelse(CovClass == 0, "Mask", 
+                                     ifelse(CovClass == 1, "Badlands",
+                                     ifelse(CovClass == 2, "Riparian",
+                                     ifelse(CovClass == 3, "Forest",
+                                     ifelse(CovClass == 4, "Shrub",
+                                     ifelse(CovClass == 5, "Sagebrush",
+                                     ifelse(CovClass == 6, "Grassland",
+                                     ifelse(CovClass == 7, "Agricultural",
+                                            NA)))))))))
+
+all.phen <- remote.phen %>%
+  subset(PlotVisit != "326.2015-09-23") %>% #wrong lat/long on this plot
+  full_join(landcov, by = "PlotVisit")
+
+library(raster)
+  
+elevSE <- raster("C:/Users/kristin.barker/Documents/ArcGIS/Backgrounds/NED/NEDn46w114/grdn46w114_13")
+elevSW <- raster("C:/Users/kristin.barker/Documents/ArcGIS/Backgrounds/NED/NEDn46w115/grdn46w115_13")
+elevNE <- raster("C:/Users/kristin.barker/Documents/ArcGIS/Backgrounds/NED/NEDn47w114/grdn47w114_13")
+elevNW <- raster("C:/Users/kristin.barker/Documents/ArcGIS/Backgrounds/NED/NEDn47w115/grdn47w115_13")
+#landcov <- raster("C:/Users/kristin.barker/Documents/NSERP/GIS/HabitatTypes/MSDI_Reclass_MTtiff/MSDI_RC_MT.tif")
+xy <- data.frame("x"=all.phen$Longitude, "y"=all.phen$Latitude)
+
+all.phen$elevNE <- extract(elevNE, xy); all.phen$elevNE[is.na(all.phen$elevNE)] <- 0
+all.phen$elevNW <- extract(elevNW, xy); all.phen$elevNW[is.na(all.phen$elevNW)] <- 0
+all.phen <- all.phen %>%
+  mutate(Elevm = elevNE+elevNW) %>%
+  dplyr::select(-c(elevNW, elevNE))
+
+###########
+##MODELS
+herb1 <- lm(sqrt(HerbBiomass) ~ EVI, data=all.phen); summary(herb)
+herb2 <- lm(sqrt(HerbBiomass) ~ EVI+Elevm, data=all.phen); summary(herb2)
+herb3 <- lm(sqrt(HerbBiomass) ~ EVI+LandCov, data=all.phen); summary(herb3)
+herb4 <- lm(sqrt(HerbBiomass) ~ EVI+Elevm+LandCov, data=all.phen); summary(herb4)
+
+lm1 <- c(herb1$coefficients[1], summary(herb1)$adj.r.squared, summary(herb1)$sigma)
+lm2 <- c(herb2$coefficients[1], summary(herb2)$adj.r.squared, summary(herb2)$sigma)
+lm3 <- c(herb3$coefficients[1], summary(herb3)$adj.r.squared, summary(herb3)$sigma)
+lm4 <- c(herb4$coefficients[1], summary(herb4)$adj.r.squared, summary(herb4)$sigma)
+
+tprep <- rbind(lm1, lm2, lm3, lm4)
+tab2 <- as.data.frame(tprep, row.names = c("EVI", "EVI+Elevm", "EVI+LandCov", "EVI+Elevm+LandCov"))
+#tab <- rename(tab, NDVIcoeff = NDVI)
+tab2 <- rename(tab2, AdjRsquared = V2)
+tab2 <- rename(tab2, StdError = V3)
+View(tab2)
+
+library(AICcmodavg)
+Cand.set <- list( )
+Cand.set[[1]] <- lm(sqrt(HerbBiomass) ~ EVI, data=all.phen)
+Cand.set[[2]] <- lm(sqrt(HerbBiomass) ~ EVI+Elevm, data=all.phen)
+Cand.set[[3]] <- lm(sqrt(HerbBiomass) ~ EVI+LandCov, data=all.phen)
+Cand.set[[4]] <- lm(sqrt(HerbBiomass) ~ EVI+Elevm+LandCov, data=all.phen)
+names(Cand.set) <- c("EVI", 
+                     "EVI+Elevm", 
+                     "EVI+LandCov", 
+                     "EVI+Elevm+LandCov")
+aictable <- aictab(Cand.set, second.ord=TRUE)
+aicresults <- print(aictable, digits = 2, LL = FALSE)
+
+
+
+
+
+
+
+
+
+
+
+
+

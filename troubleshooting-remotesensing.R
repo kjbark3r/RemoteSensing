@@ -280,6 +280,45 @@ test <- ndvi %>%
 
 
 ########
+#### EXTRACTING ELEVS FROM RASTERS
+#### because screw you, arcmap
+
+library(raster)
+
+locs <- read.csv(file = "NSERP_AllPlots.csv") %>%
+  subset(Type == "Phenology")
+locs$Date <- as.Date(locs$Date, format = "%m/%d/%Y")
+locs <- locs %>%
+  mutate(PlotVisit = paste(PlotID, ".", Date, sep = "")) %>%
+  subset(PlotVisit != "326.2015-09-23")
+
+elevSE <- raster("C:/Users/kristin.barker/Documents/ArcGIS/Backgrounds/NED/NEDn46w114/grdn46w114_13")
+elevSW <- raster("C:/Users/kristin.barker/Documents/ArcGIS/Backgrounds/NED/NEDn46w115/grdn46w115_13")
+elevNE <- raster("C:/Users/kristin.barker/Documents/ArcGIS/Backgrounds/NED/NEDn47w114/grdn47w114_13")
+elevNW <- raster("C:/Users/kristin.barker/Documents/ArcGIS/Backgrounds/NED/NEDn47w115/grdn47w115_13")
+landcov <- raster("C:/Users/kristin.barker/Documents/NSERP/GIS/HabitatTypes/MSDI_Reclass_MTtiff/MSDI_RC_MT.tif")
+  
+
+xy <- data.frame("x"=locs$Longitude, "y"=locs$Latitude)
+locs$elevNE <- extract(elevNE, xy); locs$elevNE[is.na(locs$elevNE)] <- 0
+locs$elevNW <- extract(elevNW, xy); locs$elevNW[is.na(locs$elevNW)] <- 0
+locs <- locs %>%
+  mutate(Elevm = elevNE+elevNW) %>%
+  dplyr::select(-c(elevNW, elevNE))
+
+
+locs$LandCov <- raster::extract(landcov, xy)
+  #nope
+brick <- brick(landcov)
+locs$LandCov <- extract(brick, xy)
+  #nope
+locs$LandCov <- raster::extract(landcov@data@attributes, xy)
+raster::extract(brick, xy)
+  #effit
+
+
+
+########
 #### DELETED CODE
 
  %>% full_join(biomass, by = "PlotVisit") #apparently buggy; crashes r

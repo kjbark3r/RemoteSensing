@@ -1,0 +1,219 @@
+##########################################################
+#### HERBACEOUS BIOMASS ESTIMATION - NSERP STUDY AREA ####
+################## KJB  July 2016  #######################
+##########################################################
+
+#### NOTE: MUST USE 32 BIT R TO CONNECT TO ACCESS ####
+
+## WD
+
+wd_workcomp <- "C:\\Users\\kristin.barker\\Documents\\GitHub\\Biomass"
+wd_laptop <- "C:\\Users\\kjbark3r\\Documents\\GitHub\\Biomass"
+	if (file.exists(wd_workcomp)) {
+	  setwd(wd_workcomp)
+	} else {
+	  if(file.exists(wd_laptop)) {
+		setwd(wd_laptop)
+	  } else {
+		  cat("Are you SURE you got that file path right?\n")
+		  }
+	  }
+
+## PACKAGES
+
+library(RODBC)
+library(dplyr)
+library(tidyr)
+	
+#########
+## DATA - READ IN AND SET UP
+
+#Connect to Access phenology database (work computer or laptop)
+if (file.exists(wd_workcomp)) {
+  channel <- odbcDriverConnect("Driver={Microsoft Access Driver (*.mdb, *.accdb)};
+                             dbq=C:/Users/kristin.barker/Documents/NSERP/Databases and Mort Reports/Sapphire_Veg_Phenology.accdb")
+  } else {
+    if(file.exists(wd_laptop)) {
+      channel <- odbcDriverConnect("Driver={Microsoft Access Driver (*.mdb, *.accdb)};
+                               dbq=C:/Users/kjbark3r/Documents/NSERP/Databases/Sapphire_Veg_Phenology.accdb")
+    } else {
+      cat("Are you SURE you got that file path right?\n")
+  }
+}
+rm(wd_workcomp, wd_laptop)
+
+# LIFE FORM 
+spp <- sqlQuery(channel, paste("select PlantCode, LifeForm, NameScientific
+                                 from NSERP_SP_list"))
+spp <- rename(spp, Species = PlantCode)
+  
+# CLASSIFICATION - plus quadrat id, quadrat-visit ID, plot-visit ID, life form, genus
+classn <- sqlQuery(channel, paste("select * from Classification"))
+  colnames(classn) <- c("VisitDate", "PlotID", "PlotM", "Species", "Total", "Live", "Senesced")
+  classn$Species <- trimws(classn$Species) #remove leading/trailing whitespace
+classn <- classn %>%
+  mutate(Quadrat = paste(PlotID,"-",PlotM, sep="")) %>%
+	mutate(QuadratVisit = paste(PlotID,".", VisitDate,".",PlotM, sep="")) %>%
+  mutate(PlotVisit = paste(PlotID, ".", VisitDate, sep="")) %>%
+  left_join(spp, by = "Species") %>%
+  subset(LifeForm == "forb" | LifeForm == "graminoid")
+  classn$Genus <- sapply(strsplit(as.character(classn$NameScientific), " "), "[", 1)
+for(i in 1:nrow(classn)) {  #all "unknown" species are forbs
+  classn$LifeForm[i] <- ifelse(grepl('UNK ', classn$Species[i]), "forb", next)
+}
+
+# COVER - creating manually because some recorded numbers are incorrect
+cover <- classn %>%
+  subset(!PlotM == 10 & !PlotM == 30) %>% #remove non-clipplots
+  group_by(QuadratVisit, LifeForm) %>%
+  summarise(Wt = sum(Total)) %>%
+  spread(LifeForm, Wt) %>%
+  rename(ForbCov = forb, GrassCov = graminoid) 
+cover$ForbCov[is.na(cover$ForbCov)] <- 0; cover$GrassCov[is.na(cover$GrassCov)] <- 0
+
+# CLIP PLOTS - plus quadrat ID, quadrat-visit ID
+clip <- sqlQuery(channel, paste("select * from ClipPlots"))
+colnames(clip) <- c("VisitDate", "PlotID", "PlotM", "LifeForm", "EmptyBag",
+                    "Total", "Live", "Senesced", "WetWt", "DryWt")
+clip <- clip %>%
+  mutate(QuadratVisit = paste(PlotID,".", VisitDate,".",PlotM, sep="")) %>%
+  mutate(PlotVisit = paste(PlotID, ".", VisitDate, sep=""))
+
+# FORAGE PLANTS
+foragespp <- read.csv("foragespecies.csv")
+
+#########
+## DATA - MANIPULATIONS/CALCULATIONS
+
+#per quadrat - biomass, all herbaceous (by life form)
+quadrat <- clip %>%
+  select(QuadratVisit, PlotVisit, LifeForm, DryWt) %>%
+  spread(LifeForm, DryWt) %>%
+  rename(ForbWt = Forb, GrassWt = Grass) 
+quadrat$ForbWt[is.na(quadrat$ForbWt)] <- 0 #replace NA with 0 
+quadrat$GrassWt[is.na(quadrat$GrassWt)] <- 0  
+quadrat$AllHerbWt <- quadrat$ForbWt + quadrat$GrassWt
+
+#per quadrat - biomass, all herbaceous (by species)
+quadrat.spp <- left_join(cover, classn, by = "QuadratVisit") %>%
+  select(-PlotVisit) #avoid duplicated column name after next join
+  #rescale species % cover
+quadrat.spp$RescaledCover <- ifelse(quadrat.spp$LifeForm == "forb", quadrat.spp$Total/quadrat.spp$ForbCov,
+                                      ifelse(quadrat.spp$LifeForm == "graminoid", 
+                                             quadrat.spp$Total/quadrat.spp$GrassCov, 
+                                             ifelse(NA)))
+quadrat.spp <- left_join(quadrat.spp, quadrat, by = "QuadratVisit")
+quadrat.spp <- subset(quadrat.spp, select = c(PlotVisit, QuadratVisit, Species, Genus, 
+                                              RescaledCover, LifeForm, ForbCov, GrassCov, 
+                                              ForbWt, GrassWt, AllHerbWt))
+  #estimate species weight based on adjusted %cover
+quadrat.spp$ClipGrams <- ifelse(quadrat.spp$LifeForm == "forb", quadrat.spp$RescaledCover*quadrat.spp$ForbWt,
+                                ifelse(quadrat.spp$LifeForm == "graminoid", quadrat.spp$RescaledCover*quadrat.spp$GrassWt,
+                                       ifelse(NA)))
+  #remove quadrats without clip plots
+quadrat.spp <- quadrat.spp[!is.na(quadrat.spp$ClipGrams),]
+
+#per plot: herbaceous and forage biomass (forb, grass, both)
+herb <- quadrat %>%
+  group_by(PlotVisit) %>%
+  summarise(ForbBiomass = mean(ForbWt)*1.33333, GrassBiomass = mean(GrassWt)*1.33333, 
+            HerbBiomass = mean(AllHerbWt)*1.33333) 
+forage <- foragespp %>%
+  select(Genus, CumAve) %>%
+  transmute(Genus, ForagePlant = ifelse(is.na(CumAve), "No", "Yes")) %>%
+  right_join(quadrat.spp, by = "Genus") 
+forage$ForagePlant <- ifelse(is.na(forage$ForagePlant), "No", "Yes")
+forage$ForageGrams <- ifelse(forage$ForagePlant == "Yes", forage$ClipGrams, 0)
+forage <- forage[!duplicated(forage),]
+forage <- forage %>%
+  group_by(QuadratVisit, LifeForm) %>%
+  summarise(ForageG = sum(ForageGrams)) %>%
+  spread(LifeForm, ForageG) %>% #0s have lifeform in plot but not clip plot. NAs don't have lifeform
+  rename(ForageForbG = forb, ForageGrassG = graminoid) %>%
+  mutate(PlotVisit = substr(QuadratVisit, 1, 14))
+  forage$ForageForbG[is.na(forage$ForageForbG)] <- 0
+  forage$ForageGrassG[is.na(forage$ForageGrassG)] <- 0
+  #below code is for 2 clip plots  with missing forb species data
+  #see missingdata-estimations.R and Nutrition Quicknotes for more info
+  forage[forage$QuadratVisit %in% "323.2014-06-30.20","ForageForbGrams"] <- 
+    quadrat[quadrat$QuadratVisit %in% "323.2014-06-30.20","ForbWt"]*0.2 #ff323
+  forage[forage$QuadratVisit %in% "344.2014-06-16.20","ForageForbGrams"] <-  
+    quadrat[quadrat$QuadratVisit %in% "344.2014-06-16.20","ForbWt"]*0.3337 #ff344
+forage <- forage %>%
+  ungroup() %>%
+  group_by(PlotVisit) %>%
+  summarise(ForageForbBiomass = mean(ForageForbG)*1.33333, ForageGrassBiomass = mean(ForageGrassG)*1.33333) 
+  forage$ForageHerbBiomass <- forage$ForageForbBiomass + forage$ForageGrassBiomass
+
+biomass <- full_join(herb, forage, by = "PlotVisit") %>%
+  mutate(PlotID = substr(PlotVisit, 1, 3)) %>%
+  mutate(Date = substr(PlotVisit, 5, 14)) %>%
+  select(PlotID, Date, PlotVisit, ForbBiomass, GrassBiomass, HerbBiomass,
+         ForageForbBiomass, ForageGrassBiomass, ForageHerbBiomass)
+
+################
+## WITH BIOMASS PLOTS INCLUDED (NOT JUST PHEENOLOGY)
+
+# remote sensing
+remote <- read.csv(file = "NSERP_AllPlots_NDVI-EVI.csv", as.is = TRUE) 
+remote$Date <- as.Date(as.POSIXct((remote$Date+21600000)/1000, origin="1970-01-01", tz = "UTC"))
+remote$PlotVisit <- paste(remote$PlotID, ".", remote$Date, sep = "")
+
+# herbaceous biomass at phenology plots
+phenology <- read.csv(file = "biomass-phenology.csv", as.is = TRUE)
+  phenology$VisitDate <- as.POSIXlt(phenology$Date)
+  phenology$VisitDOY <- phenology$VisitDate$yday 
+  phenology$VisitDate <- as.POSIXct(phenology$VisitDate)
+  phenology <- select(phenology, -c(PlotID, Date))
+
+# ndvi, long form
+ndvi <- remote %>%
+  filter(Type == "Phenology") %>%
+  select(PlotVisit, starts_with("ndvi."), starts_with("doy.")) %>%
+  gather(RemoteDate, NDVI, -PlotVisit)
+ndvi$VisitDate <- as.POSIXlt(substr(ndvi$PlotVisit, 5, 14))
+ndvi$VisitDOY <- ndvi$VisitDate$yday  
+ndvi$VisitDate <- as.POSIXct(ndvi$VisitDate)
+ndvi$RemoteDate <- as.POSIXlt(substr(ndvi$RemoteDate, 6, 13), format = "%Y%m%d")
+ndvi$RemoteDOY <- ndvi$RemoteDate$yday
+ndvi$RemoteDate <- as.POSIXct(ndvi$RemoteDate)  
+ndvi <- ndvi %>%
+  mutate(doydiff = abs(RemoteDOY-VisitDOY)) %>%
+  group_by(PlotVisit) %>%
+  arrange(doydiff) %>%
+  slice(which.min(doydiff)) %>%
+  ungroup()
+
+# evi, long form
+evi <- remote %>%
+  filter(Type == "Phenology") %>%
+  select(PlotVisit, starts_with("evi."), starts_with("doy.")) %>%
+  gather(RemoteDate, EVI, -PlotVisit)
+evi$VisitDate <- as.POSIXlt(substr(evi$PlotVisit, 5, 14))
+evi$VisitDOY <- evi$VisitDate$yday  
+evi$VisitDate <- as.POSIXct(evi$VisitDate)
+evi$RemoteDate <- as.POSIXlt(substr(evi$RemoteDate, 5, 12), format = "%Y%m%d")
+evi$RemoteDOY <- evi$RemoteDate$yday
+evi$RemoteDate <- as.POSIXct(evi$RemoteDate)  
+evi <- evi %>%
+  mutate(doydiff = abs(RemoteDOY-VisitDOY)) %>%
+  group_by(PlotVisit) %>%
+  arrange(doydiff) %>%
+  slice(which.min(doydiff))  %>%
+  ungroup() %>%
+  subset(select = c(PlotVisit, EVI))
+
+latlong <- read.csv(file = "NSERP_AllPlots.csv")
+latlong$Date <- as.Date(latlong$Date, format = "%m/%d/%Y")
+latlong <- latlong %>%
+  subset(Type == "Phenology") %>%
+  mutate(PlotVisit = paste(PlotID, ".", Date, sep="")) %>%
+  select(PlotVisit, Latitude, Longitude)
+  
+remote.phen <- full_join(ndvi, evi, by = "PlotVisit") %>%
+  select(-c(VisitDate, VisitDOY)) %>%
+  full_join(phenology, by = "PlotVisit") %>%
+  select(PlotVisit, VisitDate, VisitDOY, RemoteDOY, doydiff, NDVI, EVI,
+         ForbBiomass, ForageForbBiomass, GrassBiomass, ForageGrassBiomass, 
+         HerbBiomass, ForageHerbBiomass) %>%
+  full_join(latlong, by = "PlotVisit")
