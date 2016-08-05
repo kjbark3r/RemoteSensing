@@ -21,6 +21,7 @@ test$DOY <- test$DOY$yday
 
 ########
 # figuring out why i can't join based on plotvisit
+########
 
 #checking out the data
 remote <- filter(remote, Type =="Phenology")
@@ -182,6 +183,7 @@ ndvi <- remote %>%
 
 ########
 # finding closest remoteDOY to visitDOY
+########
 
 which.min(abs(ndvi$RemoteDOY - 249))
 #um... no.
@@ -282,6 +284,7 @@ test <- ndvi %>%
 ########
 #### EXTRACTING ELEVS FROM RASTERS
 #### because screw you, arcmap
+########
 
 library(raster)
 
@@ -316,9 +319,116 @@ locs$LandCov <- raster::extract(landcov@data@attributes, xy)
 raster::extract(brick, xy)
   #effit
 
+########
+#### Dealing with the log(0) issue
+###  to make regressions work
+########
 
+# make sure adding a small number to everything doesn't
+# somehow screw everything up like the self-righteous
+# statisticians on stackexchange say it will
+# also checking a few number options
+
+par(mfrow=c(2,2))
+plot(log(Biomass) ~ NDVI, data = no.out)
+plot(log(Biomass + 0.1) ~ NDVI, data = no.out)
+plot(log(Biomass + 0.0001) ~ NDVI, data = no.out)
+plot(log(Biomass + 0.0000000001) ~ NDVI, data = no.out)
+# whooooooa, why are there so many 0s? 
+# must have something wrong in my biomass code
+# fixed. now just have to deal with a couple 0s in foragebiomass
+length(remote.veg[remote.veg$ForageBiomass == 0]) #5, to be precise
+
+par(mfrow=c(2,2))
+plot(log(ForageBiomass) ~ NDVI, data = remote.veg)
+plot(log(ForageBiomass + 0.1) ~ NDVI, data = remote.veg)
+plot(log(ForageBiomass + 0.0001) ~ NDVI, data = remote.veg)
+plot(log(ForageBiomass + 0.0000000001) ~ NDVI, data = remote.veg)
+# 0.1 looks best (messes up data least) but seems so big
+# smallest non-0 foragebiomass value in the data is 0.24
+
+par(mfrow=c(2,2))
+plot(log(ForageBiomass) ~ NDVI, data = remote.veg)
+plot(log(ForageBiomass + 0.1) ~ NDVI, data = remote.veg)
+plot(log(ForageBiomass + 0.05) ~ NDVI, data = remote.veg)
+plot(log(ForageBiomass + 0.005) ~ NDVI, data = remote.veg)
+# i'm going with 0.05 for now, not sure how to know what the best number is
+# picked this bc didn't make the data look very different from original
+# but wasn't such a high number as 0.1 which just seems super big
 
 ########
 #### DELETED CODE
+########
 
  %>% full_join(biomass, by = "PlotVisit") #apparently buggy; crashes r
+
+
+
+
+##NDVI
+plot(sqrt(HerbBiomass) ~ NDVI, data = remote.phen)
+plot(sqrt(ForageHerbBiomass) ~ NDVI, data = remote.phen)
+
+plot(sqrt(ForbBiomass) ~ NDVI, data = remote.phen)
+plot(sqrt(ForageForbBiomass) ~ NDVI, data = remote.phen)
+
+plot(sqrt(GrassBiomass) ~ NDVI, data = remote.phen)
+plot(sqrt(ForageGrassBiomass) ~ NDVI, data = remote.phen)
+
+
+
+##EVI
+plot(sqrt(HerbBiomass) ~ EVI, data = remote.phen)
+plot(sqrt(ForageHerbBiomass) ~ EVI, data = remote.phen)
+
+plot(sqrt(ForbBiomass) ~ EVI, data = remote.phen)
+plot(sqrt(ForageForbBiomass) ~ EVI, data = remote.phen)
+
+plot(sqrt(GrassBiomass) ~ EVI, data = remote.phen)
+plot(sqrt(ForageGrassBiomass) ~ EVI, data = remote.phen)
+
+##NDVI
+herb <- lm(sqrt(HerbBiomass) ~ NDVI, data=remote.phen); summary(herb)
+  herb.for <- lm(sqrt(ForageHerbBiomass) ~ NDVI, data=remote.phen); summary(herb.for)
+forb <- lm(sqrt(ForbBiomass) ~ NDVI, data=remote.phen); summary(forb)
+  forb.for <- lm(sqrt(ForageForbBiomass) ~ NDVI, data=remote.phen); summary(forb.for)
+grass <- lm(sqrt(GrassBiomass) ~ NDVI, data=remote.phen); summary(grass)
+  grass.for <- lm(sqrt(ForageGrassBiomass) ~ NDVI, data=remote.phen); summary(grass.for)
+  
+lm1 <- c(herb$coefficients[1], summary(herb)$adj.r.squared, summary(herb)$sigma)
+lm2 <- c(herb.for$coefficients[1], summary(herb.for)$adj.r.squared, summary(herb.for)$sigma)
+lm3 <- c(forb$coefficients[1], summary(forb)$adj.r.squareforb, summary(forb)$sigma)
+lm4 <- c(forb.for$coefficients[1], summary(forb.for)$adj.r.squared, summary(forb.for)$sigma)
+lm5 <- c(grass$coefficients[1], summary(grass)$adj.r.squared, summary(grass)$sigma)
+lm6 <- c(grass.for$coefficients[1], summary(grass.for)$adj.r.squared, summary(grass.for)$sigma)
+
+tprep <- rbind(lm1, lm2, lm3, lm4, lm5, lm6)
+tab <- as.data.frame(tprep, row.names = c("All Herb", "Forage Herb", "All Forb", "Forage Forb", 
+                         "All Grass", "Forage Grass"))
+#tab <- rename(tab, NDVIcoeff = NDVI)
+tab <- rename(tab, AdjRsquared = V2)
+tab <- rename(tab, StdError = V3)
+View(tab)
+
+##EVI
+herb <- lm(sqrt(HerbBiomass) ~ EVI, data=remote.phen); summary(herb)
+  herb.for <- lm(sqrt(ForageHerbBiomass) ~ EVI, data=remote.phen); summary(herb.for)
+forb <- lm(sqrt(ForbBiomass) ~ EVI, data=remote.phen); summary(forb)
+  forb.for <- lm(sqrt(ForageForbBiomass) ~ EVI, data=remote.phen); summary(forb.for)
+grass <- lm(sqrt(GrassBiomass) ~ EVI, data=remote.phen); summary(grass)
+  grass.for <- lm(sqrt(ForageGrassBiomass) ~ EVI, data=remote.phen); summary(grass.for)
+  
+lm1 <- c(herb$coefficients[1], summary(herb)$adj.r.squared, summary(herb)$sigma)
+lm2 <- c(herb.for$coefficients[1], summary(herb.for)$adj.r.squared, summary(herb.for)$sigma)
+lm3 <- c(forb$coefficients[1], summary(forb)$adj.r.squareforb, summary(forb)$sigma)
+lm4 <- c(forb.for$coefficients[1], summary(forb.for)$adj.r.squared, summary(forb.for)$sigma)
+lm5 <- c(grass$coefficients[1], summary(grass)$adj.r.squared, summary(grass)$sigma)
+lm6 <- c(grass.for$coefficients[1], summary(grass.for)$adj.r.squared, summary(grass.for)$sigma)
+
+tprep <- rbind(lm1, lm2, lm3, lm4, lm5, lm6)
+tab2 <- as.data.frame(tprep, row.names = c("All Herb", "Forage Herb", "All Forb", "Forage Forb", 
+                         "All Grass", "Forage Grass"))
+#tab <- rename(tab, NDVIcoeff = NDVI)
+tab2 <- rename(tab2, AdjRsquared = V2)
+tab2 <- rename(tab2, StdError = V3)
+View(tab2)

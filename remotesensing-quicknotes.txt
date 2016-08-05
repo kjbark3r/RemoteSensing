@@ -1,0 +1,11 @@
+remote sensing quicknotes
+
+-NSERP_AllPlots.csv is slightly outdated (couple hard-to-catch typos in veg plots
+		that were still inside study area but in slightly wrong locn)
+-NSERP_VegPlots is right (but doesn't include pellet plots)
+-Need Brady to rerun after you're sure you've actually caught all issues
+
+not sure if these are technically outliers, but...
+-401.2014-07-18.40 ARTTRI 106.9 basal diam - puts biomass an order of magnitude > other plots
+-376.2014-07-17.0 ARTTRI 79.78 basal diam - not order of mag >, but still pretty big and doesn't fit general trend of data
+-so, note to self i guess... sagebrush doesn't track well with NDVI/EVI (duh, it's not very green)

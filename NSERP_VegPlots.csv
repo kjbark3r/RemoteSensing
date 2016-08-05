@@ -1,0 +1,658 @@
+PlotID,Date,Collector,Latitude,Longitude,Site Description,Ecosystem Class,Additional Class,Aspect,Elevation _m,Comments,Densio10,Densio20,Densio30,Densio40,Percent_Canopy_Cover,Prism_Hits,Dominant_Tree,Second_Tree,Tree_Size_Class,StudyArea
+5,7/17/2014,RAD,46.45097,-113.83656,Forest,Rocky Mountain Lodgepole Pine Forest,,181,1941,0,18,8,23,24,60.7,11,PINCON,,,North Sapphires
+7,7/17/2014,RD,46.45158,-113.83524,Forest,Rocky Mountain Lodgepole Pine Forest,,35,1928,0,24,16,23,21,69.9,11,PINCON,,,North Sapphires
+8,8/29/2014,MB TA,46.57524,-113.82969,Forest,Rocky Mountain Lodgepole Pine Forest,,328,1984,GAP completed at this plot. Model species could not be collected in bag. not enough bags. initial measurements were taken for this plant.,7,9,5,7,23.3,3,PINCON,,,North Sapphires
+10,8/29/2014,TA,46.57791,-113.82738,Forest,Rocky Mountain Lodgepole Pine Forest,,194,1962,VACMEM was collected as a model species in bags. VACSCO model species was not collected in bags but initial measurements were taken of this plant. not enough bags to collect.,23,24,19,22,73.2,6,PINCON,,,North Sapphires
+11,8/29/2014,MB TA,46.57806,-113.83122,Forest,Rocky Mountain Lodgepole Pine Forest,,164,1989,Model Species could not be collected in bag and brought back to lab. not enough bags. initial measurements were taken for this species.,19,20,18,17,61.6,14,PINCON,,,North Sapphires
+12,8/29/2014,TA,46.57597,-113.83202,Forest,Rocky Mountain Lodgepole Pine Forest,,218,1966,0,2,8,13,20,35.8,0,PINCON,,,North Sapphires
+16,7/23/2015,LS,46.46618,-113.84541,0,MFLP,0,30,1990.24,0,5,4,10,8,6.75,9,PINCON,ABILAS,2,North Sapphires
+17,7/23/2015,JM,46.46541,-113.84467,0,MFLP,0,354,2017.45,0,12,11,15,12,12.5,10,PINCON,ABILAS,2,North Sapphires
+18,7/23/2015,"LS,KB",46.46559,-113.84296,0,MFLP,0,24,2012.89,0,8,9,8,7,8,14,PINCON,ABILAS,1,North Sapphires
+19,7/23/2015,JM,46.46484,-113.844,0,MFLP,0,26,2036.69,0,18,15,13,12,14.5,5,PINCON,ABILAS,2,North Sapphires
+20,7/21/2015,EF,46.75143,-113.88459,0,FMC,0,180,1910.49,0,17,15,21,18,17.75,13,PSEMEN,PINCON,3,North Sapphires
+21,7/21/2015,JM,46.74842,-113.88261,0,FMC,0,215,1802.97,0,9,1,23,14,11.75,4,PSEMEN,0,3,North Sapphires
+22,7/21/2015,JM,46.75237,-113.88403,0,FMC,0,162,1947.74,0,0,3,17,4,6,8,PSEMEN,PINCON,3,North Sapphires
+24,7/21/2015,EF,46.74804,-113.88482,0,MFDSF,0,60,1820.38,0,8,11,14,2,8.75,11,PSEMEN,ABILAS,2,North Sapphires
+25,8/28/2014,JM,46.75571,-113.84053,Forest,Rocky Mountain Subalpine Dry-Mesic Spruce-Fir Forest and Woodland,,120,1670,0,21,24,22,23,74.9,6,ABILAS,,,North Sapphires
+26,8/28/2014,JM,46.75592,-113.84168,Forest,Rocky Mountain Subalpine Dry-Mesic Spruce-Fir Forest and Woodland,,120,1729,Labeled as decid forest,18,12,17,17,53.2,6,PSEMEN,,,North Sapphires
+27,8/28/2014,EF JM,46.75481,-113.84254,Forest,Rocky Mountain Subalpine Dry-Mesic Spruce-Fir Forest and Woodland,,135,1728,Habitat changed from deciduous forest.,24,17,5,14,49.9,6,PSEMEN,,,North Sapphires
+28,8/28/2014,EF,46.75267,-113.84751,Forest,Rocky Mountain Subalpine Dry-Mesic Spruce-Fir Forest and Woodland,,90,1802,Habitat changed from deciduous forest.,3,4,2,22,25.8,3,ABILAS,,,North Sapphires
+29,8/28/2014,EF,46.75507,-113.84368,Forest,Rocky Mountain Subalpine Dry-Mesic Spruce-Fir Forest and Woodland,,150,1756,Habitat changed from deciduous forest. Plot moved off road.,9,10,9,14,34.9,11,PSEMEN,,,North Sapphires
+35,8/20/2015,LS,46.75543,-113.89018,0,FMC,0,136,2080.83,0,12,13,5,11,10.25,7,PSEMEN,0,3,North Sapphires
+36,8/20/2015,MD,46.75427,-113.89183,0,FMC,0,171,2052.17,0,6,14,21,12,13.25,17,PSEMEN,0,3,North Sapphires
+37,8/20/2015,LS,46.75664,-113.88744,0,FMC,0,192,2116.28,0,5,7,15,20,11.75,6,PSEMEN,0,4,North Sapphires
+39,8/20/2015,MD,46.75302,-113.88892,0,FMC,0,122,1958,0,11,6,19,12,12,6,PSEMEN,0,2,North Sapphires
+40,8/19/2015,MD,46.32041,-113.89397,0,MFDSF,0,160,2340.22,plot moved down and out of burn,21,24,18,24,21.75,13,ABILAS,PINCON,2,North Sapphires
+41,8/19/2015,JM,46.3187,-113.89884,0,MFDSF,0,142,2320.09,0,24,5,11,17,14.25,6,ABILAS,PINCON,3,North Sapphires
+42,8/19/2015,EF,46.31865,-113.89635,0,MFDSF,0,125,2235.34,0,8,14,21,15,14.5,13,ABILAS,PINCON,2,North Sapphires
+43,8/19/2015,LS,46.31702,-113.90178,0,MFDSF,0,154,2256.79,0,16,14,24,8,15.5,10,ABILAS,PINCON,4,North Sapphires
+66,8/19/2014,MB,46.72836,-113.8046,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,88,1692,GAP completed at this plot,14,17,23,22,63.2,12,PSEMEN,,,North Sapphires
+68,8/22/2014,RD,46.72944,-113.80245,forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,168,1679,EVIDENCE OF OLD BURN,13,23,10,21,55.7,5,LAROCC,,,North Sapphires
+69,8/19/2014,MB,46.73069,-113.79951,Forest,Rocky Mountain Ponderosa Pine Woodland and Savanna,,214,1750,0,6,0,4,1,9.2,6,PINPON,,,North Sapphires
+70,8/19/2014,MB,46.73029,-113.80087,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,226,1708,0,15,24,13,7,49.1,10,PSEMEN,,,North Sapphires
+71,7/18/2014,EF,46.47168,-113.90021,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,85,1749,Habitat changed from deciduous forest.,16,15,13,19,52.4,12,PSEMEN,,,North Sapphires
+72,7/16/2014,EF,46.47109,-113.90275,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,215,1724,Habitat change from deciduous forest,9,4,17,22,43.3,3,PSEMEN,,,North Sapphires
+73,7/15/2014,MB,46.47003,-113.90546,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,188,1717,0,15,8,18,20,50.8,5,PSEMEN,,,North Sapphires
+74,7/16/2014,JM,46.46745,-113.90321,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,67,1664,Labeled  as Decid forest.,18,14,5,16,44.1,6,PSEMEN,,,North Sapphires
+75,7/18/2014,EF,46.47018,-113.89885,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,78,1734,Habitat changed from deciduous forest.,24,22,19,13,64.9,22,PSEMEN,,,North Sapphires
+91,7/20/2015,JM,46.75959,-114.00965,0,FMC,0,323,1416.41,0,22,20,7,19,17,8,PSEMEN,PINPON,3,North Sapphires
+92,7/20/2015,JM,46.76003,-114.01147,0,FMC,0,343,1382.67,0,9,5,10,21,11.25,5,PSEMEN,PINPON,3,North Sapphires
+93,7/20/2015,LS,46.75769,-114.00597,0,FMC,0,250,1412.52,0,7,11,13,15,11.5,14,PSEMEN,PINPON,1,North Sapphires
+94,7/20/2015,EF,46.75998,-114.00498,0,FMC,0,300,1450.72,0,24,22,14,23,20.75,14,PSEMEN,0,2,North Sapphires
+95,7/20/2015,EF,46.76011,-114.00355,0,FMC,0,290,1458.5,0,9,4,7,16,9,4,PSEMEN,0,2,North Sapphires
+106,8/22/2014,MB,46.69669,-113.75302,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,66,1660,GAP completed at this plot. plants were wet when collected.No 20m clip plot.,21,21,20,17,65.7,7,PSEMEN,,,North Sapphires
+108,8/22/2014,TA,46.69677,-113.75497,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,304,1633,plants were wet when collected,13,11,14,18,46.6,6,PSEMEN,,,North Sapphires
+109,8/22/2014,MB,46.69764,-113.75593,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,268,1586,Plants were wet when collected.,8,13,22,14,47.4,9,PSEMEN,,,North Sapphires
+122,7/22/2015,LS,46.71025,-113.89076,0,FMC,0,40,1416.18,0,11,10,9,9,9.75,13,PINCON,PSEMEN,1,North Sapphires
+123,7/22/2015,EF,46.70776,-113.89333,0,FMC,0,308,1457.05,0,22,24,22,21,22.25,12,LAROCC,PSEMEN,2,North Sapphires
+124,7/22/2015,LS,46.7101,-113.88985,0,FMC,0,30,1398.11,0,11,5,13,15,11,5,PSEMEN,LAROCC,2,North Sapphires
+125,7/22/2015,EF,46.70846,-113.89109,0,FMC,0,270,1479.01,0,11,9,10,8,9.5,4,LAROCC,PINCON,1,North Sapphires
+131,8/20/2015,JM,46.44442,-113.9044,0,FMC,0,251,1550.94,0,10,9,19,19,14.25,3,PSEMEN,PINPON,3,North Sapphires
+132,8/20/2015,EF,46.43963,-113.91031,0,FMC,0,320,1502.57,plot moved out of active logging,19,16,21,20,19,11,PSEMEN,0,3,North Sapphires
+133,8/20/2015,EF,46.44043,-113.90961,0,FMC,0,320,1485.97,plot moved out of active logging,17,10,17,20,16,9,PSEMEN,PINPON,3,North Sapphires
+134,8/20/2015,JM,46.44423,-113.90306,0,FMC,0,303,1549.02,Moved plot out of recently logged area.,0,0,0,0,0,7,PINPON,PSEMEN,3,North Sapphires
+135,8/20/2015,JM,46.44241,-113.90115,0,FMC,0,289,1635.3,0,20,4,9,11,11,9,PSEMEN,PINPON,3,North Sapphires
+141,8/20/2014,MB,46.72977,-113.76678,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,50,1277,GAP completed at this plot. Plot on a steep rocky slope.,7,11,13,10,34.1,5,PSEMEN,,,North Sapphires
+144,8/20/2014,MB,46.73064,-113.76451,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,122,1222,Transect was on a very steep rocky slope. No 20m clip plot. Plants were wet when collected.,8,6,10,12,30.0,6,PSEMEN,,,North Sapphires
+145,8/20/2014,MB,46.72842,-113.76938,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,36,1325,Plants were wet when collected.,19,17,9,11,46.6,8,PSEMEN,,,North Sapphires
+146,7/22/2014,JM,46.82685,-113.92958,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,72,1243,0,23,13,22,20,64.9,14,PSEMEN,,,North Sapphires
+147,7/16/2014,RD,46.82719,-113.92465,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,300,1253,moved out of parking lot,18,13,10,20,50.8,10,PSEMEN,,,North Sapphires
+148,7/22/2014,RAD,46.82853,-113.93294,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,211,1260,folf course,10,19,18,22,57.4,16,PSEMEN,,,North Sapphires
+149,7/22/2014,EF,46.82486,-113.93153,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,340,1234,0,13,12,13,15,44.1,10,PSEMEN,,,North Sapphires
+150,7/22/2014,JM,46.83824,-113.92753,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,90,1244,0,18,20,23,24,70.7,15,PINPON,,,North Sapphires
+151,8/18/2015,LS,46.60257,-113.90403,0,OPP,0,340,1353.51,0,16,7,1,15,9.75,7,PINPON,0,3,North Sapphires
+153,8/18/2015,LS,46.60326,-113.90753,0,OPP,0,160,1332.95,0,6,12,18,5,10.25,11,PINPON,0,3,North Sapphires
+154,8/18/2015,JM,46.60359,-113.90408,0,OPP,0,277,1356.95,0,5,0,0,3,2,4,PINPON,0,3,North Sapphires
+161,8/4/2014,JM,46.82724,-113.94535,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,317,1225,0,19,3,18,23,52.4,14,PSEMEN,,,North Sapphires
+162,8/4/2014,"JS, EF",46.82912,-113.94309,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,228,1243,0,19,23,24,19,70.7,13,PINPON,,,North Sapphires
+164,8/4/2014,EF JS,46.83067,-113.94137,Forest,Rocky Mountain Ponderosa Pine Woodland and Savanna,,338,1267,0,1,5,5,0,9.2,3,PINPON,,,North Sapphires
+165,8/4/2014,JM,46.82622,-113.94515,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,306,1249,0,10,19,12,5,38.3,11,PSEMEN,,,North Sapphires
+171,8/22/2014,JM,46.764,-113.72813,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,101,1186,0,14,17,17,8,46.6,8,PSEMEN,,,North Sapphires
+172,8/12/2014,JM,46.76244,-113.73286,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,80,1279,0,5,10,22,8,37.4,6,PSEMEN,,,North Sapphires
+173,8/22/2014,JM,46.76221,-113.72764,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,4,1199,0,21,16,23,22,68.2,4,PSEMEN,,,North Sapphires
+174,8/12/2014,EF,46.76221,-113.73434,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,160,1319,0,20,5,24,6,45.8,6,PSEMEN,,,North Sapphires
+175,8/22/2014,JM,46.75914,-113.73231,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,68,1286,0,20,10,23,19,59.9,9,PSEMEN,,,North Sapphires
+176,8/18/2015,MD,46.85037,-113.89031,0,FMC,0,309,1109.39,0,22,24,18,24,22,12,PSEMEN,PINPON,2,North Sapphires
+179,8/18/2015,MD,46.85001,-113.89094,0,FMC,0,323,1101.53,0,22,24,21,24,22.75,21,PSEMEN,PINPON,2,North Sapphires
+191,8/4/2015,"JM, KB",46.50952,-113.85642,0,MFDSF,MFMSF,FLAT,1830.33,0,5,19,4,15,10.75,18,PINCON,PICENG,2,North Sapphires
+192,8/4/2015,MD,46.51348,-113.86186,0,MFLP,0,FLAT,1881.89,0,24,23,24,20,22.75,13,PINCON,ABILAS,2,North Sapphires
+193,8/4/2015,"JM,KB",46.50922,-113.85912,0,MFDSF,MFMSF,19,1842.12,0,19,19,22,21,20.25,5,ABILAS,PICENG,2,North Sapphires
+194,8/3/2015,MD,46.51368,-113.85712,0,MFLP,0,FLAT,1870.33,0,22,24,19,14,19.75,5,PINCON,ABILAS,2,North Sapphires
+195,8/4/2015,"JM,KB,MD",46.51026,-113.85789,0,MFDSF,MFMSF,14,1812.42,0,21,19,18,23,20.25,8,PICENG,ABILAS,2,North Sapphires
+206,8/26/2014,EF,46.76406,-113.88225,Forest,Rocky Mountain Subalpine Dry-Mesic Spruce-Fir Forest and Woodland,,290,2049,0,9,9,3,9,25.0,9,PINCON,,,North Sapphires
+207,8/26/2014,JM,46.75041,-113.88361,Forest,Rocky Mountain Subalpine Dry-Mesic Spruce-Fir Forest and Woodland,,93,2040,0,1,1,4,5,9.2,0,ABILAS,,,North Sapphires
+208,8/26/2014,EF,46.76282,-113.88194,Forest,Rocky Mountain Subalpine Dry-Mesic Spruce-Fir Forest and Woodland,,184,2054,Plot moved farther away from 206. Plot in logged area.,1,2,24,20,39.1,2,ABILAS,,,North Sapphires
+209,8/26/2014,EF JM,46.76299,-113.87981,Forest,Rocky Mountain Subalpine Dry-Mesic Spruce-Fir Forest and Woodland,,200,2083,0,2,7,2,5,13.3,4,ABILAS,,,North Sapphires
+210,8/26/2014,JM,46.75955,-113.88116,Forest,Rocky Mountain Subalpine Dry-Mesic Spruce-Fir Forest and Woodland,,70,1979,0,18,11,24,14,55.7,9,ABILAS,,,North Sapphires
+216,8/3/2015,MD,46.71538,-113.74931,0,FMC,0,342,1848.68,0,23,24,20,24,22.75,23,PSEMEN,0,2,North Sapphires
+217,8/3/2015,RD,46.71454,-113.74426,0,MFLP,0,318,1894.61,fair amount of dead lodgepole,20,20,5,15,15,4,PINCON,ABILAS,2,North Sapphires
+218,8/3/2015,MD,46.71438,-113.7466,0,MFLP,0,9,1880.81,0,24,23,19,24,22.5,15,PINCON,PSEMEN,1,North Sapphires
+220,8/3/2015,RD,46.71367,-113.74107,0,MFLP,0,62,1929.2,"a fair amount of dead lodgepole, canopy seems denser than prism reading.",5,16,13,8,10.5,5,PINCON,PSEMEN,2,North Sapphires
+221,8/28/2015,EF,46.64315,-113.76135,0,MFDSF,0,313,1847.88,lack of understory plants due to extremely dense tree canopy.,23,22,24,24,23.25,28,ABILAS,PICENG,2,North Sapphires
+222,8/28/2015,JM,46.64297,-113.76458,0,MFDSF,0,93,1805.79,0,21,14,19,5,14.75,11,ABILAS,PICENG,2,North Sapphires
+223,8/28/2015,JM,46.64416,-113.76387,0,MFDSF,0,80,1787.94,0,16,15,14,17,15.5,15,PICENG,PSEMEN,3,North Sapphires
+224,8/28/2015,EF,46.64323,-113.76298,0,MFDSF,0,320,1803.55,0,14,17,13,18,15.5,12,PSEMEN,PICENG,3,North Sapphires
+231,8/19/2015,MD,46.32373,-113.89344,0,SWP,0,171,2385.54,moved plot out of burn,20,24,24,18,21.5,28,PINCON,ABILAS,2,North Sapphires
+232,8/19/2015,EF,46.32465,-113.88433,0,SWP,0,220,2312.33,plot moved. the approach was cliffed out.,9,4,4,3,5,7,ABILAS,PINALB,2,North Sapphires
+233,8/19/2015,LS,46.32622,-113.88708,0,SWP,0,342,2412.8,0,14,15,17,15,15.25,13,ABILAS,PICENG,3,North Sapphires
+234,8/19/2015,JM,46.3257,-113.89254,0,SWP,0,278,2405.36,0,5,8,2,3,4.5,16,ABILAS,PICENG,3,North Sapphires
+235,8/19/2015,MD,46.32475,-113.89033,0,SWP,0,186,2407.47,0,16,22,16,13,16.75,7,PINALB,ABILAS,2,North Sapphires
+237,8/29/2014,JM,46.2986,-113.8753,Forest,Rocky Mountain Subalpine Woodland and Parkland,,325,2462,0,10,0,3,11,20.0,7,ABILAS,,,North Sapphires
+238,8/29/2014,RAD JMM EF,46.3009,-113.87283,Forest,Rocky Mountain Subalpine Woodland and Parkland,,303,2529,0,2,2,11,17,26.6,11,ABILAS,,,North Sapphires
+239,8/29/2014,EF,46.29751,-113.87439,Forest,Rocky Mountain Subalpine Woodland and Parkland,,220,2477,Plot moved 475' upslope - too steep.,14,3,17,13,39.1,7,ABILAS,,,North Sapphires
+240,8/29/2014,RAD,46.29958,-113.87552,Forest,Rocky Mountain Subalpine Woodland and Parkland,,311,2444,plot moved to avoid scree cliffs. elk sign. lots of dead whitebark pine s0gs and live ones.,12,14,18,21,54.1,7,ABILAS,,,North Sapphires
+244,7/24/2014,EF,46.53373,-113.84006,Forest,Rocky Mountain Lodgepole Pine Forest,,170,1954,Habitat changed from grassland.,18,19,24,8,57.4,11,PSEMEN,,,North Sapphires
+245,7/24/2014,JM,46.5352,-113.83706,Forest,Rocky Mountain Lodgepole Pine Forest,,30,1964,Labeled as grassland,11,8,24,20,52.4,5,PINCON,,,North Sapphires
+246,7/24/2014,JM,46.53429,-113.83549,Forest,Rocky Mountain Lodgepole Pine Forest,,30,1970,Labeled as a grassland,18,17,15,17,55.7,8,PINCON,,,North Sapphires
+265,7/24/2014,JM,46.53503,-113.83635,Forest,Rocky Mountain Lodgepole Pine Forest,,28,1962,Labeled as grassland,24,16,15,22,64.1,0,PINCON,,,North Sapphires
+266,7/24/2014,EF,46.53437,-113.83934,Forest,Rocky Mountain Lodgepole Pine Forest,,285,1966,Habitat changed from grassland.,8,16,19,24,55.7,5,PSEMEN,,,North Sapphires
+267,7/24/2014,EF,46.53641,-113.84325,Forest,Rocky Mountain Lodgepole Pine Forest,,16,1961,Habitat changed from grassland.,3,4,4,6,14.1,3,PINCON,,,North Sapphires
+268,7/29/2014,RAD,46.53565,-113.83601,Forest,Rocky Mountain Lodgepole Pine Forest,,32,1954,0,1,10,12,21,36.6,9,PINCON,,,North Sapphires
+269,7/29/2014,RAD,46.53553,-113.83736,Forest,Rocky Mountain Lodgepole Pine Forest,,26,1959,Lots of neat biocrust,11,8,2,15,30.0,5,ABILAS,,,North Sapphires
+270,8/6/2015,LS,46.43407,-113.88264,0,MFDSF,,94,2003.49,The original coordinates were in the middle of a tallus slope with zero vegetation. The plot was moved 40 meters to the bottom of the tallus slope.,3,8,6,2,4.75,7,POPTRE,ABILAS,1,North Sapphires
+279,8/31/2015,EF,46.71571,-114.05119,0,WVB,0,360,964.26,"plot moved into WVB. densiometer readings due to tall (>2m) SALIX, not tree canopy",0,2,6,10,4.5,0,0,0,0,North Sapphires
+280,8/31/2015,EF,46.71033,-114.04875,0,WVB,0,360,964.26,plot moved 50' into wet meadow,5,10,16,18,12.25,3,POPBAL,PINPON,2,North Sapphires
+281,8/21/2015,EF,46.70929,-114.04823,0,WVB,0,360,964.29,"plot runs along the river bank at the ""bankfull"" vegetation line. vegetation patchy with river rock dominating.",2,1,1,0,1,1,POPBAL,PINPON,3,North Sapphires
+282,8/21/2015,EF,46.71202,-114.05093,0,WVB,0,360,964.26,plot moved. it was on an island in the middle of the bitterroot. i moved it .1mile into a POPBAL grove representing WVB.,6,7,13,12,9.5,3,POPBAL,PINPON,3,North Sapphires
+283,8/21/2015,EF,46.71463,-114.05174,0,WVB,0,360,964.26,plot moved ca. 50' out of dry meadow.,4,3,5,4,4,8,POPBAL,PINPON,3,North Sapphires
+284,7/16/2015,EF,46.67134,-114.04623,0,WVB,0,10,970.35,Seasonally wet meadow. Dry at time of sampling.,0,0,0,0,0,0,0,0,0,North Sapphires
+285,7/16/2015,EF,46.67068,-114.04744,0,WVB,0,10,970.35,Seasonally wet meadow. Very dry at time of sampling.,2,1,0,0,0.75,1,PINPON,POPBAL,3,North Sapphires
+286,8/17/2015,MD,46.56088,-114.09387,0,WVB,0,FLAT,992.05,plot moved to riparian habitat,0,0,0,0,0,0,0,0,0,North Sapphires
+287,8/17/2015,MD,46.55975,-114.09467,0,WVB,0,FLAT,991.87,plot moved to riparian habitat,21,7,7,0,8.75,13,POPBAL,PINMON,3,North Sapphires
+288,8/17/2015,EF,46.56188,-114.09169,0,WVB,0,330,992.08,plot moved into WVB,0,0,0,0,0,0,0,0,0,North Sapphires
+289,8/17/2015,EF,46.56226,-114.08987,0,WEM,0,330,991.7,plot moved into WEM,0,0,0,0,0,0,0,0,0,North Sapphires
+290,8/14/2014,JM,46.58047,-114.06964,Wetland,Northern Rocky Mountain Lower Montane Riparian Woodland and Shrubland,,10,985,labeled as grassland,0,0,0,0,0.0,0,0,,,North Sapphires
+291,8/14/2014,EF,46.56311,-114.09344,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,350,990,This is the GAP plot for the group.,0,0,0,0,0.0,0,0,,,North Sapphires
+292,8/14/2014,EF,46.58041,-114.06763,Wetland,Northern Rocky Mountain Lower Montane Riparian Woodland and Shrubland,,350,986,Habitat changed from grassland. Plot moved 350ft to be on dry ground.,0,0,0,0,0.0,0,0,,,North Sapphires
+293,8/17/2015,"EF, MD",46.57625,-114.06801,0,WEM,0,330,986.79,plot moved to bank of pond.,0,0,0,0,0,0,0,0,0,North Sapphires
+294,8/14/2014,JM,46.56623,-114.08849,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,90,989,flat N-S transect,0,6,2,6,11.6,1,PINPON,,,North Sapphires
+300,7/17/2014,JM,46.85456,-113.88437,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,90,1034,Labeled as grassland,7,9,9,10,29.1,3,PINPON,,,North Sapphires
+301,7/17/2014,JM,46.85576,-113.88226,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,90,1020,0,0,0,0,0,0.0,0,PSEMEN,,,North Sapphires
+302,7/22/2014,JM,46.85487,-113.88049,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,70,1010,0,0,0,0,0,0.0,0,PSEMEN,,,North Sapphires
+303,7/17/2014,EF,46.85896,-113.8836,Grassland,Rocky Mountain Montane-Foothill Deciduous Shrubland,,64,1025,0,3,2,3,2,8.3,1,PSEMEN,,,North Sapphires
+304,7/17/2014,EF,46.85752,-113.88326,Grassland,Rocky Mountain Montane-Foothill Deciduous Shrubland,,60,1019,Plot moved out of road.,1,3,3,3,8.3,4,PSEMEN,,,North Sapphires
+305,8/4/2014,EF,46.81895,-114.01316,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,350,1141,0,0,0,0,0,0.0,0,0,,,North Sapphires
+306,8/4/2014,JM,46.81926,-114.00811,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,342,1165,0,0,0,0,0,0.0,0,0,,,North Sapphires
+307,8/4/2014,EF,46.8189,-114.00503,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,330,1201,0,0,0,0,0,0.0,0,0,,,North Sapphires
+308,8/4/2014,JM,46.81803,-114.00515,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,334,1211,0,0,0,0,0,0.0,0,0,,,North Sapphires
+309,8/4/2014,EF,46.81756,-114.01095,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,312,1170,0,0,0,0,0,0.0,0,0,,,North Sapphires
+310,8/11/2014,MB,46.74095,-114.03402,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,254,1201,GAP completed at this plot,0,0,0,0,0.0,0,0,,,North Sapphires
+311,8/11/2014,MB,46.74438,-114.03027,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,278,1202,0,0,0,0,0,0.0,0,0,,,North Sapphires
+312,8/11/2014,MB,46.74489,-114.03087,Grassland,Inter-Mountain Basins Montane Sagebrush Steppe,,258,1194,0,0,0,0,0,0.0,0,0,,,North Sapphires
+313,8/11/2014,MB,46.73975,-114.03489,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,196,1191,0,0,0,0,0,0.0,0,0,,,North Sapphires
+314,8/11/2014,MB,46.73979,-114.03214,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,184,1188,0,0,0,0,0,0.0,0,0,,,North Sapphires
+315,8/25/2014,MB,46.60107,-113.93311,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,226,1230,GAP completed at this plot.,0,0,0,0,0.0,0,PINPON,,,North Sapphires
+316,8/25/2014,MB,46.60118,-113.93414,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,162,1226,0,0,0,0,0,0.0,0,0,,,North Sapphires
+318,8/25/2014,MB,46.60221,-113.93151,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,98,1198,0,0,0,0,0,0.0,0,0,,,North Sapphires
+319,8/25/2014,MB,46.60287,-113.93461,Grassland,Rocky Mountain Ponderosa Pine Woodland and Savanna,,300,1218,0,5,6,5,0,13.3,2,PINPON,,,North Sapphires
+322,6/9/2014,"JM, MB, EF",46.55935,-113.93347,Grassland,,,68,,0,0,0,0,0,0,0,0,,,North Sapphires
+322,6/30/2014,MB JM,46.55931,-113.93343,Grassland,,,81,,0,0,0,0,0,0,0,0,,,North Sapphires
+322,9/4/2014,MB,46.55929,-113.93347,Grassland,,,72,,0,0,0,0,0,0,0,0,,,North Sapphires
+323,6/9/2014,"JM, MB, EF",46.56231,-113.93115,Grassland,,,25,,0,0,0,0,0,0,0,0,,,North Sapphires
+323,6/30/2014,EF,46.56235,-113.93132,Grassland,,,200,,0,0,0,0,0,0,0,0,,,North Sapphires
+323,9/4/2014,MB,46.56236,-113.93118,Grassland,,,214,,0,0,0,0,0,0,0,0,,,North Sapphires
+325,5/27/2014,MB EF,46.73416,-114.04424,Grassland,,,216,,0,0,0,0,0,0,0,0,,,North Sapphires
+325,6/16/2014,MB,46.7341,-114.0443,Grassland,,,194,,Plants were clipped in the rain. Wet weights may not be accurate.,0,0,0,0,0,0,0,,,North Sapphires
+325,7/10/2014,MB,46.73384,-114.04421,Grassland,,,198,,0,0,0,0,0,0,0,0,,,North Sapphires
+325,8/12/2014,MB,46.73423,-114.0443,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,200,1200,GAP completed at this plot,0,0,0,0,0.0,0,0,,,North Sapphires
+325,9/3/2014,MB,46.7342,-114.04419,Grassland,,,188,,0,0,0,0,0,0,0,0,,,North Sapphires
+325,9/22/2014,MB,46.73427,-114.04416,Grassland,,,198,,0,0,0,0,0,0,0,0,,,North Sapphires
+325,5/25/2015,"MD,JM,LS",46.73433,-114.0443,0,GLM,0,190,0,0,0,0,0,0,0,0,0,0,,North Sapphires
+325,6/15/2015,"MD,JM",46.73513,-114.04433,0,GLM,0,282,0,plot moved,0,0,0,0,0,0,0,0,0,North Sapphires
+325,7/6/2015,"LS, JM",46.73444,-114.04447,0,GLM,0,250,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+325,8/5/2015,MD,46.73476,-114.04418,0,GLM,0,291,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+325,9/11/2015,LS,46.73437,-114.04459,0,GLM,0,208,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+325,9/23/2015,LS,46.73497,-114.04446,0,GLM,0,223,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+326,5/20/2014,"JS,JM,MB,EF",46.73136,-114.04718,Grassland,,,flat,,flat aspect,0,0,0,0,0,0,0,,,North Sapphires
+326,6/16/2014,MB,46.73125,-114.04698,Grassland,,,258,,Plants were clipped in the rain. Wet weights may not be accurate.,0,0,0,0,0,0,0,,,North Sapphires
+326,7/10/2014,MB,46.73114,-114.04684,Grassland,,,262,,0,0,0,0,0,0,0,0,,,North Sapphires
+326,8/12/2014,MB,46.73131,-114.04638,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,262,997,0,0,0,0,0,0.0,0,0,,,North Sapphires
+326,9/3/2014,MB,46.73128,-114.04642,Grassland,,,260,,0,0,0,0,0,0,0,0,,,North Sapphires
+326,9/22/2014,MB,46.73129,-114.04602,Grassland,,,260,,0,0,0,0,0,0,0,0,,,North Sapphires
+326,5/25/2015,"LS,MD,JM",46.73878,-114.04847,0,GLM,0,flat,0,0,0,0,0,0,0,0,0,,0,North Sapphires
+326,6/15/2015,"JM, MD",46.73121,-114.04745,0,GLM,0,flat,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+326,7/6/2015,"LS, JM",46.73127,-114.04739,0,GLM,0,FLAT,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+326,8/5/2015,MD,46.7313,-114.04746,0,GLM,0,FLAT,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+326,9/11/2015,LS,46.73127,-114.04668,0,GLM,0,flat,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+326,9/23/2015,LS,46.73131,-114.0463,0,GLM,0,flat,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+327,8/12/2014,MB,46.73249,-114.04685,Grassland,Inter-Mountain Basins Montane Sagebrush Steppe,,164,1005,original plot was in a difficult area to lay out transect along same contour and aspect. moved plot 100 feet to a more suitable location. same plant communty and teansect will be on same contour and aspect.,0,0,0,0,0.0,0,0,,,North Sapphires
+328,8/12/2014,MB,46.73017,-114.0434,Grassland,Inter-Mountain Basins Montane Sagebrush Steppe,,212,1035,0,0,0,0,0,0.0,0,0,,,North Sapphires
+329,8/12/2014,MB,46.73307,-114.04445,Grassland,Inter-Mountain Basins Montane Sagebrush Steppe,,176,1029,0,0,0,0,0,0.0,0,0,,,North Sapphires
+330,7/23/2014,TAH,46.67785,-113.9848,Grassland,Inter-Mountain Basins Montane Sagebrush Steppe,,173,1240,0,0,0,0,0,0.0,1,0,,,North Sapphires
+331,7/21/2014,TH,46.67797,-113.99229,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,138,1222,0,0,0,0,0,0.0,0,0,,,North Sapphires
+332,7/23/2014,TH,46.67725,-113.9901,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,324,1206,0,0,0,0,0,0.0,0,0,,,North Sapphires
+333,7/23/2014,TH,46.67916,-113.99017,Grassland,Inter-Mountain Basins Montane Sagebrush Steppe,,123,1208,0,0,0,0,0,0.0,1,0,,,North Sapphires
+334,7/23/2014,TH,46.67994,-113.98594,Grassland,Inter-Mountain Basins Montane Sagebrush Steppe,,202,1294,0,0,0,0,0,0.0,0,0,,,North Sapphires
+335,7/21/2014,EF,46.58601,-113.91708,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,175,1325,0,0,0,0,0,0.0,0,PINPON,,,North Sapphires
+336,7/21/2014,MB,46.58572,-113.91917,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,188,1316,0,0,0,0,0,0.0,0,PINPON,,,North Sapphires
+337,7/21/2014,MB,46.58648,-113.92349,Grassland,Inter-Mountain Basins Montane Sagebrush Steppe,,262,1218,0,2,0,0,0,1.7,0,PINPON,,,North Sapphires
+338,7/21/2014,JM,46.58517,-113.91833,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,164,1301,0,0,0,0,0,0.0,0,PINPON,,,North Sapphires
+339,7/21/2014,EF,46.58248,-113.91828,Grassland,Inter-Mountain Basins Montane Sagebrush Steppe,,295,1299,0,0,0,0,0,0.0,0,PINPON,,,North Sapphires
+340,5/21/2014,RD JM MB EF,46.84127,-113.96401,Grassland,,,96,,0,0,0,0,0,0,1,PSEMEN,,,North Sapphires
+340,6/16/2014,JMM,46.84126,-113.9641,Grassland,,,116,,0,0,0,0,0,0,1,PINPON,,,North Sapphires
+340,7/10/2014,JMM,46.84137,-113.96417,Grassland,,,118,,0,1,6,3,0,10,4,PINPON,,,North Sapphires
+340,8/13/2014,MB,46.84142,-113.96408,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,114,1345,GAP completed at this plot.,0,0,0,0,0.0,1,PINPON,,,North Sapphires
+340,9/3/2014,JM,46.84122,-113.96413,Grassland,,,96,,0,0,0,10,0,10,2,PINPON,,,North Sapphires
+340,9/22/2014,JM,46.84123,-113.96412,Grassland,,,113,,0,0,0,2,0,2,2,PINPON,,,North Sapphires
+340,5/27/2015,"MD,LS,JM",46.84117,-113.96439,0,GLM,0,96,0,moved plot,0,0,0,0,0,1,PINPON,2,0,North Sapphires
+340,6/16/2015,"LS,MD",46.84111,-113.96444,0,GLM,0,130,0,0,0,0,0,0,0,1,PINPON,0,2,North Sapphires
+340,7/6/2015,"MD,LE",46.84105,-113.96443,0,GLM,0,138,0,0,0,0,0,0,0,1,PINPON,0,2,North Sapphires
+340,8/7/2015,LS,46.84105,-113.95497,0,GLM,0,144,0,0,0,0,0,0,0,1,PINPON,0,2,North Sapphires
+340,9/9/2015,LS,46.84108,-113.96459,0,GLM,0,122,0,0,0,0,0,0,0,1,PINPON,0,3,North Sapphires
+340,9/23/2015,MD,46.84123,-113.96467,0,GLM,0,128,0,0,0,0,0,0,0,3,PINPON,0,2,North Sapphires
+341,8/13/2014,MB,46.83897,-113.96428,Grassland,Rocky Mountain Ponderosa Pine Woodland and Savanna,,274,1303,0,3,0,13,7,19.1,4,PINPON,,,North Sapphires
+342,8/13/2014,MB,46.84326,-113.96555,Grassland,Rocky Mountain Ponderosa Pine Woodland and Savanna,,146,1437,0,13,5,0,0,15.0,4,PINPON,,,North Sapphires
+343,8/13/2014,MB,46.84142,-113.96652,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,198,1370,0,0,0,0,0,0.0,0,PINPON,,,North Sapphires
+344,5/21/2014,EF MB,46.84126,-113.9663,Grassland,,,204,,0,0,0,0,0,0,0,PSEMEN,,,North Sapphires
+344,6/16/2014,JMM,46.84116,-113.96613,Grassland,,,176,,0,0,0,0,0,0,0,PINPON,,,North Sapphires
+344,7/10/2014,JMM,46.84121,-113.96613,Grassland,,,182,,0,0,0,0,0,0,0,PINPON,,,North Sapphires
+344,8/13/2014,MB,46.84119,-113.96618,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,198,1368,0,0,0,0,0,0.0,0,PINPON,,,North Sapphires
+344,9/3/2014,JM,46.84124,-113.96619,Grassland,,,172,,0,0,0,0,0,0,0,PINPON,,,North Sapphires
+344,9/22/2014,JM,46.84115,-113.96631,Grassland,,,202,,0,0,0,0,0,0,0,0,,,North Sapphires
+344,5/27/2015,"LS, MD, JM",46.84122,-113.96622,0,GLM,0,200,0,0-meter forbs are in 2 bags,0,0,0,0,0,0,0,0,0,North Sapphires
+344,6/16/2015,"MD,LS",46.84117,-113.96619,0,GLM,0,197,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+344,7/6/2015,"MD, LE",46.84121,-113.96624,0,GLM,0,199,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+344,8/7/2015,LS,46.84121,-113.96618,0,GLM,0,200,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+344,9/9/2015,LS,46.84119,-113.96623,0,GLM,0,180,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+344,9/23/2015,MD,46.84148,-113.96632,0,GLM,0,189,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+345,7/23/2015,EF,46.74979,-113.9958,0,GUM,0,100,1347.34,0,18,4,4,15,10.25,2,PINPON,0,4,North Sapphires
+346,7/23/2015,MD,46.74811,-113.99476,0,GUM,0,167,1264.39,0,23,0,21,23,16.75,6,PINPON,PSEMEN,3,North Sapphires
+347,7/23/2015,MD,46.74886,-113.99039,0,GUM,0,153,1311.63,0,0,8,7,11,6.5,1,PINPON,0,3,North Sapphires
+348,7/23/2015,EF,46.774878,-113.99663,0,SHR,0,218,1318.49,Plot moved out of small clump of PINPON into shrubland.,2,1,0,1,1,0,0,0,0,North Sapphires
+349,7/23/2015,"EF, MD",46.74932,-113.99974,0,SHR,0,100,1321.95,Plot moved out of small PINPON clump into open shrubland.,1,12,21,0,8.5,2,PINPON,0,4,North Sapphires
+359,7/23/2014,EF,46.54897,-113.92075,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,200,1323,This was the GAP plot for this group. No shrubs.,0,1,0,1,1.7,0,PINPON,,,North Sapphires
+360,7/23/2014,EF,46.54829,-113.91525,Grassland,Inter-Mountain Basins Montane Sagebrush Steppe,,244,1376,Plot heavily grazed by cattle.,0,0,0,0,0.0,0,PINPON,,,North Sapphires
+361,7/23/2014,JM,46.54881,-113.91163,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,53,1382,Heavily grazed,0,0,0,0,0.0,0,0,,,North Sapphires
+362,7/23/2014,EF,46.54768,-113.91892,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,335,1357,Plot heavily grazed by cattle.,0,0,0,0,0.0,0,PINPON,,,North Sapphires
+363,7/23/2014,MB,46.55149,-113.91377,Grassland,Inter-Mountain Basins Montane Sagebrush Steppe,,356,1363,0,0,0,0,0,0.0,0,PINPON,,,North Sapphires
+364,5/26/2014,"JM, MB, EF",46.53965,-113.90561,Grassland,,,174,,0,8,1,2,8,20,0,PINPON,,,North Sapphires
+364,6/16/2014,EF,46.53973,-113.90564,Grassland,,,200,,0,2,0,5,10,18,1,PINPON,,,North Sapphires
+364,7/9/2014,MB,46.53983,-113.90572,Grassland,,,184,,Plot 10m was under a large PSEMEN,17,1,3,8,30,3,PINPON,,,North Sapphires
+364,8/18/2014,MB,46.53974,-113.90571,Grassland,Rocky Mountain Montane-Foothill Deciduous Shrubland,,192,1380,GAP completed at this plot.,2,0,0,9,9.2,1,PSEMEN,,,North Sapphires
+364,9/3/2014,EF,46.53972,-113.90562,Grassland,,,190,,,0,0,1,22,24,0,PINPON,,,North Sapphires
+364,9/22/2014,EF,46.53968,-113.90581,Grassland,,,200,,0,0,0,1,4,5,0,PINPON,,,North Sapphires
+364,5/26/2015,"JM,LS,MD",46.54071,-113.90608,0,GUM,0,240,0,0,0,0,0,0,0,1,PINPON,0,3,North Sapphires
+364,6/17/2015,"JM,LS",46.54065,-113.90629,0,GUM,0,222,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+364,7/7/2015,EF JM ls md,46.53964,-113.90565,0,GUM,0,213,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+364,8/6/2015,EF,46.53951,-113.90578,0,GUM,0,215,0,0,0,10,0,0,2,1,PINPON,0,3,North Sapphires
+364,9/9/2015,EF,46.53953,-113.90575,0,GUM,0,213,0,0,0,0,1,2,1,0,0,0,0,North Sapphires
+364,9/23/2015,EF,46.5397,-113.90573,0,GUM,0,170,0,0,3,2,0,0,1,2,PSEMEN,PINPON,3,North Sapphires
+366,8/18/2014,MB,46.53877,-113.90142,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,,344,1388,0,0,8,12,18,31.6,6,PSEMEN,,,North Sapphires
+367,5/26/2014,"JM, MB, EF",46.5405,-113.90747,Grassland,,,324,,0,1,0,1,0,2,0,PINPON,,,North Sapphires
+367,6/16/2014,EF,46.54047,-113.90749,Grassland,,,220,,Aspect from first sample significantly different. Training confusion? This aspect good.,0,0,8,6,15,1,PINPON,,,North Sapphires
+367,7/9/2014,MB,46.54052,-113.90768,Grassland,,,226,,0,0,4,1,6,11,0,PINPON,,,North Sapphires
+367,8/18/2014,MB,46.54051,-113.90769,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,220,1376,0,0,0,0,0,0.0,1,PINPON,,,North Sapphires
+367,9/3/2014,EF,46.54046,-113.90775,Grassland,,,220,,,0,0,1,2,3,0,PINPON,,,North Sapphires
+367,9/22/2014,EF,46.54051,-113.90759,Grassland,,,220,,0,0,0,1,4,5,0,PINPON,,,North Sapphires
+367,5/26/2015,"LS,MD,JM",46.54037,-113.90759,0,GUM,0,220,0,0,0,0,0,0,0,0,PINPON,0,3,North Sapphires
+367,6/17/2015,"LS,JM",46.54086,-113.90745,0,GUM,0,214,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+367,7/7/2015,EF JM md ls,46.54054,-113.90762,0,GUM,0,220,0,46.54045,0,0,0,0,0,2,PINPON,,2,North Sapphires
+367,8/6/2015,EF,46.54042,-113.90758,0,GUM,0,220,0,0,0,0,0,0,0,0,PINPON,0,2,North Sapphires
+367,9/9/2015,EF,46.54045,-113.90769,0,GUM,0,212,0,0,0,0,0,2,0,0,0,0,0,North Sapphires
+367,9/23/2015,EF,46.54044,-113.90762,0,GUM,0,210,0,0,0,0,0,7,2,0,0,0,0,North Sapphires
+368,8/18/2014,MB,46.53994,-113.90354,Grassland,Rocky Mountain Montane-Foothill Deciduous Shrubland,,176,1384,0,4,11,6,0,17.5,6,PSEMEN,,,North Sapphires
+369,7/23/2014,MB,46.55111,-113.91043,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,80,1360,Heavily grazed. Gap completed at this plot. No shrubs. No forbs in any clip plot,0,0,0,0,0.0,0,PINPON,,,North Sapphires
+370,7/23/2014,JM,46.54789,-113.90875,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,18,1388,0,0,0,0,0,0.0,0,0,,,North Sapphires
+371,7/23/2014,MB,46.55131,-113.91312,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,358,1363,Heavily grazed. No forbs in any of the clip plots.,0,0,0,0,0.0,0,PINPON,,,North Sapphires
+372,7/23/2014,JM,46.54943,-113.91152,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,85,1381,Heavily grazed,0,0,0,0,0.0,0,0,,,North Sapphires
+373,7/23/2014,MB,46.55038,-113.91436,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,264,1372,0,0,0,0,0,0.0,0,0,,,North Sapphires
+374,7/18/2014,MB TA,46.49702,-113.95142,Grassland,Inter-Mountain Basins Montane Sagebrush Steppe,,212,1401,0,0,0,0,0,0.0,0,PINPON,,,North Sapphires
+375,7/17/2014,MB TA,46.49302,-113.95524,Grassland,Inter-Mountain Basins Montane Sagebrush Steppe,,104,1364,0,0,0,0,0,0.0,0,0,,,North Sapphires
+376,7/17/2014,MB TA,46.49224,-113.95683,Grassland,Inter-Mountain Basins Montane Sagebrush Steppe,,154,1368,0,0,0,0,0,0.0,0,0,,,North Sapphires
+377,7/17/2014,MB TA,46.4953,-113.95357,Grassland,Inter-Mountain Basins Montane Sagebrush Steppe,,264,1390,0,0,0,0,0,0.0,0,0,,,North Sapphires
+378,7/18/2014,MB TA,46.49699,-113.95315,Grassland,Inter-Mountain Basins Montane Sagebrush Steppe,,186,1385,0,0,0,0,0,0.0,0,PSEMEN,,,North Sapphires
+379,7/15/2015,EF,46.5325,-113.92049,0,GLM,DA,240,1386.4,0,0,0,0,0,0,0,0,0,0,North Sapphires
+380,7/15/2015,MD,46.53278,-113.91516,0,DA,GLM,349,1432.71,0,0,0,0,0,0,0,0,0,0,North Sapphires
+381,7/15/2015,MD,46.53472,-113.91675,0,DA,GLM,5,1404.08,"No forbs in clipplot 0m, 20m, 40m",0,0,0,0,0,0,0,0,0,North Sapphires
+382,7/15/2015,"MD, EF",46.53599,-113.91744,0,DA,GLM,319,1389.84,"No forbs in clipplot 0m, 20m, 40m",0,0,0,0,0,0,0,0,0,North Sapphires
+383,7/15/2015,EF,46.53245,-113.91562,0,DA,GLM,295,1433.29,Plot moved aprox 60' away from edge of forest.,0,0,0,4,1,0,PINPON,0,2,North Sapphires
+384,8/5/2015,JM,46.59157,-113.90462,0,OPP,0,202,1370.21,0,3,5,20,1,7.25,8,PINPON,0,3,North Sapphires
+385,8/5/2015,LS,46.58943,-113.90398,0,OPP,0,200,1357.07,0,11,2,13,14,10,11,PINPON,0,4,North Sapphires
+386,8/5/2015,JM,46.59114,-113.90322,0,OPP,0,246,1379.02,0,0,2,0,2,1,5,PINPON,0,3,North Sapphires
+387,8/5/2015,LS,46.59042,-113.90754,0,OPP,0,176,1363.54,0,8,1,10,13,8,7,PINPON,0,4,North Sapphires
+401,7/18/2014,MB TA,46.49725,-113.94418,Grassland,Inter-Mountain Basins Montane Sagebrush Steppe,,120,1433,0,0,0,0,0,0.0,0,PSEMEN,,,North Sapphires
+402,7/18/2014,MB TA,46.49677,-113.93938,Grassland,Inter-Mountain Basins Montane Sagebrush Steppe,,186,1471,0,0,0,0,0,0.0,0,PINPON,,,North Sapphires
+425,8/27/2014,JM,46.7585,-113.84092,Forest,Rocky Mountain Subalpine Dry-Mesic Spruce-Fir Forest and Woodland,,14,1807,was labeled as shrubland,11,5,3,20,32.4,2,PSEMEN,,,North Sapphires
+426,8/27/2014,EF,46.75075,-113.83784,Forest,Rocky Mountain Subalpine Dry-Mesic Spruce-Fir Forest and Woodland,,335,1749,Habitat changed from shrubland. Plot moved 300' upslope - too steep.,21,21,23,22,72.4,21,ABILAS,,,North Sapphires
+427,8/27/2014,EF,46.74941,-113.84135,Forest,Rocky Mountain Subalpine Dry-Mesic Spruce-Fir Forest and Woodland,,120,1812,Habitat changed from shrubland. The open area on map reflects a series of meadow wetlands. This plot is slightly uphill in drier forest.,3,4,14,21,34.9,4,ABILAS,,,North Sapphires
+428,8/27/2014,JM,46.74943,-113.84239,Forest,Rocky Mountain Subalpine Dry-Mesic Spruce-Fir Forest and Woodland,,135,1819,Was labeled as shrubland.,0,6,0,21,22.5,1,PSEMEN,,,North Sapphires
+429,8/27/2014,EF JM,46.74632,-113.84281,Forest,Rocky Mountain Subalpine Dry-Mesic Spruce-Fir Forest and Woodland,,170,1854,Habitat changed from shrubland.,21,21,21,22,70.7,11,ABILAS,,,North Sapphires
+430,7/24/2015,LS,46.5074,-113.84422,0,MFLP,0,118,1870.29,0,14,11,10,10,11.25,12,PSEMEN,PINCON,2,North Sapphires
+431,7/24/2015,"JM, BC",46.50759,-113.8444,0,MFLP,0,149,1860.4,0,5,13,11,7,9,7,PSEMEN,PINCON,1,North Sapphires
+432,7/24/2015,"JM,BC",46.50798,-113.84262,0,MFLP,0,138,1858.09,0,20,9,12,4,11.25,7,PSEMEN,PINCON,1,North Sapphires
+444,7/24/2015,MD,46.73114,-113.70055,0,WVB,0,flat,1068.63,plot moved to valley bottom riparian,24,13,24,24,21.25,3,POPBAL,BETOCC,3,North Sapphires
+445,7/24/2015,"EF, MD",46.73228,-113.70097,0,WVB,0,300,1150.37,0,1,1,0,4,1.5,0,POPBAL,0,3,North Sapphires
+446,7/24/2015,EF,46.73322,-113.70151,0,WVB,0,300,1067.41,0,2,24,12,14,13,5,POPBAL,0,3,North Sapphires
+447,8/28/2014,MB,46.61642,-113.63516,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,60,1492,GAP completed at this plot.,1,6,24,7,31.6,5,PSEMEN,,,North Sapphires
+448,8/28/2014,MB TA KP,46.6153,-113.63059,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,168,1294,0,11,6,10,3,25.0,10,PSEMEN,,,North Sapphires
+449,8/28/2014,TA,46.61782,-113.63422,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,132,1493,0,11,0,6,4,17.5,6,PSEMEN,,,North Sapphires
+450,8/28/2014,MB TA KP,46.61702,-113.63814,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,186,1537,0,3,4,4,4,12.5,6,PINPON,,,North Sapphires
+459,8/22/2014,EF,46.82028,-113.91412,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,14,1364,Habitat changed from shrubland.,5,17,10,14,38.3,5,LAROCC,,,North Sapphires
+460,8/7/2014,RAD EF,46.82284,-113.91335,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,300,1241,0,10,20,24,24,64.9,2,PSEMEN,,,North Sapphires
+461,8/15/2014,JM,46.819,-113.90859,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,300,1299,0,23,24,23,22,76.5,3,PICENG,,,North Sapphires
+462,8/7/2014,"RD, EF",46.82254,-113.91258,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,300,1249,0,22,23,23,10,64.9,13,PSEMEN,,,North Sapphires
+464,8/12/2014,JM,46.76073,-113.73788,Shrubland,Rocky Mountain Montane-Foothill Deciduous Shrubland,,146,1357,0,6,2,24,13,37.4,3,PSEMEN,,,North Sapphires
+465,8/12/2014,EF,46.76154,-113.73825,Shrubland,Rocky Mountain Montane-Foothill Deciduous Shrubland,,140,1412,0,24,0,3,4,25.8,3,PSEMEN,,,North Sapphires
+466,8/12/2014,JM,46.7605,-113.7393,Shrubland,Rocky Mountain Montane-Foothill Deciduous Shrubland,,139,1392,0,4,3,1,4,10.0,1,PSEMEN,,,North Sapphires
+467,8/12/2014,JM,46.76041,-113.73573,Shrubland,Rocky Mountain Montane-Foothill Deciduous Shrubland,,126,1284,0,6,21,8,4,32.4,3,PSEMEN,,,North Sapphires
+468,8/12/2014,EF,46.76163,-113.73489,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,115,1323,Plot moved away from small cliff.,22,22,9,5,48.3,13,PSEMEN,,,North Sapphires
+473,7/21/2014,JM,46.57777,-113.92081,Shrubland,Rocky Mountain Montane-Foothill Deciduous Shrubland,,216,1255,0,7,5,19,22,44.1,3,PINPON,,,North Sapphires
+475,7/30/2015,EF,46.57814,-113.65923,0,GUM,0,210,1436.31,Plot moved 100' away from small cliff.,0,0,1,4,1.25,2,PINPON,PSEMEN,3,North Sapphires
+476,7/30/2015,EF,46.58175,-113.66869,0,GUM,0,225,1316.65,0,0,2,0,0,0.5,1,PINPON,0,4,North Sapphires
+477,7/30/2015,EF,46.58088,-113.66564,0,GUM,0,150,1344.13,0,5,8,2,3,4.5,4,PINPON,0,4,North Sapphires
+481,8/5/2014,EF,46.73917,-113.98021,Shrubland,Inter-Mountain Basins Montane Sagebrush Steppe,,198,1293,0,0,0,0,0,0.0,0,PINPON,,,North Sapphires
+482,8/5/2014,EF,46.73969,-113.98071,Shrubland,Inter-Mountain Basins Montane Sagebrush Steppe,,230,1304,0,0,2,0,22,20.0,2,PINPON,,,North Sapphires
+483,8/5/2014,JM,46.73936,-113.98192,Shrubland,Inter-Mountain Basins Montane Sagebrush Steppe,,212,1255,0,0,0,1,0,0.8,1,PSEMEN,,,North Sapphires
+484,8/5/2014,JM,46.74014,-113.98495,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,182,1234,0,4,6,12,22,36.6,4,PSEMEN,,,North Sapphires
+485,8/5/2014,JM,46.74152,-113.9774,Grassland,"Rocky Mountain Lower Montane, Foothill, and Valley Grassland",,134,1339,0,5,3,0,6,11.6,2,PSEMEN,,,North Sapphires
+486,8/18/2015,EF,46.60152,-113.990417,0,OPP,0,155,1337.64,0,6,11,19,1,9.25,2,PINPON,0,3,North Sapphires
+488,8/18/2015,JM,46.60317,-113.9015,0,OPP,0,241,1376.93,0,4,0,0,4,2,2,PINPON,0,3,North Sapphires
+493,8/18/2015,EF,46.58965,-113.90775,0,OPP,0,160,1316.52,0,15,4,3,2,6,5,PINPON,0,3,North Sapphires
+495,8/5/2014,RAD,46.74679,-113.98418,Shrubland,Rocky Mountain Ponderosa Pine Woodland and Savanna,,175,1341,parked out pinpon with grass and shrubs,0,0,18,4,18.3,3,PINPON,,,North Sapphires
+496,8/5/2014,RAD,46.74615,-113.98574,Shrubland,Rocky Mountain Ponderosa Pine Woodland and Savanna,,213,1320,"open, parked out pinpon grassland with purtri",19,2,0,19,33.3,2,PINPON,,,North Sapphires
+497,8/5/2014,RAD,46.74657,-113.98277,Shrubland,Rocky Mountain Ponderosa Pine Woodland and Savanna,,184,1358,0,0,22,22,9,44.1,2,PINPON,,,North Sapphires
+498,7/31/2014,RAD,46.7472,-113.98119,Forest,Rocky Mountain Ponderosa Pine Woodland and Savanna,,222,1381,"open, parked out PINPON grassland with some shrubs",14,15,14,18,50.8,6,PINPON,,,North Sapphires
+499,7/31/2014,RAD,46.74732,-113.97998,Shrubland,Rocky Mountain Ponderosa Pine Woodland and Savanna,,208,1412,A few PINPON,5,2,2,10,15.8,0,PINPON,,,North Sapphires
+505,7/17/2015,MD,46.53762,-113.89822,0,OPP,ODS,252,1414.64,0,20,24,24,18,21.5,7,PINPON,PSEMEN,3,North Sapphires
+506,7/17/2015,JM,46.53889,-113.8961,0,OPP,ODS,277,1443.51,Moved plot to an area with more graminoids ; original location was solid PHYMAL,0,0,0,10,2.5,5,PINPON,PSEMEN,3,North Sapphires
+507,7/17/2015,JM,46.53764,-113.89694,0,OPP,ODS,155,1413.87,"Moved plot out of creek bed into more ""parked-out"" ponderosa stand with graminoids.",4,20,1,5,7.5,9,PINPON,PSEMEN,3,North Sapphires
+508,7/17/2015,MD,46.53909,-113.90083,0,OPP,ODS,206,1401.57,0,19,0,7,18,11,3,PINPON,PSEMEN,2,North Sapphires
+509,8/26/2014,MB,46.51624,-113.85493,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,40,1810,GAP completed at this plot.,19,23,20,13,62.4,13,PSEMEN,,,North Sapphires
+511,8/26/2014,MB,46.51777,-113.85619,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,352,1767,0,16,18,17,24,62.4,9,PSEMEN,,,North Sapphires
+512,8/26/2014,MB,46.51742,-113.85475,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,22,1773,0,18,20,14,16,56.6,14,PSEMEN,,,North Sapphires
+513,7/23/2014,MB,46.54398,-113.91036,Forest,Rocky Mountain Ponderosa Pine Woodland and Savanna,,184,1350,Gap completed at this plot. No shrubs,2,5,19,8,28.3,4,PINPON,,,North Sapphires
+514,7/23/2014,EF,46.54458,-113.91607,Forest,Rocky Mountain Ponderosa Pine Woodland and Savanna,,205,1336,Habitat changed from Shrubland.,21,2,1,5,24.1,5,PINPON,,,North Sapphires
+516,7/23/2014,JM,46.5446,-113.91216,Forest,Rocky Mountain Ponderosa Pine Woodland and Savanna,,198,1357,Labeled as Shrubland in plot info sheet,17,19,5,8,40.8,10,PINPON,,,North Sapphires
+522,8/28/2015,MD,46.72833,-113.74938,0,GUM,0,224,1572.95,0,0,0,13,6,4.75,1,PINPON,PSEMEN,3,North Sapphires
+523,8/28/2015,MD,46.72587,-113.74698,0,GUM,0,189,1361.55,plot moved,0,2,0,23,6.25,1,PINPON,PSEMEN,2,North Sapphires
+524,8/28/2015,LS,46.72834,-113.75127,0,GUM,0,164,1503.14,0,0,10,1,1,3,1,PINPON,0,4,North Sapphires
+525,8/28/2015,LS,46.72822,-113.75302,0,GUM,0,178,1423.29,0,2,5,0,0,1.75,2,PINPON,0,4,North Sapphires
+527,8/6/2014,EF,46.74827,-113.96684,Shrubland,Inter-Mountain Basins Montane Sagebrush Steppe,,170,1492,0,0,0,0,2,1.7,1,PSEMEN,,,North Sapphires
+528,8/6/2014,EF,46.74951,-113.96599,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,132,1519,Habitat changed from shrubland.,20,21,24,22,72.4,10,PSEMEN,,,North Sapphires
+529,8/6/2014,EF,46.7507,-113.9675,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,160,1590,Habitat changed from shrubland.,5,17,18,9,40.8,14,PSEMEN,,,North Sapphires
+530,8/6/2014,EF,46.74771,-113.96889,Shrubland,Rocky Mountain Montane-Foothill Deciduous Shrubland,,165,1475,0,8,7,2,0,14.1,7,PSEMEN,,,North Sapphires
+538,8/21/2015,LS,46.57748,-113.82243,0,MFDSF,0,43,1924.63,0,15,17,23,6,15.25,19,ABILAS,PINCON,3,North Sapphires
+539,8/21/2015,MD,46.57577,-113.82141,0,MFDSF,0,71,1923.42,plot moved into mesic forest and out of riparian,24,16,24,15,19.75,19,PINCON,ABILAS,2,North Sapphires
+540,8/21/2015,LS,46.57821,-113.82389,0,MFDSF,0,66,1950.65,0,15,10,24,23,18,9,PINCON,ABILAS,2,North Sapphires
+541,8/21/2015,MD,46.57525,-113.82282,0,MFDSF,0,FLAT,1934.67,plot moved out of riparian habitat,24,18,12,17,17.75,6,PINCON,ABILAS,2,North Sapphires
+548,7/27/2015,EF,46.39939,-113.69759,0,WVB,0,310,1389.61,0,1,0,1,1,0.75,0,0,0,0,North Sapphires
+550,7/27/2015,EF,46.40055,-113.70197,0,WVB,0,310,1384.7,0,0,0,5,24,7.25,1,POPBAL,PINPON,2,North Sapphires
+551,7/28/2015,EF,46.39515,-113.68675,0,WVB,0,300,1393.09,0,12,13,13,15,13.25,9,POPTRE,POPBAL,3,North Sapphires
+552,7/28/2015,EF,46.39211,-113.68392,0,WVB,0,300,1395.25,Plot moved 230' to be fully in WVB.,18,19,20,20,19.25,16,POPBAL,PINPON,3,North Sapphires
+554,7/28/2015,EF,46.39322,-113.68607,0,WVB,0,300,1395.68,Plot moved 80' to the bank.,10,7,1,18,9,4,POPBAL,PICENG,3,North Sapphires
+567,8/19/2014,EF,46.69502,-113.79082,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Mesic Montane Mixed Conifer Forest,35,1352,0,20,22,22,24,73.2,11,PICENG,,,North Sapphires
+569,8/19/2014,EF,46.69308,-113.79242,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Mesic Montane Mixed Conifer Forest,30,1362,0,11,14,22,16,52.4,4,PICENG,,,North Sapphires
+570,8/19/2014,JM,46.69244,-113.79308,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Mesic Montane Mixed Conifer Forest,86,1371,0,24,15,17,20,63.2,7,ABIGRA,,,North Sapphires
+571,8/19/2014,JM,46.69403,-113.79182,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Mesic Montane Mixed Conifer Forest,30,1368,0,23,0,23,21,55.7,9,PICENG,,,North Sapphires
+573,8/25/2014,TH,46.71914,-113.9757,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,6,1371,Not wetland,17,10,24,13,53.2,1,PSEMEN,,,North Sapphires
+575,8/25/2014,TH,46.71821,-113.97449,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,8,1397,Not wetland; Plot on edge of timbered area,2,2,19,17,33.3,1,PSEMEN,,,North Sapphires
+577,8/20/2014,JM,46.70814,-113.90885,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Mesic Montane Mixed Conifer Forest,50,1316,0,22,22,20,20,69.9,13,PICENG,,,North Sapphires
+580,8/20/2014,EF,46.70451,-113.90204,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Mesic Montane Mixed Conifer Forest,340,1341,Plot moved 200ft into wetland. Roadside riparian corridor weedy.,11,14,17,18,49.9,10,PICENG,,,North Sapphires
+581,8/20/2014,JM,46.7091,-113.90765,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Mesic Montane Mixed Conifer Forest,84,1309,0,14,19,18,19,58.2,5,PICENG,,,North Sapphires
+592,8/21/2014,EF,46.76399,-113.81277,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Mesic Montane Mixed Conifer Forest,60,1386,Plot moved downslope to wetland.,23,21,22,18,69.9,6,PICENG,,,North Sapphires
+593,8/21/2014,EF,46.76358,-113.81435,wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Mesic Montane Mixed Conifer Forest,60,1385,Plot moved downslope to wetland.,22,24,20,20,71.6,8,PICENG,,,North Sapphires
+594,8/21/2014,JM,46.76436,-113.80945,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Mesic Montane Mixed Conifer Forest,60,1379,0,19,21,23,21,69.9,4,PICENG,,,North Sapphires
+595,8/21/2014,JM,46.76432,-113.80847,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Mesic Montane Mixed Conifer Forest,60,1349,0,22,16,23,22,69.1,5,ABIGRA,,,North Sapphires
+605,8/18/2014,EF,46.76273,-113.82808,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Mesic Montane Mixed Conifer Forest,80,1495,0,19,17,19,20,62.4,14,PICENG,,,North Sapphires
+606,8/18/2014,JM,46.7625,-113.82589,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Mesic Montane Mixed Conifer Forest,90,1489,0,16,22,23,23,69.9,16,PICENG,,,North Sapphires
+608,8/18/2014,EF,46.76194,-113.82991,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Mesic Montane Mixed Conifer Forest,60,1508,Plot moved 120ft to keep it in the wetland.,15,17,14,15,50.8,6,PICENG,,,North Sapphires
+609,8/18/2014,JM,46.76238,-113.82884,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Mesic Montane Mixed Conifer Forest,50,1501,0,19,14,20,19,59.9,9,PICENG,,,North Sapphires
+613,8/31/2015,MD,46.39318,-113.89605,0,WRW,0,FLAT,1502.67,plot moved to other side of the stream,23,24,23,24,23.5,19,PICENG,PSEMEN,2,North Sapphires
+614,8/31/2015,MD,46.39439,-113.89897,0,WRW,0,FLAT,1514.69,plot moved to riparian habitat,22,24,24,22,23,18,PICENG,ABILAS,3,North Sapphires
+616,8/14/2014,JM,46.60109,-113.85754,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Subalpine Mesic Spruce-Fir Forest and Woodland,250,1523,0,15,14,4,9,34.9,6,PICENG,,,North Sapphires
+617,8/13/2014,JM,46.60125,-113.85363,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Subalpine Mesic Spruce-Fir Forest and Woodland,250,1537,0,18,22,10,11,50.8,7,PICENG,,,North Sapphires
+618,8/13/2014,EF,46.59825,-113.85924,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,355,1551,Plot moved 120ft downslope to keep it in the wetland. Area currently used by cattle.,7,5,5,5,18.3,3,PSEMEN,,,North Sapphires
+619,8/13/2014,EF,46.60167,-113.8606,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,305,1515,cattle currently grazing the area,2,12,15,23,43.3,6,PSEMEN,,,North Sapphires
+620,7/29/2015,EF,46.43931,-113.74721,0,WRW,0,300,1339.45,High densiometer readings due to ALNINC canopy. Most are >2m tall.,24,23,22,24,23.25,2,PICENG,0,4,North Sapphires
+621,7/29/2015,EF,46.43592,-113.74487,0,WRW,0,300,1345.76,Plot moved into mountain riparian HT.,24,21,14,24,20.75,6,PINPON,PICENG,4,North Sapphires
+623,7/29/2015,EF,46.43835,-113.74619,0,WRW,0,300,1342.36,Plot moved to mountain riparian HT. Densiometer readings due to nearly continuous ALNINC canopy - most are >2m tall.,23,24,24,24,23.75,5,PICENG,0,3,North Sapphires
+628,7/20/2015,MD,46.75603,-114.00861,0,GUM,SHR,125,1348.2,"Plot habitat not as expected, small amount of sage",12,13,0,0,6.25,5,PINPON,0,3,North Sapphires
+629,7/20/2015,LS,46.7582,-114.00845,0,SHR,0,151,1370.66,Moved plot from original coordinates to be in the target habitat type (sagebrush steppe).,0,0,0,0,0,0,0,0,0,North Sapphires
+630,7/20/2015,MD,46.75541,-114.0089,0,GUM,0,87,1326.37,"Different habitat than expected, plot moved out of riparian area into grassland",24,11,14,24,18.25,5,PINPON,0,3,North Sapphires
+631,7/20/2015,"MD, LS",46.75809,-114.01042,0,SHR,0,156,1436.03,plot moved to desired habitat,0,0,0,0,0,0,0,0,0,North Sapphires
+632,8/25/2014,JM,46.67671,-113.76788,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Subalpine Mesic Spruce-Fir Forest and Woodland,115,1391,0,22,18,21,13,61.6,4,PICENG,,,North Sapphires
+633,8/25/2014,JM,46.67685,-113.76868,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Subalpine Mesic Spruce-Fir Forest and Woodland,115,1413,0,21,23,20,23,72.4,7,PICENG,,,North Sapphires
+634,8/25/2014,EF,46.67739,-113.77011,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Subalpine Mesic Spruce-Fir Forest and Woodland,110,1418,Plot relocated upstream due to dangerously steep and difficult access lower down.,23,20,23,23,74.0,15,PICENG,,,North Sapphires
+635,8/25/2014,EF,46.67337,-113.76349,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Subalpine Mesic Spruce-Fir Forest and Woodland,70,1331,0,23,22,24,23,76.5,13,PICENG,,,North Sapphires
+646,8/15/2014,EF,46.81871,-113.90606,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Mesic Montane Mixed Conifer Forest,300,1372,0,22,21,19,19,67.4,9,PICENG,,,North Sapphires
+648,8/15/2014,EF,46.81787,-113.90259,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Mesic Montane Mixed Conifer Forest,290,1398,0,24,19,18,22,69.1,6,ABIGRA,,,North Sapphires
+649,8/15/2014,JM,46.82209,-113.91245,Wetland,Rocky Mountain Subalpine-Montane Riparian Woodland,Rocky Mountain Mesic Montane Mixed Conifer Forest,300,1344,0,10,13,18,24,54.1,5,PICENG,,,North Sapphires
+658,8/27/2015,JM,46.46227,-113.91527,0,OPP,0,130,1482.35,0,17,13,5,13,12,5,PINPON,JUNSCO,2,North Sapphires
+659,8/27/2015,MD,46.46587,-113.9144,0,OPP,0,103,1533.1,0,22,17,19,13,17.75,8,PINPON,JUNSCO,2,North Sapphires
+660,8/27/2015,JM,46.46275,-113.91473,0,OPP,0,258,1489.09,0,18,24,17,6,16.25,9,PINPON,JUNSCO,3,North Sapphires
+671,7/16/2014,EF,46.46879,-113.90339,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,105,1675,Habitat changed from wetland,15,16,11,16,48.3,11,PSEMEN,,,North Sapphires
+672,7/15/2014,RD  MB,46.47178,-113.90588,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,167,1750,0,22,9,6,20,47.4,4,PSEMEN,,,North Sapphires
+673,7/15/2014,RAD,46.47136,-113.90338,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,182,1725,0,8,20,13,22,52.4,7,PSEMEN,,,North Sapphires
+674,7/16/2014,JM,46.47029,-113.90378,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,102,1698,Marked as wetland in info sheet.,20,21,23,16,66.6,12,PINPON,,,North Sapphires
+675,7/15/2014,JM,46.47511,-113.90041,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,152,1812,Was labeled as a wetland in plot  info form.,20,14,12,14,49.9,5,PSEMEN,,,North Sapphires
+676,7/15/2014,JM,46.47388,-113.89763,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,154,1745,Was labeled as  wetland in plot info.,12,18,20,16,54.9,5,PINPON,,,North Sapphires
+677,7/15/2014,EF,46.47257,-113.89734,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,100,1717,Habitat change - was wetland,9,7,10,10,30.0,3,PINPON,,,North Sapphires
+678,7/15/2014,EF,46.47577,-113.89534,Forest,Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest,,235,1802,"Habitat change, was wetland",11,8,22,24,54.1,3,PSEMEN,,,North Sapphires
+680,7/9/2014,"EF, JM",46.66172,-113.84101,Grassland,,,140,,0,0,0,0,0,0,0,0,,,North Sapphires
+680,9/4/2014,EF,46.66168,-113.84107,Grassland,,,170,,,0,0,0,0,0,0,0,,,North Sapphires
+680,9/23/2014,EF,46.66159,-113.84119,Grassland,,,140,,0,0,0,0,0,0,0,0,,,North Sapphires
+680,6/1/2015,"JM,MD,LS,RD",46.66152,-113.84124,0,GUM,0,132,0,No grass in 20m clip plot,0,0,0,0,0,0,0,0,0,North Sapphires
+680,6/17/2015,"MD,RD",46.66145,-113.84138,0,GUM,0,138,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+680,7/2/2015,JM,46.66164,-113.84109,0,GUM,0,145,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+680,8/7/2015,JM,46.66162,-113.84113,0,GUM,0,127,1855.68,0,0,0,0,0,0,0,0,0,0,North Sapphires
+680,9/9/2015,JM,46.66157,-113.84124,0,GUM,0,115,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+680,9/23/2015,JM,46.66156,-113.84119,0,GUM,0,135,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+681,6/23/2014,"JM, MB, EF",46.47952,-113.90017,Grassland,,,256,,0,8,5,8,20,43,6,PSEMEN,,,North Sapphires
+681,7/10/2014,EF,46.47952,-113.90019,Grassland,,,270,,0,6,4,4,5,20,4,PSEMEN,,,North Sapphires
+681,9/4/2014,JM,46.48007,-113.9001,Grassland,,,260,,0,0,0,20,4,25,3,PSEMEN,,,North Sapphires
+681,9/23/2014,JM,46.47942,-113.90022,Grassland,,,270,,0,0,6,4,0,10,3,PSEMEN,,,North Sapphires
+681,5/28/2015,"LS,KB,MD,JM,RD",46.47952,-113.9002,0,GUM,0,231,0,0,0,19,0,9,7,2,PSEMEN,PINPON,3,North Sapphires
+681,6/16/2015,"JM, KB",46.47949,-113.90022,0,GUM,0,264,0,0,7,7,0,16,8,5,PSEMEN,2,0,North Sapphires
+681,7/3/2015,LS,46.47948,-113.90025,0,GUM,0,260,0,0,0,18,0,0,4,2,PSEMEN,PINPON,3,North Sapphires
+681,8/7/2015,JM,46.47948,-113.90023,0,GUM,0,234,1838.05,0,0,20,0,22,10.5,4,PSEMEN,PINPON,2,North Sapphires
+681,9/9/2015,JM,46.47948,-113.90025,0,GUM,0,256,0,0,0,21,0,10,8,2,PSEMEN,PINPON,2,North Sapphires
+681,9/23/2015,EF,46.47951,-113.90017,0,GUM,0,240,0,0,2,4,2,8,4,5,PSEMEN,PINPON,3,North Sapphires
+682,5/20/2015,"LS, JM, MD, RD",46.69057,-113.98768,0,GLM,0,315,0,Moved plot,0,0,0,0,0,0,0,0,,North Sapphires
+682,6/15/2015,RAD,46.69077,-113.9876,0,GLM,0,308,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+682,7/2/2015,"MD,LS",46.69082,-113.98754,0,GLM,0,408,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+682,7/15/2015,LS,46.69076,-113.98753,0,GLM,0,290,1599.45,this is a phenology plot and was relocated on 5/20/15,0,0,0,0,0,0,0,0,0,North Sapphires
+682,9/9/2015,MD,46.69057,-113.98795,0,GLM,0,317,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+682,9/23/2015,LS,46.69087,-113.9875,0,GLM,0,288,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+683,7/15/2015,JM,46.69654,-113.98652,0,GLM,0,280,1557.53,0,0,0,0,0,0,0,0,0,0,North Sapphires
+684,7/15/2015,LS,46.79721,-113.98616,0,GLM,0,274,1562.37,0,0,0,0,0,0,0,0,0,0,North Sapphires
+685,7/15/2015,"JM, LS",46.69594,-113.987787,0,GLM,0,297,1536.1,0,0,0,0,0,0,0,0,0,0,North Sapphires
+686,5/20/2015,"LS, JM, MD",46.68989,-113.9894,0,GLM,0,299,0,moved plot,0,0,0,0,0,0,0,0,,North Sapphires
+686,6/15/2015,"LS,LE",46.69022,-113.98927,0,GLM,0,322,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+686,7/2/2015,"LS,MD",46.69028,-113.98894,0,GLM,0,342,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+686,7/15/2015,JM,46.69015,-113.98923,0,GLM,0,312,1617.91,0,0,0,0,0,0,0,0,0,0,North Sapphires
+686,9/9/2015,MD,46.68994,-113.98943,0,GLM,0,323,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+686,9/23/2015,LS,46.69026,-113.98891,0,GLM,0,343,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+690,8/25/2015,MD,46.69543,-113.98164,0,OPP,0,165,,0,24,5,2,3,8.5,4,PINPON,0,3,North Sapphires
+691,8/25/2015,MD,46.69527,-113.9794,0,OPP,0,271,,0,11,2,3,7,5.75,5,PINPON,0,3,North Sapphires
+692,8/25/2015,JM,46.69859,-113.98097,0,OPP,GUM,234,,0,2,0,8,7,4.25,1,PINPON,PSEMEN,2,North Sapphires
+693,8/25/2015,"JM,MD",46.6964,-113.97946,0,OPP,GUM,178,,0,7,20,24,13,16,3,PINPON,0,3,North Sapphires
+694,8/25/2015,JM,46.6974,-113.98276,0,OPP,GUM,252,,0,4,8,18,3,8.25,3,PINPON,0,3,North Sapphires
+695,8/25/2015,EF,46.70141,-113.99933,0,OPP,0,210,,0,1,2,5,2,2.5,2,PINPON,0,3,North Sapphires
+696,8/25/2015,EF,46.70232,-113.99872,0,OPP,0,170,,0,0,4,1,0,1.25,1,PINPON,0,4,North Sapphires
+697,8/25/2015,LS,46.69898,-113.99938,0,OPP,0,288,,0,0,10,1,5,4,3,PINPON,PSEMEN,3,North Sapphires
+698,8/25/2015,LS,46.69907,-113.99992,0,OPP,0,281,,0,5,3,6,12,6.5,6,PINPON,PSEMEN,3,North Sapphires
+699,8/25/2015,LS,46.69914,-114.0002,0,OPP,0,278,,0,0,7,1,0,2,4,PINPON,PSEMEN,3,North Sapphires
+700,7/28/2014,EF,46.00791,-114.0382,Burned Forest,Burned Forest 6-15yrs,,75,1535,0,1,2,2,5,10.4,5,PSEMEN,,,South Bitterroot
+701,7/29/2014,JM,46.00204,-114.03886,Burned Forest,Burned Forest 6-15yrs,,214,1580,0,0,0,0,1,1.0,1,PSEMEN,,,South Bitterroot
+702,7/29/2014,JM,46.0072,-114.03786,Burned Forest,Burned Forest 6-15yrs,,118,1521,0,0,0,3,7,10.4,7,PSEMEN,,,South Bitterroot
+703,7/29/2014,EF,46.00219,-114.0345,Burned Forest,Burned Forest 6-15yrs,,48,1579,0,0,0,0,0,0.0,0,PSEMEN,,,South Bitterroot
+709,7/30/2014,JM,45.97632,-114.0332,Burned Forest,Burned Forest 6-15yrs,,156,1372,0,0,0,1,1,2.1,1,PSEMEN,,,South Bitterroot
+711,7/30/2014,EF,45.97599,-114.03381,Burned Forest,Burned Forest 6-15yrs,,110,1384,Plot moved 36m to place it in the forest and away from 709.,7,3,6,2,18.7,2,PSEMEN,,,South Bitterroot
+712,7/30/2014,"EF, JM",45.97337,-114.03531,Burned Forest,Burned Forest 6-15yrs,,88,1402,Plot moved from barely-burned wetland to moderately burned Forest.,10,9,9,2,31.2,2,PSEMEN,,,South Bitterroot
+713,7/29/2014,"EF, JM",45.97512,-114.02995,Burned Forest,Burned Forest 6-15yrs,,330,1438,Plot moved 40m uphill due to super steep slope below the road cut.,9,5,13,6,34.3,6,PSEMEN,,,South Bitterroot
+719,7/29/2014,EF,46.00475,-114.03681,Burned Forest,Burned Forest 6-15yrs,,104,1594,0,1,9,7,4,21.8,4,PSEMEN,,,South Bitterroot
+720,7/29/2014,EF,45.99997,-114.03149,Burned Forest,Burned Forest 6-15yrs,,56,1460,Plot moved 15m to keep in same habitat type.,1,9,7,4,21.8,4,PSEMEN,,,South Bitterroot
+722,7/29/2014,JM,46.00112,-114.03711,Burned Forest,Burned Forest 6-15yrs,,175,1597,0,0,0,0,0,0.0,0,PSEMEN,,,South Bitterroot
+723,7/28/2014,"JM, EF",46.00322,-114.02902,Burned Forest,Burned Forest 6-15yrs,,95,1408,0,0,0,0,0,0.0,0,PINPON,,,South Bitterroot
+724,8/12/2015,JM,45.96105,-113.99289,0,WF2,FMC,343,1527.65,0,2,14,1,0,4.25,6,PINPON,PSEMEN,2,South Bitterroot
+725,8/12/2015,"JM,MD",45.96274,-113.99464,0,WF2,FMC,32,1475.91,0,0,0,0,0,0,0,PINCON,PSEMEN,1,South Bitterroot
+726,8/12/2015,JM,45.96098,-113.99016,0,WF2,FMC,27,1511.41,0,0,9,7,4,5,5,PINPON,PSEMEN,2,South Bitterroot
+727,8/12/2015,MD,45.96177,-113.99775,0,WF2,FMC,28,1518.38,0,0,0,0,0,0,0,0,0,0,South Bitterroot
+728,8/12/2015,MD,45.95926,-113.99715,0,WF2,FMC,14,1584.67,0,24,21,2,23,17.5,11,PINPON,PSEMEN,3,South Bitterroot
+734,8/27/2014,MB,46.66298,-113.81784,Burned Forest,Burned Forest 6-15yrs,,174,1752,GAP completed at this plot,6,7,12,9,35.4,9,PSEMEN,,,North Sapphires
+736,8/27/2014,MB,46.66279,-113.81516,Burned Forest,Burned Forest 6-15yrs,,154,1711,0,16,21,17,13,69.7,13,PSEMEN,,,North Sapphires
+789,8/21/2014,MB,46.1199,-114.02909,Burned Forest,Burned Forest 6-15yrs,,310,1549,GAP completed at this plot.,0,0,0,0,0.0,0,PSEMEN,,,South Bitterroot
+790,8/21/2014,TA,46.11963,-114.02577,Burned Forest,Burned Forest 6-15yrs,,342,1490,0,0,0,0,0,0.0,0,PINCON,,,South Bitterroot
+791,8/21/2014,TA,46.11875,-114.02837,Burned Forest,Burned Forest 6-15yrs,,2,1575,0,4,2,12,8,27.0,8,PSEMEN,,,South Bitterroot
+793,8/21/2014,MB,46.11995,-114.02791,Burned Forest,Burned Forest 6-15yrs,,54,1541,0,0,0,0,0,0.0,0,POPTRE,,,South Bitterroot
+794,7/31/2014,JM,45.9603,-113.95188,Burned Forest,Burned Forest 6-15yrs,,344,1714,0,3,2,5,0,10.4,0,PSEMEN,,,South Bitterroot
+795,7/31/2014,JM,45.95848,-113.95455,Burned Forest,Burned Forest 6-15yrs,,224,1694,0,0,0,0,0,0.0,0,PSEMEN,,,South Bitterroot
+796,7/31/2014,EF,45.96429,-113.95483,Burned Forest,Burned Forest 6-15yrs,,170,1716,0,23,7,4,22,58.2,22,PSEMEN,,,South Bitterroot
+797,7/30/2014,JM,45.96253,-113.95618,Burned Forest,Burned Forest 6-15yrs,,224,1671,0,0,0,0,0,0.0,0,PSEMEN,,,South Bitterroot
+798,7/30/2014,EF,45.96472,-113.95681,Burned Forest,Burned Forest 6-15yrs,,17,1703,0,8,3,1,0,12.5,0,PINPON,,,South Bitterroot
+799,7/25/2014,MB,46.67288,-113.85159,Burned Forest,Burned Forest 6-15yrs,,262,1622,Gap completed at this plot,0,0,0,0,0.0,0,PINCON,,,North Sapphires
+800,7/25/2014,TA,46.67424,-113.85197,Burned Forest,Burned Forest 6-15yrs,,132,1617,0,0,0,0,0,0.0,0,0,,,North Sapphires
+802,7/25/2014,MB,46.67451,-113.85398,Burned Forest,Burned Forest 6-15yrs,,120,1713,0,0,0,0,0,0.0,0,PINPON,,,North Sapphires
+824,8/12/2015,EF,45.86584,-114.06641,0,WF2,FMC,125,1369.23,0,0,0,0,0,0,0,0,0,0,South Bitterroot
+825,8/12/2015,EF,45.86891,-114.06466,0,WF2,FMC,120,1362.13,0,0,0,0,0,0,0,0,0,0,South Bitterroot
+826,8/12/2015,LS,45.86853,-114.0713,0,WF2,FMC,200,1472.21,0,0,0,0,0,0,0,0,0,0,South Bitterroot
+827,8/12/2015,EF,45.86814,-114.06842,0,WF2,FMC,156,1478.87,0,0,0,0,0,0,0,0,0,0,South Bitterroot
+828,8/12/2015,LS,45.87001,-114.07207,0,WF2,FMC,258,1492.84,0,0,0,0,0,0,0,0,0,0,South Bitterroot
+844,7/24/2014,MB TA,46.68078,-113.84947,Burned Forest,Burned Forest 6-15yrs,,218,1944,Gap done at this plot. No shrubs were present.,0,3,2,0,5.2,0,PINCON,,,North Sapphires
+845,7/24/2014,TA,46.67574,-113.84538,Burned Forest,Burned Forest 6-15yrs,,262,1782,0,0,1,5,2,8.3,2,PINCON,,,North Sapphires
+846,7/24/2014,MB TA,46.67968,-113.84648,Burned Forest,Burned Forest 6-15yrs,,220,1974,0,0,0,0,0,0.0,0,PINCON,,,North Sapphires
+847,7/24/2014,TA,46.67391,-113.84928,Burned Forest,Burned Forest 6-15yrs,,266,1710,0,0,0,0,0,0.0,0,PINCON,,,North Sapphires
+848,7/24/2014,MB,46.67801,-113.84769,Burned Forest,Burned Forest 6-15yrs,,222,1833,0,0,0,0,0,0.0,0,0,,,North Sapphires
+864,8/7/2014,MB,45.51828,-114.27199,Burned Forest,Burned Forest 0-5yrs,,248,2193,GAP completed at this plot.,6,13,11,8,39.5,8,PINCON,,,South Bitterroot
+865,8/7/2014,MB,45.51844,-114.27027,Burned Forest,Burned Forest 0-5yrs,,272,2256,0,16,13,14,9,54.1,9,PINCON,,,South Bitterroot
+866,8/7/2014,MB,45.51993,-114.26964,Burned Forest,Burned Forest 0-5yrs,,18,2191,0,7,12,9,7,36.4,7,PSEMEN,,,South Bitterroot
+868,8/7/2014,MB,45.5177,-114.27084,Burned Forest,Burned Forest 0-5yrs,,262,2225,0,9,3,7,12,32.2,12,PSEMEN,,,South Bitterroot
+869,8/6/2014,MB,45.5062,-114.29494,Burned Forest,Burned Forest 0-5yrs,,264,2039,GAP completed at this plot,3,0,5,12,20.8,12,PSEMEN,,,South Bitterroot
+871,8/6/2014,MB,45.50696,-114.29214,Burned Forest,Burned Forest 0-5yrs,,8,2115,0,9,13,13,11,47.8,11,PINCON,,,South Bitterroot
+872,8/6/2014,MB,45.50668,-114.29417,Burned Forest,Burned Forest 0-5yrs,,252,2073,0,5,2,11,0,18.7,0,PSEMEN,,,South Bitterroot
+873,8/6/2014,MB,45.50997,-114.29215,Burned Forest,Burned Forest 0-5yrs,,248,2087,0,0,0,0,5,5.2,5,PSEMEN,,,South Bitterroot
+874,8/5/2014,MB,45.535,-114.27717,Burned Forest,Burned Forest 0-5yrs,,316,2034,GAP completed at this plot.,8,12,2,8,31.2,8,PINCON,,,South Bitterroot
+875,8/5/2014,MB,45.53924,-114.27872,Burned Forest,Burned Forest 0-5yrs,,332,2084,No 20m Clip Plot,0,5,17,12,35.4,12,PINCON,,,South Bitterroot
+876,8/5/2014,MB,45.53409,-114.27755,Burned Forest,Burned Forest 0-5yrs,,308,2042,No 40m Clip Plot.,2,4,7,4,17.7,4,PINCON,,,South Bitterroot
+877,8/5/2014,MB,45.53487,-114.27888,Burned Forest,Burned Forest 0-5yrs,,178,2018,877 was not in a burn. Moved plot on same contour and aspect 50 feet from original location.,15,12,12,9,49.9,9,PINCON,,,South Bitterroot
+878,8/5/2014,MB,45.53849,-114.27773,Burned Forest,Burned Forest 0-5yrs,,340,2130,No 20m Clip Plot,6,11,2,3,22.9,3,PINCON,,,South Bitterroot
+880,8/10/2015,LS,45.50676,-114.47188,0,WF1,MFLP,88,1840.83,0,0,0,0,0,0,0,0,0,0,South Bitterroot
+881,8/10/2015,LS,45.50957,-114.47127,0,WF1,MFLP,104,1851.78,0,0,0,0,0,0,0,0,0,0,South Bitterroot
+882,8/10/2015,EF,45.51002,-114.47165,0,WF1,MFLP,160,1858.49,0,0,0,0,0,0,0,0,0,0,South Bitterroot
+883,8/10/2015,EF,45.50615,-114.47071,0,WF1,MFLP,200,1834.39,plot moved 30m away from large boulder outcrop,0,0,0,0,0,0,0,0,0,South Bitterroot
+884,8/14/2015,MD,46.25985,-113.7969,0,WF1,0,213,2203.14,0,0,0,0,0,0,0,0,0,0,North Sapphires
+885,8/13/2015,MD,46.25591,-113.80064,0,WF1,0,176,2155.68,0,0,0,0,0,0,0,0,0,0,North Sapphires
+886,8/14/2015,JM,46.26096,-113.8037,0,WF1,0,157,2215.28,0,1,0,0,0,0.25,0,0,0,0,North Sapphires
+887,8/14/2015,MD,46.26071,-113.80275,0,WF1,0,183,2181.01,0,0,0,0,0,0,0,0,0,0,North Sapphires
+888,8/13/2015,JM,46.25534,-113.80052,0,WF1,0,174,2130.73,0,3,4,3,3,3.25,0,0,0,0,North Sapphires
+889,8/14/2014,MB TA,46.32203,-114.23936,Burned Forest,Burned Forest 6-15yrs,,34,1447,GAP completed at this plot.,0,0,0,0,0.0,0,PSEMEN,,,North Sapphires
+891,8/14/2014,TA,46.32191,-114.24082,Burned Forest,Burned Forest 6-15yrs,,20,1483,0,0,0,0,0,0.0,0,LAROCC,,,North Sapphires
+892,8/14/2014,MB,46.3197,-114.2416,Burned Forest,Burned Forest 6-15yrs,,68,1571,Plot 10m was within a large SALI SP. >2m. BD was taken but not sure if it is needed because of its size.,0,0,0,0,0.0,0,LAROCC,,,North Sapphires
+894,8/15/2014,MB,46.32518,-114.25037,Burned Forest,Burned Forest 6-15yrs,,160,1688,GAP completed at this plot. Plant samples were wet when collected. Wet weights may be inaccurate.,0,0,0,0,0.0,0,PINPON,,,North Sapphires
+896,8/15/2014,MB,46.32701,-114.24855,Burned Forest,Burned Forest 6-15yrs,,22,1622,No 40m clip plot.,0,0,0,0,0.0,0,LAROCC,,,North Sapphires
+898,8/15/2014,TA,46.32578,-114.2494,Burned Forest,Burned Forest 6-15yrs,,88,1680,plants collected wet. wet weights may be inaccurate.,0,0,0,0,0.0,0,PINCON,,,North Sapphires
+907,8/13/2015,JM,46.24067,-113.84244,0,WF1,0,215,1891.65,Moved plot.,3,3,6,0,3,1,ABILAS,PINCON,3,North Sapphires
+908,8/13/2015,MD,46.24282,-113.84296,0,WF1,0,202,1943.06,0,0,0,0,0,0,0,0,0,0,North Sapphires
+909,8/13/2015,JM,46.24371,-113.84347,0,WF1,0,230,1950.25,0,0,0,0,0,0,0,0,0,0,North Sapphires
+911,8/13/2015,MD,46.24444,-113.84091,0,WF1,0,123,1962.15,0,0,5,3,0,2,2,PSEMEN,0,3,North Sapphires
+912,8/4/2014,MB,45.53302,-114.35481,Burned Forest,Burned Forest 0-5yrs,,212,2075,GAP completed at this plot.,3,3,5,2,13.5,2,PSEMEN,,,South Bitterroot
+913,8/4/2014,MB,45.52856,-114.35652,Burned Forest,Burned Forest 0-5yrs,,262,1935,0,2,4,3,0,9.4,0,PINCON,,,South Bitterroot
+914,8/4/2014,MB,45.53152,-114.35424,Burned Forest,Burned Forest 0-5yrs,,268,2047,0,2,0,4,2,8.3,2,PSEMEN,,,South Bitterroot
+916,8/4/2014,MB,45.53012,-114.35418,Burned Forest,Burned Forest 0-5yrs,,282,2056,0,3,4,6,3,16.6,3,PSEMEN,,,South Bitterroot
+917,8/10/2015,MD,45.55156,-114.36772,0,WF1,0,336,2158.89,plot moved,0,0,0,0,0,0,0,0,0,South Bitterroot
+918,8/10/2015,JM,45.55122,-114.36885,0,WF1,0,329,2123.82,Moved plot closer to road.,4,2,1,1,2,0,0,0,0,South Bitterroot
+919,8/10/2015,MD,45.55272,-114.36653,0,WF1,0,329,2021.42,plot moved,0,0,0,0,0,0,0,0,0,South Bitterroot
+920,8/10/2015,JM,45.55212,-114.36637,0,WF1,0,66,2061.38,Moved plot closer to road.,2,1,1,1,1.25,0,0,0,0,South Bitterroot
+931,7/16/2014,MB,46.77409,-114.21039,Burned Forest,Burned Forest 0-5yrs,,138,1609,No veg for 20m clip plot,5,7,0,5,17.7,5,PINCON,,,North Sapphires
+933,7/16/2014,MB,46.77056,-114.21252,Burned Forest,Burned Forest 0-5yrs,,90,1610,No veg in 40m clip plot,2,0,2,3,7.3,3,PINCON,,,North Sapphires
+934,7/16/2014,MB,46.77007,-114.21509,Burned Forest,Burned Forest 0-5yrs,,260,1542,0,4,11,9,2,27.0,2,PINPON,,,North Sapphires
+935,7/16/2014,MB,46.76886,-114.21172,Burned Forest,Burned Forest 0-5yrs,,74,1600,No clip plot veg at 0m and 20m,8,3,0,0,11.4,0,PINCON,,,North Sapphires
+950,8/1/2014,TH,46.71062,-114.03927,Agriculture,Restoration,,284,993,0,0,0,0,0,0.0,0,0,,,North Sapphires
+951,8/20/2014,TH,46.68518,-114.03336,Agriculture,Restoration,,224,1011,Field has been mechanically cut,0,0,0,0,0.0,0,0,,,North Sapphires
+952,8/18/2014,TH,46.67215,-114.01369,Agriculture,Restoration,,239,1101,Field has been mechanically cut,0,0,0,0,0.0,0,0,,,North Sapphires
+953,8/8/2014,TH,46.67406,-114.02348,Agriculture,Restoration,,264,1045,Field has been mechanically cut,0,0,0,0,0.0,0,0,,,North Sapphires
+954,8/7/2014,TH,46.68086,-114.02947,Agriculture,Dry Ag,,251,1014,Field has been mechanically cut,0,0,0,0,0.0,0,0,,,North Sapphires
+955,8/18/2014,TH,46.68067,-114.02991,Agriculture,Dry Ag,,200,1009,Field has been mechanically cut,0,0,0,0,0.0,0,0,,,North Sapphires
+956,8/8/2014,TH,46.68763,-114.03329,Agriculture,Dry Ag,,205,1044,0,0,0,0,0,0.0,0,0,,,North Sapphires
+957,8/8/2014,TH,46.68937,-114.03595,Agriculture,Dry Ag,,270,1022,0,0,0,0,0,0.0,0,0,,,North Sapphires
+958,8/20/2014,TH,46.67247,-114.02587,Agriculture,Irrigated Ag,,277,1023,"Wet, irrigated center pivot",0,0,0,0,0.0,0,0,,,North Sapphires
+959,8/22/2014,TH,46.68652,-114.03611,Agriculture,Irrigated Ag,,140,1040,Wet irrigated pivot; has been mechanically cut,0,0,0,0,0.0,0,0,,,North Sapphires
+960,8/22/2014,TH,46.68537,-114.03608,Agriculture,Irrigated Ag,,207,1049,Point has been moved from origi0l location. Wet irrigated pivot; has been mechanically cut,0,0,0,0,0.0,0,0,,,North Sapphires
+961,8/20/2014,TH,46.67225,-114.02493,Agriculture,Irrigated Ag,,282,1030,wet center pivot,0,0,0,0,0.0,0,0,,,North Sapphires
+1016,8/26/2015,LS,46.45785,-113.76855,0,RX1,FMC,130,1642.92,0,13,15,7,12,11.75,2,PSEMEN,PINPON,3,North Sapphires
+1017,8/26/2015,LS,46.45856,-113.76639,0,RX1,FMC,134,1872.26,0,12,18,10,9,12.25,3,PINPON,PSEMEN,3,North Sapphires
+1018,8/26/2015,MD,46.457755,-113.7694,0,RX1,FMC,99,1631.08,0,1,11,9,6,6.75,10,PSEMEN,JUNSCO,2,North Sapphires
+1019,8/26/2015,JM,46.45834,-113.76865,0,RX 1,FMC,130,1812.64,0,11,3,4,1,4.75,7,PSEMEN,PINPON,3,North Sapphires
+1020,8/26/2015,JM,46.45783,-113.76779,0,RX 1,FMC,128,1762.24,0,0,5,11,9,6.25,3,PSEMEN,PINPON,3,North Sapphires
+1022,7/28/2015,RD,46.41864,-113.69937,0,RX1,FMC,301,1688.21,No visual indication of burn though some trees look stressed.,9,24,6,12,12.75,13,PSEMEN,PINPON,3,North Sapphires
+1023,7/28/2015,RD,46.41848,-113.70033,0,RX1,FMC,276,1647.27,Patchy evidence of char.,15,14,7,2,9.5,7,PSEMEN,PINPON,3,North Sapphires
+1026,7/29/2015,RD LS,46.45065,-113.6879,0,RX2,SWP,323,2397.81,no evidence of recent burn,9,10,8,16,10.75,11,PINALB,ABILAS,2,North Sapphires
+1028,7/29/2015,RD LS,46.45114,-113.68591,0,RX2,SWP,310,2430.12,no visible recent burn evidence,6,10,16,6,9.5,22,PINCON,PINALB,2,North Sapphires
+1034,7/28/2015,MD,46.50418,-113.74872,0,RX1,FMC,241,1634.93,0,23,24,24,24,23.75,15,PSEMEN,PINPON,3,North Sapphires
+1035,7/28/2015,MD,46.5065,-113.75257,0,RX1,FMC,215,1690.68,0,15,14,13,24,16.5,5,PSEMEN,PINPON,3,North Sapphires
+1036,7/17/2015,"LS,EF,KB",46.55299,-113.8561,0,RX2,FMC,260,1749.16,0,9,12,7,17,11.25,15,PSEMEN,PINPON,2,North Sapphires
+1037,7/17/2015,LS,46.55295,-113.8577,0,RX2,FMC,234,1706.46,0,7,12,2,4,6.25,9,PINPON,PSEMEN,1,North Sapphires
+1038,7/17/2015,"EF, KB",46.55197,-113.85443,0,RX2,FMC,180,1731.27,0,8,9,7,9,8.25,5,PSEMEN,PINPON,3,North Sapphires
+1039,7/17/2015,"EF, KB",46.5524,-113.85568,0,RX2,FMC,232,1755.86,0,17,10,7,15,12.25,7,PSEMEN,PINPON,3,North Sapphires
+1040,7/17/2015,LS,46.55205,-113.85761,0,RX2,FMC,231,1679.91,0,14,4,7,8,8.25,21,PINPON,PSEMEN,2,North Sapphires
+1041,8/13/2015,EF,46.16954,-113.95236,0,RX2,FMC,50,1524.84,plot moved upslope for navigation safety - very steep!,7,8,2,1,4.5,9,PINPON,PSEMEN,4,South Bitterroot
+1042,8/13/2015,LS,46.17253,-113.95476,0,RX2,FMC,250,1599.68,0,14,8,7,10,9.75,15,PSEMEN,PINPON,4,South Bitterroot
+1043,8/13/2015,LS,46.17142,-113.95269,0,RX2,FMC,354,1549.51,0,12,14,13,14,13.25,22,PSEMEN,0,3,South Bitterroot
+1044,8/13/2015,"LS,EF",46.17376,-113.95651,0,RX2,FMC,320,1642.6,0,11,16,24,14,16.25,4,PINPON,PSEMEN,4,South Bitterroot
+1045,8/13/2015,EF,46.17096,-113.95475,0,RX2,FMC,230,1592.9,0,6,9,17,10,10.5,12,PINPON,PSEMEN,3,South Bitterroot
+1046,8/4/2015,LS,46.43477,-113.8822,0,RX2,MFLP,116,1996.71,0,18,12,20,18,17,16,PINCON,PSEMEN,2,North Sapphires
+1047,8/4/2015,LS,46.43317,-113.88142,0,RX2,MFLP,162,1963.13,0,21,15,9,7,13,19,PINCON,PSEMEN,3,North Sapphires
+1048,8/4/2015,EF,46.43445,-113.87841,0,RX2,MFLP,150,1967.06,0,15,21,18,19,18.25,19,PINCON,PSEMEN,2,North Sapphires
+1049,8/4/2015,EF,46.43217,-113.87627,0,RX2,MFLP,220,1923.14,0,20,21,20,15,19,17,PINCON,PSEMEN,2,North Sapphires
+1051,8/24/2015,"JM, LG",46.73847,-113.74313,0,RX 1,FMC,29,1480.63,0,0,0,2,0,0.5,1,PSEMEN,0,2,North Sapphires
+1052,8/24/2015,LS,46.73826,-113.74399,0,RX1,FMC,38,1208.92,0,0,0,0,0,0,1,PINPON,0,3,North Sapphires
+1053,8/24/2015,JM,46.73917,-113.74344,0,RX 1,FMC,95,1371.92,Moved plot due to very steep access.,0,0,2,3,1.25,0,PSEMEN,0,2,North Sapphires
+1055,8/24/2015,LS,46.73906,-113.74414,0,RX1,FMC,71,1396.29,0,0,0,0,0,0,1,PINPON,0,3,North Sapphires
+1057,7/27/2015,LS,46.41428,-113.6487,0,RX2,MFDSF,30,2223.62,0,10,12,15,16,13.25,8,ABILAS,PINCON,2,North Sapphires
+1059,7/27/2015,"MD,JM",46.41322,-113.65273,0,RX2,MFDSF,322,2252.97,0,24,23,24,22,23.25,22,ABILAS,PINCON,2,North Sapphires
+1061,7/29/2015,"MD, JM",46.44749,-113.68022,0,RX2,SWP,113,2365.1,0,21,14,19,21,18.75,10,ABILAS,PINALB,2,North Sapphires
+1063,7/29/2015,JM,46.4474,-113.67847,0,RX2,SWP,72,2273.41,0,20,20,16,20,19,11,ABILAS,PINALB,2,North Sapphires
+1065,7/29/2015,MD,46.44672,-113.67832,0,RX2,SWP,92,2296,0,21,19,20,23,20.75,7,ABILAS,PINALB,2,North Sapphires
+1071,8/26/2015,EF,46.46227,-113.76657,0,RX1,FMC,220,1743.34,plot moved,7,7,13,17,11,6,PSEMEN,PINPON,4,North Sapphires
+1072,8/26/2015,MD,46.45983,-113.76781,0,RX1,FMC,163,1775.01,0,6,5,9,24,11,7,PSEMEN,PINPON,3,North Sapphires
+1073,8/26/2015,EF,46.45919,-113.76843,0,RX1,FMC,115,1841.77,plot moved,7,12,8,12,9.75,9,PSEMEN,JUNSCO,2,North Sapphires
+1074,8/26/2015,MD,46.46082,-113.76708,0,RX1,FMC,171,1823.34,0,8,15,15,18,14,6,PINPON,PSEMEN,3,North Sapphires
+1075,8/26/2015,EF,46.46345,-113.76576,0,RX1,FMC,135,1706.71,plot moved,9,18,6,7,10,4,PSEMEN,PINPON,3,North Sapphires
+1076,7/30/2015,MD,46.51913,-113.72901,0,RX1,MFLP,223,1970.08,0,21,24,23,24,23,26,PINCON,PSEMEN,2,North Sapphires
+1078,7/30/2015,JM,46.51959,-113.72647,0,RX1,MFLP,187,2014.27,,16,12,21,15,16,11,PINCON,PSEMEN,2,North Sapphires
+1079,7/30/2015,LS,46.52,-113.72807,0,RX1,MFLP,236,2022.17,no evidence of burn,13,6,10,15,11,13,PINCON,PSEMEN,2,North Sapphires
+1080,7/30/2015,JM,46.51945,-113.72504,0,RX1,MFLP,190,2020.94,0,14,21,20,21,19,21,PINCON,0,2,North Sapphires
+1081,7/28/2015,LS,46.50681,-113.75902,0,RX1,FMC,204,1649.44,0,7,10,16,6,9.75,11,PINPON,PSEMEN,3,North Sapphires
+1082,7/28/2015,JM,46.50572,-113.75485,0,RX1,FMC,199,1638.79,0,12,6,6,2,6.5,8,PINPON,PSEMEN,3,North Sapphires
+1083,7/28/2015,LS,46.5064,-113.75729,0,RX1,FMC,202,1622.57,0,16,12,3,7,9.5,15,PINPON,PSEMEN,2,North Sapphires
+1084,7/28/2015,JM,46.50706,-113.75525,0,RX1,FMC,236,1705.33,0,9,13,16,17,13.75,9,PINPON,PSEMEN,2,North Sapphires
+1085,7/28/2015,JM,46.50443,-113.75744,0,RX1,FMC,185,1509.17,0,7,2,6,11,6.5,10,PSEMEN,PINPON,2,North Sapphires
+1086,8/3/2015,JM,46.76756,-113.72868,0,RX1,FMC,49,1190.68,0,15,17,19,20,17.75,6,PINPON,PSEMEN,2,North Sapphires
+1087,8/3/2015,EF,46.76617,-113.72401,0,RX1,FMC,125,1109.11,Plot moved 60' to be fully within RX1 HT.,1,1,2,11,3.75,2,PSEMEN,PINPON,2,North Sapphires
+1088,8/3/2015,EF,46.76758,-113.72476,0,RX1,FMC,60,1134.81,0,16,11,9,9,11.25,7,PSEMEN,PINPON,2,North Sapphires
+1089,8/3/2015,"EF, JM",46.76721,-113.72686,0,RX1,FMC,90,1160.58,0,14,16,10,10,12.5,9,PSEMEN,PINPON,2,North Sapphires
+1090,8/3/2015,JM,46.76882,-113.72728,0,RX1,FMC,166,1163.08,0,9,5,15,21,12.5,9,PINPON,0,3,North Sapphires
+1091,8/7/2015,MD,46.77219,-113.73559,0,RX1,FMC,38,1207.91,"compared to 1092, there isn't any evidence of a burn",20,24,24,24,23,14,PSEMEN,LAROCC,2,North Sapphires
+1092,8/7/2015,MD,46.77132,-113.73527,0,RX1,FMC,20,1223.36,0,24,17,24,18,20.75,7,PSEMEN,PINPON,3,North Sapphires
+1093,8/7/2015,EF,46.77135,-113.73388,0,RX1,FMC,10,1213.87,plot moved to be fully within burn boundary,7,6,5,4,5.5,6,PSEMEN,PINPON,2,North Sapphires
+1094,8/7/2015,EF,46.77153,-113.73269,0,RX1,FMC,40,1198.8,0,12,19,18,12,15.25,8,PSEMEN,LAROCC,2,North Sapphires
+1095,8/7/2015,"EF, MD",46.76889,-113.73139,0,RX1,FMC,35,1212.43,0,6,22,18,16,15.5,10,PINPON,PSEMEN,3,North Sapphires
+1096,8/11/2015,"EF, LS",45.81474,-114.27979,0,RX2,FMC,140,1549.72,plot moved 30' off old road,18,19,13,12,15.5,12,PINPON,PSEMEN,2,South Bitterroot
+1097,8/11/2015,EF,45.81618,-114.28146,0,RX2,FMC,130,1614.86,0,4,8,1,1,3.5,5,PSEMEN,PINPON,3,South Bitterroot
+1098,8/11/2015,LS,45.81254,-114.27837,0,RX2,FMC,185,1482.19,0,19,9,19,14,15.25,11,PSEMEN,PINPON,3,South Bitterroot
+1099,8/11/2015,EF,45.81361,-114.28311,0,RX2,FMC,180,1568.97,0,4,9,20,8,10.25,9,PSEMEN,PINPON,3,South Bitterroot
+1100,8/11/2015,LS,45.81101,-114.28016,0,RX2,FMC,275,1438.38,no weights documented for clip plots due to rain.,7,7,12,11,9.25,12,PSEMEN,PINPON,3,South Bitterroot
+1101,8/11/2015,"JM, MD",45.81963,-114.27502,0,RX1,FMC,124,1605.33,0,8,19,13,14,13.5,8,PINPON,PSEMEN,3,South Bitterroot
+1102,8/11/2015,MD,45.82174,-114.27261,0,RX1,FMC,134,1635.71,0,15,16,8,20,14.75,16,PINCON,PSEMEN,3,South Bitterroot
+1103,8/11/2015,JM,45.81951,-114.26773,0,RX1,FMC,82,1490.82,0,11,4,11,8,8.5,3,PINPON,PSEMEN,2,South Bitterroot
+1104,8/11/2015,JM,45.82141,-114.27317,0,RX1,FMC,204,1623.18,0,12,9,6,21,12,13,PINPON,PSEMEN,3,South Bitterroot
+1105,8/11/2015,MD,45.82006,-114.27076,0,RX1,FMC,171,1560.06,no weights for samples-wet,19,13,23,9,16,11,PINPON,PSEMEN,3,South Bitterroot
+1200,7/16/2015,"LS, JM",46.67586,-114.00526,0,DA,0,238,1203.5,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1201,7/16/2015,MD,46.67507,-114.00693,0,DA,0,327,1194.27,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1202,7/16/2015,LS,46.69481,-114.02106,0,DA,0,232,1156.38,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1203,7/16/2015,MD,46.69595,-114.02146,0,DA,0,263,1157.36,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1204,7/16/2015,JM,46.69637,-114.02289,0,DA,0,250,1142.27,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1205,7/16/2015,"LS, MD",46.6951,-114.02276,0,DA,0,238,1135.68,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1206,7/16/2015,JM,46.69736,-114.02206,0,DA,0,276,1153.3,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1207,7/31/2015,MD,46.70684,-114.03217,0,DA,0,283,1081.14,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1208,7/31/2015,MD,46.7061,-114.03335,0,DA,0,259,1068.21,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1209,7/31/2015,MD,46.70509,-114.03422,0,DA,0,268,1056.43,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1210,8/27/2015,EF,46.70617,-114.03466,0,DA,0,284,1045.54,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1211,8/27/2015,LS,46.70494,-114.03242,0,DA,0,272,1087.36,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1212,7/21/2015,LS,46.48051,-113.94422,0,DA,GLM,316,1416.23,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1213,7/21/2015,"LS, MD",46.47941,-113.94303,0,DA,GLM,294,1423.38,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1214,7/21/2015,LS,46.48006,-113.94714,0,DA,GLM,275,1399.68,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1215,7/21/2015,MD,46.47782,-113.94644,0,DA,GLM,291,1404.52,plot moved out of sage brush,0,0,0,0,0,0,0,0,0,North Sapphires
+1216,7/21/2015,MD,46.47841,-113.94465,0,DA,GLM,297,1415.44,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1217,7/31/2015,LS,46.48507,-113.94688,0,DA,0,297,1392.4,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1218,7/31/2015,EF,46.48972,-113.94481,0,DA,0,280,1405.64,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1219,7/31/2015,LS,46.48823,-113.94223,0,DA,0,257,1441.08,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1220,7/31/2015,EF,46.48859,-113.94427,0,DA,0,280,1423.45,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1221,7/31/2015,LS,46.48534,-113.94415,0,DA,0,284,1412.64,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1227,7/22/2015,"MD, JM",46.71213,-114.03623,0,DA,0,269,1017.03,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1228,7/22/2015,MD,46.71537,-114.03191,0,DA,0,211,1084.89,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1229,7/22/2015,JM,46.71447,-114.03476,0,DA,0,216,1046.92,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1230,7/22/2015,MD,46.71962,-114.03295,0,DA,0,280,1078.18,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1231,7/22/2015,JM,46.72213,-114.03445,0,DA,0,297,1057.15,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1241,8/5/2015,EF,46.68063,-114.03706,0,IA,0,300,988.48,,0,0,0,0,0,0,0,0,0,North Sapphires
+1242,8/5/2015,EF,46.68016,-114.03416,0,IA,0,300,993.34,,0,0,0,0,0,0,0,0,0,North Sapphires
+1243,8/5/2015,EF,46.68143,-114.03297,0,IA,0,300,995.19,,0,0,0,0,0,0,0,0,0,North Sapphires
+1245,8/31/2015,JM,46.57967,-113.96089,0,IA,0,flat,1114.87,Recently harvested.,0,0,0,0,0,0,0,0,0,North Sapphires
+1246,8/31/2015,LS,46.57936,-113.95898,0,IA,0,FLAT,1118.58,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1247,8/24/2015,EF,46.59946,-113.93914,0,IA,0,220,1172.18,"this field has NOT recently been mowed. same MEDSAT/DACGLO mix as 1249, but these clip plots have biomass. also spoke with the owner and he said they make a point to chase the elk out of here. :)",0,0,0,0,0,0,0,0,0,North Sapphires
+1248,8/24/2015,MD,46.59611,-113.9437,0,IA,0,FLAT,1160.65,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1249,8/24/2015,"MD, EF",46.60378,-113.93877,0,IA,0,FLAT,1197.89,"field has been cut for the season, clip plots not at full biomass",0,0,0,0,0,0,0,0,0,North Sapphires
+1250,8/24/2015,MD,46.59833,-113.94372,0,IA,0,FLAT,1173.78,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1251,8/24/2015,EF,46.60011,-113.94244,0,IA,0,210,1181.15,plot not cut,0,0,0,0,0,0,0,0,0,North Sapphires
+1252,8/31/2015,"JM, LS",46.5778,-113.96169,0,IA,0,flat,1115.71,Field will be heavily grazed in a few weeks.,0,0,0,0,0,0,0,0,0,North Sapphires
+1254,8/3/2015,LS,46.54859,-113.95792,0,IA,0,FLAT,1137.46,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1256,8/3/2015,LS,46.5468,-113.95878,0,IA,0,FLAT,1136.17,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1257,8/3/2015,LS,46.54859,-113.96088,0,IA,0,FLAT,1129.1,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1258,8/27/2015,MD,46.59108,-113.94801,0,IA,0,FLAT,1146.71,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1259,8/27/2015,JM,46.59225,-113.95035,0,IA,0,flat,1152.86,Field was very recently cut.,0,0,0,0,0,0,0,0,0,North Sapphires
+1260,8/17/2015,LS,46.46897,-113.94883,0,IA,0,FLAT,1272.91,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1261,8/17/2015,JM,46.46987,-113.94937,0,IA,0,flat,1271.86,very recently harvested.,0,0,0,0,0,0,0,0,0,North Sapphires
+1262,8/17/2015,JM,46.46938,-113.94449,0,IA,0,flat,1280.25,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1263,8/17/2015,JM,46.47165,-113.95267,0,IA,0,flat,1265.21,very recently harvested.,0,0,0,0,0,0,0,0,0,North Sapphires
+1264,8/17/2015,LS,46.46817,-113.94474,0,IA,0,FLAT,1282.18,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1265,8/27/2015,LS,46.47218,-113.95188,0,IA,0,FLAT,1267.65,0,0,0,0,0,0,0,0,0,0,North Sapphires
+1266,8/27/2015,EF,46.47161,-113.95116,0,IA,0,flat,1268.37,fields cut. biomass will be less.,0,0,0,0,0,0,0,0,0,North Sapphires
+1267,8/27/2015,"EF, LS",46.46828,-113.94315,0,IA,0,flat,1284.39,fields have been cut,0,0,0,0,0,0,0,0,0,North Sapphires
+1268,8/31/2015,JM,46.4694,-113.94531,0,IA,0,flat,1279.61,Recently cut.,0,0,0,0,0,0,0,0,0,North Sapphires
+1269,8/31/2015,LS,46.4664,-113.94285,0,IA,0,flat,1287.66,0,0,0,0,0,0,0,0,0,0,North Sapphires
+5325,8/5/2015,MD,46.73476,-114.04418,0,GLM,0,291,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+5326,8/5/2015,MD,46.7313,-114.04746,0,GLM,0,FLAT,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+5340,8/7/2015,LS,46.84105,-113.95497,0,GLM,0,144,0,0,0,0,0,0,0,1,PINPON,0,2,North Sapphires
+5344,8/7/2015,LS,46.84121,-113.96618,0,GLM,0,200,0,0,0,0,0,0,0,0,0,0,0,North Sapphires
+5364,8/6/2015,EF,46.53951,-113.90578,0,GUM,0,215,0,0,0,10,0,0,2.5,1,PINPON,0,3,North Sapphires
+5367,8/6/2015,EF,46.54042,-113.90758,0,GUM,0,220,0,0,0,0,0,0,0,0,PINPON,0,2,North Sapphires

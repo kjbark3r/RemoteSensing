@@ -1,7 +1,7 @@
 ########################################################
 ###### COMPARING GROUND-BASED VEGETATION MEASURES ###### 
 ######### TO REMOTELY SENSED VEGETATION INDICES ######## 
-############ NSERP KJB  July 2016  #####################
+############# NSERP KJB  Jul-Aug 2016  #################
 ########################################################
 
 ## WD
@@ -25,23 +25,23 @@ library(tidyr) #gather
 ## DATA
 
 # remote sensing
-remote <- read.csv(file = "NSERP_AllPlots_NDVI-EVI.csv", as.is = TRUE) 
+remote <- read.csv(file = "NSERP_AllPlots_NDVI-EVI.csv", as.is = TRUE) %>%
+  filter(Type == "Biomass" | Type == "Phenology")
 remote$Date <- as.Date(as.POSIXct((remote$Date+21600000)/1000, origin="1970-01-01", tz = "UTC"))
 remote$PlotVisit <- paste(remote$PlotID, ".", remote$Date, sep = "")
 
-# herbaceous biomass at phenology plots
-phenology <- read.csv(file = "biomass-phenology.csv", as.is = TRUE)
-  phenology$VisitDate <- as.POSIXlt(phenology$Date)
-  phenology$VisitDOY <- phenology$VisitDate$yday 
-  phenology$VisitDate <- as.POSIXct(phenology$VisitDate)
-  phenology <- select(phenology, -c(PlotID, Date))
+# biomass estimations from all vegetation plots
+veg <- read.csv(file = "biomass.csv", as.is = TRUE)
+  veg$VisitDate <- as.POSIXlt(veg$Date)
+  veg$VisitDOY <- veg$VisitDate$yday 
+  veg$VisitDate <- as.POSIXct(veg$VisitDate)
+  veg <- select(veg, -c(PlotID, Date))
 
 # ndvi, long form
 ndvi <- remote %>%
-  filter(Type == "Phenology") %>%
   select(PlotVisit, starts_with("ndvi."), starts_with("doy.")) %>%
   gather(RemoteDate, NDVI, -PlotVisit)
-ndvi$VisitDate <- as.POSIXlt(substr(ndvi$PlotVisit, 5, 14))
+ndvi$VisitDate <- as.POSIXlt(sub("(.*)[.](.*)", "\\2", ndvi$PlotVisit))
 ndvi$VisitDOY <- ndvi$VisitDate$yday  
 ndvi$VisitDate <- as.POSIXct(ndvi$VisitDate)
 ndvi$RemoteDate <- as.POSIXlt(substr(ndvi$RemoteDate, 6, 13), format = "%Y%m%d")
@@ -56,10 +56,9 @@ ndvi <- ndvi %>%
 
 # evi, long form
 evi <- remote %>%
-  filter(Type == "Phenology") %>%
   select(PlotVisit, starts_with("evi."), starts_with("doy.")) %>%
   gather(RemoteDate, EVI, -PlotVisit)
-evi$VisitDate <- as.POSIXlt(substr(evi$PlotVisit, 5, 14))
+evi$VisitDate <- as.POSIXlt(sub("(.*)[.](.*)", "\\2", evi$PlotVisit))
 evi$VisitDOY <- evi$VisitDate$yday  
 evi$VisitDate <- as.POSIXct(evi$VisitDate)
 evi$RemoteDate <- as.POSIXlt(substr(evi$RemoteDate, 5, 12), format = "%Y%m%d")
@@ -73,69 +72,79 @@ evi <- evi %>%
   ungroup() %>%
   subset(select = c(PlotVisit, EVI))
 
-latlong <- read.csv(file = "NSERP_AllPlots.csv")
+latlong <- read.csv(file = "NSERP_VegPlots.csv")
 latlong$Date <- as.Date(latlong$Date, format = "%m/%d/%Y")
 latlong <- latlong %>%
-  subset(Type == "Phenology") %>%
   mutate(PlotVisit = paste(PlotID, ".", Date, sep="")) %>%
   select(PlotVisit, Latitude, Longitude)
   
-remote.phen <- full_join(ndvi, evi, by = "PlotVisit") %>%
+remote.veg <- full_join(ndvi, evi, by = "PlotVisit") %>%
   select(-c(VisitDate, VisitDOY)) %>%
-  full_join(phenology, by = "PlotVisit") %>%
-  select(PlotVisit, VisitDate, VisitDOY, RemoteDOY, doydiff, NDVI, EVI,
-         ForbBiomass, ForageForbBiomass, GrassBiomass, ForageGrassBiomass, 
-         HerbBiomass, ForageHerbBiomass) %>%
+  full_join(veg, by = "PlotVisit") %>%
   full_join(latlong, by = "PlotVisit")
+
+# remove "outliers" (a.k.a. huge sagebrush)
+no.out <- remote.veg[!remote.veg$PlotVisit == "401.2014-07-18",]
+no.out <- no.out[!no.out$PlotVisit == "376.2014-07-17",]
 
 ## RELATIONSHIPS
 
 ## visualizations
 
-plot(HerbBiomass ~ NDVI, data = remote.phen)
-# yeesh
+plot(Biomass ~ NDVI, data = remote.veg)
+# yeesh. remove sagebrush just for now.
+par(mfrow=c(2,2))
+plot(Biomass ~ NDVI, data = no.out)
+plot(ForageBiomass ~ NDVI, data = remote.veg)
+plot(Biomass ~ EVI, data = no.out)
+plot(ForageBiomass ~ EVI, data = remote.veg)
 
 par(mfrow=c(2,2))
-hist(remote.phen$NDVI)
-hist(remote.phen$EVI)
-hist(remote.phen$HerbBiomass)
-hist(remote.phen$ForageHerbBiomass)
-  #biomass measures are right-skewed
-  #transforming...
-    par(mfrow=c(2,1))
-    hist(sqrt(remote.phen$HerbBiomass))
-    hist(sqrt(remote.phen$ForageHerbBiomass))
+hist(remote.veg$NDVI)
+hist(remote.veg$EVI)
+hist(no.out$Biomass)
+hist(remote.veg$ForageBiomass)
 
-##NDVI
-plot(sqrt(HerbBiomass) ~ NDVI, data = remote.phen)
-plot(sqrt(ForageHerbBiomass) ~ NDVI, data = remote.phen)
+#transforming...
+hist(remote.veg$NDVI)
+hist(sqrt(remote.veg$NDVI))
+  #meh, regular data's probably ok here
+hist(log(remote.veg$EVI))
+hist(sqrt(remote.veg$EVI))
+hist(1/sqrt(remote.veg$EVI))
+hist(-1/sqrt(remote.veg$EVI))
+  #ok apparently i should use the negative version
+  #bc it preserves the direction of relationships
 
-plot(sqrt(ForbBiomass) ~ NDVI, data = remote.phen)
-plot(sqrt(ForageForbBiomass) ~ NDVI, data = remote.phen)
+hist(no.out$Biomass)
+hist(log(no.out$Biomass))
+hist(remote.veg$ForageBiomass)
+hist(log(remote.veg$ForageBiomass))    
+  #ahh, beautiful
 
-plot(sqrt(GrassBiomass) ~ NDVI, data = remote.phen)
-plot(sqrt(ForageGrassBiomass) ~ NDVI, data = remote.phen)
+# FINAL TRANSFORMATIONS #
+par(mfrow=c(2,2))
+hist(remote.veg$NDVI)
+hist(-1/sqrt(remote.veg$EVI))
+hist(log(no.out$Biomass))
+hist(log(remote.veg$ForageBiomass)) 
 
+# plots with transformed data
+par(mfrow=c(2,2))
+plot(log(Biomass) ~ NDVI, data = no.out)
+plot(log(ForageBiomass) ~ NDVI, data = remote.veg)
+plot(Biomass ~ -1/sqrt(EVI), data = no.out)
+plot(log(ForageBiomass) ~ -1/sqrt(EVI), data = remote.veg)
 
-##EVI
-plot(sqrt(HerbBiomass) ~ EVI, data = remote.phen)
-plot(sqrt(ForageHerbBiomass) ~ EVI, data = remote.phen)
-
-plot(sqrt(ForbBiomass) ~ EVI, data = remote.phen)
-plot(sqrt(ForageForbBiomass) ~ EVI, data = remote.phen)
-
-plot(sqrt(GrassBiomass) ~ EVI, data = remote.phen)
-plot(sqrt(ForageGrassBiomass) ~ EVI, data = remote.phen)
 
 ## regressions
 
 ##NDVI
-herb <- lm(sqrt(HerbBiomass) ~ NDVI, data=remote.phen); summary(herb)
-  herb.for <- lm(sqrt(ForageHerbBiomass) ~ NDVI, data=remote.phen); summary(herb.for)
-forb <- lm(sqrt(ForbBiomass) ~ NDVI, data=remote.phen); summary(forb)
-  forb.for <- lm(sqrt(ForageForbBiomass) ~ NDVI, data=remote.phen); summary(forb.for)
-grass <- lm(sqrt(GrassBiomass) ~ NDVI, data=remote.phen); summary(grass)
-  grass.for <- lm(sqrt(ForageGrassBiomass) ~ NDVI, data=remote.phen); summary(grass.for)
+all.bio <- lm(log(Biomass) ~ NDVI, data=no.out); summary(all.bio)
+for.bio <- lm(log(ForageBiomass+.05) ~ NDVI, data=remote.veg); summary(for.bio)
+# wow, forage biomass is way worse than all biomass
+
+
   
 lm1 <- c(herb$coefficients[1], summary(herb)$adj.r.squared, summary(herb)$sigma)
 lm2 <- c(herb.for$coefficients[1], summary(herb.for)$adj.r.squared, summary(herb.for)$sigma)
@@ -247,16 +256,3 @@ names(Cand.set) <- c("EVI",
                      "EVI+Elevm+LandCov")
 aictable <- aictab(Cand.set, second.ord=TRUE)
 aicresults <- print(aictable, digits = 2, LL = FALSE)
-
-
-
-
-
-
-
-
-
-
-
-
-
