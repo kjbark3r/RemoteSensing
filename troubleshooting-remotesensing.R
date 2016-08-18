@@ -356,6 +356,25 @@ plot(log(ForageBiomass + 0.005) ~ NDVI, data = remote.veg)
 # picked this bc didn't make the data look very different from original
 # but wasn't such a high number as 0.1 which just seems super big
 
+
+########
+#### verifying the different number of plots
+#### between nute (gdm) and biomass analyses are correct
+########
+
+setdiff(bio$PlotVisit, nute$PlotVisit)
+#[1] "1242.2015-08-05" "290.2014-08-14"  "292.2014-08-14"  "608.2014-08-18"  "931.2014-07-16"
+#"1242.2015-08-05" - correct
+#"290.2014-08-14" - correct 
+#"292.2014-08-14" - correct
+#"608.2014-08-18"  - correct
+#"931.2014-07-16" - correct
+##for all these plots, either the species were ided as forage by the lab but were >95 cumave
+##or the forage plants didn't occur in the quadrats with clip plots
+
+
+######################################################
+
 ########
 #### DELETED CODE
 ########
