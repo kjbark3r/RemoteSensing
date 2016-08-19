@@ -19,115 +19,120 @@ wd_laptop <- "C:\\Users\\kjbark3r\\Documents\\GitHub\\RemoteSensing"
 rm(wd_workcomp, wd_laptop)
 
 ## PACKAGES
+
 library(dplyr)
 library(tidyr) #gather
 
 ## DATA
+
 bio <- read.csv("biomass-plot.csv")
 nute <- read.csv("gdm-plot.csv")
 rmt <- read.csv("remote-plot.csv")
 
+## COMBINED DATA
 
-###########################
-#### OLDER CODE TO UPDATE
-###########################
+veg <- full_join(bio, nute, by="PlotVisit") %>%
+  rename(VisitDate = Date) %>%
+  select(PlotVisit, PlotID, VisitDate, Biomass, ForageBiomass, GDM)
 
-## RELATIONSHIPS
+rmt.veg <- full_join(veg, rmt, by = "PlotVisit") 
+# remove "outliers" (2 huge sagebrush)
+rmt.veg <- rmt.veg[!rmt.veg$PlotVisit == "401.2014-07-18",]
+rmt.veg <- rmt.veg[!rmt.veg$PlotVisit == "376.2014-07-17",]
 
-## visualizations
+# check for NAs
+#rmt.veg[rmt.veg$NDVI %in% NA,] #nope
+#rmt.veg[rmt.veg$EVI %in% NA,] #nope
+#rmt.veg[rmt.veg$Biomass %in% NA,] #nope
+#rmt.veg[rmt.veg$GDM %in% NA,] #yup
+rmt.veg$GDM[is.na(rmt.veg$GDM)] <- 0 #make them 0s
 
-plot(Biomass ~ NDVI, data = remote.veg)
-# yeesh. remove sagebrush just for now.
+## VISUALIZATIONS
+
+# distributions (raw)
 par(mfrow=c(2,2))
-plot(Biomass ~ NDVI, data = no.out)
-plot(ForageBiomass ~ NDVI, data = remote.veg)
-plot(Biomass ~ EVI, data = no.out)
-plot(ForageBiomass ~ EVI, data = remote.veg)
+hist(rmt.veg$NDVI)
+hist(rmt.veg$EVI)
+hist(rmt.veg$Biomass)
+hist(rmt.veg$GDM)
 
+# transformations
 par(mfrow=c(2,2))
-hist(remote.veg$NDVI)
-hist(remote.veg$EVI)
-hist(no.out$Biomass)
-hist(remote.veg$ForageBiomass)
+hist(log(rmt.veg$Biomass))
+hist(log(rmt.veg$ForageBiomass))
+hist(rmt.veg$GDM)
+hist(log(rmt.veg$GDM))
 
-#transforming...
-hist(remote.veg$NDVI)
-hist(sqrt(remote.veg$NDVI))
-  #meh, regular data's probably ok here
-hist(log(remote.veg$EVI))
-hist(sqrt(remote.veg$EVI))
-hist(1/sqrt(remote.veg$EVI))
-hist(-1/sqrt(remote.veg$EVI))
-  #ok apparently i should use the negative version
-  #bc it preserves the direction of relationships
-
-hist(no.out$Biomass)
-hist(log(no.out$Biomass))
-hist(remote.veg$ForageBiomass)
-hist(log(remote.veg$ForageBiomass))    
-  #ahh, beautiful
-
-# FINAL TRANSFORMATIONS #
+# transformed distributions
 par(mfrow=c(2,2))
-hist(remote.veg$NDVI)
-hist(-1/sqrt(remote.veg$EVI))
-hist(log(no.out$Biomass))
-hist(log(remote.veg$ForageBiomass)) 
+hist(rmt.veg$NDVI)
+hist(rmt.veg$EVI)
+hist(log(rmt.veg$Biomass))
+hist(log(rmt.veg$GDM)) 
 
-# plots with transformed data
+# relationships
 par(mfrow=c(2,2))
-plot(log(Biomass) ~ NDVI, data = no.out)
-plot(log(ForageBiomass) ~ NDVI, data = remote.veg)
-plot(Biomass ~ -1/sqrt(EVI), data = no.out)
-plot(log(ForageBiomass) ~ -1/sqrt(EVI), data = remote.veg)
+plot(log(Biomass) ~ NDVI, data = rmt.veg)
+plot(log(GDM) ~ NDVI, data = rmt.veg)
+plot(log(Biomass) ~ EVI, data = rmt.veg)
+plot(log(GDM) ~ EVI, data = rmt.veg)
 
+## REGRESSIONS
 
-## regressions
+bio.ndvi <- lm(log(Biomass) ~ NDVI, data=rmt.veg); summary(bio.ndvi)
+bio.evi <- lm(log(Biomass) ~ EVI, data=rmt.veg); summary(bio.evi)
+for.ndvi <- lm(log(ForageBiomass+0.05) ~ NDVI, data=rmt.veg); summary(for.ndvi)
+for.evi <- lm(log(ForageBiomass+0.05) ~ EVI, data=rmt.veg); summary(for.evi)
+gdm.ndvi <- lm(log(GDM+0.05) ~ NDVI, data=rmt.veg); summary(gdm.ndvi)
+gdm.evi <- lm(log(GDM+0.05) ~ EVI, data=rmt.veg); summary(gdm.evi)
 
-##NDVI
-all.bio <- lm(log(Biomass) ~ NDVI, data=no.out); summary(all.bio)
-for.bio <- lm(log(ForageBiomass+.05) ~ NDVI, data=remote.veg); summary(for.bio)
-# wow, forage biomass is way worse than all biomass
-
-
-  
-lm1 <- c(herb$coefficients[1], summary(herb)$adj.r.squared, summary(herb)$sigma)
-lm2 <- c(herb.for$coefficients[1], summary(herb.for)$adj.r.squared, summary(herb.for)$sigma)
-lm3 <- c(forb$coefficients[1], summary(forb)$adj.r.squareforb, summary(forb)$sigma)
-lm4 <- c(forb.for$coefficients[1], summary(forb.for)$adj.r.squared, summary(forb.for)$sigma)
-lm5 <- c(grass$coefficients[1], summary(grass)$adj.r.squared, summary(grass)$sigma)
-lm6 <- c(grass.for$coefficients[1], summary(grass.for)$adj.r.squared, summary(grass.for)$sigma)
+lm1 <- c(bio.ndvi$coefficients[1], summary(bio.ndvi)$adj.r.squared, summary(bio.ndvi)$sigma)
+lm2 <- c(bio.evi$coefficients[1], summary(bio.evi)$adj.r.squared, summary(bio.evi)$sigma)
+lm3 <- c(for.ndvi$coefficients[1], summary(for.ndvi)$adj.r.squared, summary(for.ndvi)$sigma)
+lm4 <- c(for.evi$coefficients[1], summary(for.evi)$adj.r.squared, summary(for.evi)$sigma)
+lm5 <- c(gdm.ndvi$coefficients[1], summary(gdm.ndvi)$adj.r.squared, summary(gdm.ndvi)$sigma)
+lm6 <- c(gdm.evi$coefficients[1], summary(gdm.evi)$adj.r.squared, summary(gdm.evi)$sigma)
 
 tprep <- rbind(lm1, lm2, lm3, lm4, lm5, lm6)
-tab <- as.data.frame(tprep, row.names = c("All Herb", "Forage Herb", "All Forb", "Forage Forb", 
-                         "All Grass", "Forage Grass"))
+tab <- as.data.frame(tprep, row.names = c("Biomass-NDVI", "Biomass-EVI", "ForageBiomass-NDVI",
+                                          "ForageBiomass-EVI", "GDM-NDVI", "GDM-EVI"))
 #tab <- rename(tab, NDVIcoeff = NDVI)
 tab <- rename(tab, AdjRsquared = V2)
 tab <- rename(tab, StdError = V3)
 View(tab)
 
-##EVI
-herb <- lm(sqrt(HerbBiomass) ~ EVI, data=remote.phen); summary(herb)
-  herb.for <- lm(sqrt(ForageHerbBiomass) ~ EVI, data=remote.phen); summary(herb.for)
-forb <- lm(sqrt(ForbBiomass) ~ EVI, data=remote.phen); summary(forb)
-  forb.for <- lm(sqrt(ForageForbBiomass) ~ EVI, data=remote.phen); summary(forb.for)
-grass <- lm(sqrt(GrassBiomass) ~ EVI, data=remote.phen); summary(grass)
-  grass.for <- lm(sqrt(ForageGrassBiomass) ~ EVI, data=remote.phen); summary(grass.for)
-  
-lm1 <- c(herb$coefficients[1], summary(herb)$adj.r.squared, summary(herb)$sigma)
-lm2 <- c(herb.for$coefficients[1], summary(herb.for)$adj.r.squared, summary(herb.for)$sigma)
-lm3 <- c(forb$coefficients[1], summary(forb)$adj.r.squareforb, summary(forb)$sigma)
-lm4 <- c(forb.for$coefficients[1], summary(forb.for)$adj.r.squared, summary(forb.for)$sigma)
-lm5 <- c(grass$coefficients[1], summary(grass)$adj.r.squared, summary(grass)$sigma)
-lm6 <- c(grass.for$coefficients[1], summary(grass.for)$adj.r.squared, summary(grass.for)$sigma)
+## AIC 
 
-tprep <- rbind(lm1, lm2, lm3, lm4, lm5, lm6)
-tab2 <- as.data.frame(tprep, row.names = c("All Herb", "Forage Herb", "All Forb", "Forage Forb", 
-                         "All Grass", "Forage Grass"))
-#tab <- rename(tab, NDVIcoeff = NDVI)
-tab2 <- rename(tab2, AdjRsquared = V2)
-tab2 <- rename(tab2, StdError = V3)
-View(tab2)
+# ndvi or evi?
+
+library(AICcmodavg)
+Cand.set <- list( )
+Cand.set[[1]] <- lm(log(Biomass) ~ NDVI, data=rmt.veg)
+Cand.set[[2]] <- lm(log(Biomass) ~ EVI, data=rmt.veg)
+names(Cand.set) <- c("Biomass-NDVI", "Biomass-EVI")
+aictable <- aictab(Cand.set, second.ord=TRUE)
+aicresults <- print(aictable, digits = 2, LL = FALSE) #NDVI
+
+Cand.set[[1]] <- lm(log(ForageBiomass+0.05) ~ NDVI, data=rmt.veg)
+Cand.set[[2]] <- lm(log(ForageBiomass+0.05) ~ EVI, data=rmt.veg)
+names(Cand.set) <- c("ForageBiomass-NDVI", "ForageBiomass-EVI")
+aictable <- aictab(Cand.set, second.ord=TRUE)
+aicresults <- print(aictable, digits = 2, LL = FALSE) #NDVI
+
+Cand.set[[1]] <- lm(log(GDM+0.05) ~ NDVI, data=rmt.veg)
+Cand.set[[2]] <- lm(log(GDM+0.05) ~ EVI, data=rmt.veg)
+names(Cand.set) <- c("GDM-NDVI", "GDM-EVI")
+aictable <- aictab(Cand.set, second.ord=TRUE)
+aicresults <- print(aictable, digits = 2, LL = FALSE) #NDVI
+
+# which has best reln with ndvi (not sure this is valid mathematically...)
+
+Cand.set[[1]] <- lm(NDVI ~ log(Biomass+0.05), data=rmt.veg)
+Cand.set[[2]] <- lm(NDVI ~ log(ForageBiomass+0.05), data=rmt.veg)
+Cand.set[[3]] <- lm(NDVI ~ log(GDM+0.05), data=rmt.veg)
+names(Cand.set) <- c("Biomass", "ForageBiomass", "GDM")
+aictable <- aictab(Cand.set, second.ord=TRUE)
+aicresults <- print(aictable, digits = 2, LL = FALSE) #Biomass, of course
 
 ############
 ## ADDING ELEV AND LANDCOVER TO MODELS

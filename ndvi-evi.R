@@ -1,8 +1,7 @@
-########################################################
-###### COMPARING GROUND-BASED VEGETATION MEASURES ###### 
-######### TO REMOTELY SENSED VEGETATION INDICES ######## 
-############# NSERP KJB  Jul-Aug 2016  #################
-########################################################
+#####################################################
+###### DATA PREP - REMOTELY SENSED VEG INDICES ###### 
+############# NSERP KJB  Jul-Aug 2016  ##############
+#####################################################
 
 ## WD
 wd_workcomp <- "C:\\Users\\kristin.barker\\Documents\\GitHub\\RemoteSensing"
@@ -24,18 +23,11 @@ library(tidyr) #gather
 
 ## DATA
 
-# remote sensing
+# remotely sensed data -  raw file from Google Engine
 remote <- read.csv(file = "NSERP_AllPlots_NDVI-EVI.csv", as.is = TRUE) %>%
-  filter(Type == "Biomass" | Type == "Phenology")
+  filter(Type == "Biomass" | Type == "Phenology") # veg plots only
 remote$Date <- as.Date(as.POSIXct((remote$Date+21600000)/1000, origin="1970-01-01", tz = "UTC"))
 remote$PlotVisit <- paste(remote$PlotID, ".", remote$Date, sep = "")
-
-# biomass estimations from all vegetation plots
-veg <- read.csv(file = "biomass.csv", as.is = TRUE)
-  veg$VisitDate <- as.POSIXlt(veg$Date)
-  veg$VisitDOY <- veg$VisitDate$yday 
-  veg$VisitDate <- as.POSIXct(veg$VisitDate)
-  veg <- select(veg, -c(PlotID, Date))
 
 # ndvi, long form
 ndvi <- remote %>%
@@ -44,15 +36,25 @@ ndvi <- remote %>%
 ndvi$VisitDate <- as.POSIXlt(sub("(.*)[.](.*)", "\\2", ndvi$PlotVisit))
 ndvi$VisitDOY <- ndvi$VisitDate$yday  
 ndvi$VisitDate <- as.POSIXct(ndvi$VisitDate)
-ndvi$RemoteDate <- as.POSIXlt(substr(ndvi$RemoteDate, 6, 13), format = "%Y%m%d")
+ndvi$RemoteDate <- as.POSIXlt(sub("(.*)[.](.*)", "\\2", ndvi$RemoteDate), format = "%Y%m%d")
 ndvi$RemoteDOY <- ndvi$RemoteDate$yday
-ndvi$RemoteDate <- as.POSIXct(ndvi$RemoteDate)  
-ndvi <- ndvi %>%
+ndvi$RemoteDate <- as.POSIXct(ndvi$RemoteDate)
+ndvi14 <- ndvi %>%
+  filter(VisitDate < "2015-01-01", RemoteDate < "2015-01-01") %>%
   mutate(doydiff = abs(RemoteDOY-VisitDOY)) %>%
   group_by(PlotVisit) %>%
   arrange(doydiff) %>%
-  slice(which.min(doydiff)) %>%
-  ungroup()
+  slice(which.min(doydiff)) %>% # pick ndvi value closest to doy of plot visit
+  ungroup() 
+ndvi15 <- ndvi %>%    
+  filter(VisitDate >= "2015-01-01", RemoteDate >= "2015-01-01") %>%
+  mutate(doydiff = abs(RemoteDOY-VisitDOY)) %>%
+  group_by(PlotVisit) %>%
+  arrange(doydiff) %>%
+  slice(which.min(doydiff)) %>% # pick ndvi value closest to doy of plot visit
+  ungroup() 
+ndvi <- bind_rows(ndvi14, ndvi15)
+rm(ndvi14, ndvi15)
 
 # evi, long form
 evi <- remote %>%
@@ -61,32 +63,39 @@ evi <- remote %>%
 evi$VisitDate <- as.POSIXlt(sub("(.*)[.](.*)", "\\2", evi$PlotVisit))
 evi$VisitDOY <- evi$VisitDate$yday  
 evi$VisitDate <- as.POSIXct(evi$VisitDate)
-evi$RemoteDate <- as.POSIXlt(substr(evi$RemoteDate, 5, 12), format = "%Y%m%d")
+evi$RemoteDate <- as.POSIXlt(sub("(.*)[.](.*)", "\\2", evi$RemoteDate), format = "%Y%m%d")
 evi$RemoteDOY <- evi$RemoteDate$yday
-evi$RemoteDate <- as.POSIXct(evi$RemoteDate)  
-evi <- evi %>%
+evi$RemoteDate <- as.POSIXct(evi$RemoteDate)
+evi14 <- evi %>%
+  filter(VisitDate < "2015-01-01", RemoteDate < "2015-01-01") %>%
   mutate(doydiff = abs(RemoteDOY-VisitDOY)) %>%
   group_by(PlotVisit) %>%
   arrange(doydiff) %>%
-  slice(which.min(doydiff))  %>%
-  ungroup() %>%
-  subset(select = c(PlotVisit, EVI))
+  slice(which.min(doydiff)) %>% # pick evi value closest to doy of plot visit
+  ungroup() 
+evi15 <- evi %>%    
+  filter(VisitDate >= "2015-01-01", RemoteDate >= "2015-01-01") %>%
+  mutate(doydiff = abs(RemoteDOY-VisitDOY)) %>%
+  group_by(PlotVisit) %>%
+  arrange(doydiff) %>%
+  slice(which.min(doydiff)) %>% # pick evi value closest to doy of plot visit
+  ungroup() 
+evi <- bind_rows(evi14, evi15)
+rm(evi14, evi15)
 
+# plot info (to add lat/longs)
 latlong <- read.csv(file = "NSERP_VegPlots.csv")
 latlong$Date <- as.Date(latlong$Date, format = "%m/%d/%Y")
 latlong <- latlong %>%
   mutate(PlotVisit = paste(PlotID, ".", Date, sep="")) %>%
   select(PlotVisit, Latitude, Longitude)
-  
-remote.veg <- full_join(ndvi, evi, by = "PlotVisit") %>%
-  select(-c(VisitDate, VisitDOY)) %>%
-  full_join(veg, by = "PlotVisit") %>%
-  full_join(latlong, by = "PlotVisit")
 
-# remove "outliers" (a.k.a. huge sagebrush)
-no.out <- remote.veg[!remote.veg$PlotVisit == "401.2014-07-18",]
-no.out <- no.out[!no.out$PlotVisit == "376.2014-07-17",]
+## FINAL DATAFRAME
 
-# EXPORT
-write.csv(remote.veg, file="remote-plot.csv", row.names=F)
-write.csv(no.out, file = "remote-plot-noout.csv", row.names=F)
+# ndvi & evi per plot visit
+rmt <- ndvi %>%
+  select(-RemoteDate) %>%
+  full_join(evi, by = "PlotVisit") %>%
+  full_join(latlong, by = "PlotVisit") %>% 
+  select(PlotVisit, RemoteDate, NDVI, EVI, Latitude, Longitude)  
+write.csv(rmt, file="remote-plot.csv", row.names=F)
