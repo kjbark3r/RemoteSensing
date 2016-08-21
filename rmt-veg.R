@@ -21,7 +21,7 @@ rm(wd_workcomp, wd_laptop)
 ## PACKAGES
 
 library(dplyr)
-library(tidyr) #gather
+library(AICcmodavg)
 
 ## DATA
 
@@ -29,13 +29,44 @@ bio <- read.csv("biomass-plot.csv")
 nute <- read.csv("gdm-plot.csv")
 rmt <- read.csv("remote-plot.csv")
 
+#did landcov in arcmap; couldn't get it to work in r 
+landcov <- read.csv(file = "plots-landcov.txt") 
+landcov$Date <- as.Date(landcov$Date, format = "%m/%d/%Y")
+landcov <- landcov %>%
+  filter(Type == "Phenology" | Type == "Biomass") %>%
+  mutate(PlotVisit = paste(PlotID, ".", Date, sep = "")) %>%
+  subset(PlotVisit != "326.2015-09-23") %>%
+  rename(CovClass = RASTERVALU) %>%
+  dplyr::select(PlotVisit, CovClass) %>%
+  mutate(LandCov = ifelse(CovClass == 0, "Mask", 
+                   ifelse(CovClass == 1, "Badlands",
+                   ifelse(CovClass == 2, "Riparian",
+                   ifelse(CovClass == 3, "Forest",
+                   ifelse(CovClass == 4, "Shrub",
+                   ifelse(CovClass == 5, "Sagebrush",
+                   ifelse(CovClass == 6, "Grassland",
+                   ifelse(CovClass == 7, "Agricultural",
+                          NA))))))))) %>%
+  mutate(TreeCov = ifelse(CovClass == 2, 1, #riparian and forested
+                          ifelse(CovClass == 3, 1, 0))) #=treecover
+
+
+#fix plot that had date typo in database
+landcov$PlotVisit[landcov$PlotVisit=="344.2014-05-27"] <- "344.2014-05-21"
+landcov <- unique(landcov[]) #remove duplicates
+
+#KRISTIN CHECK THESE THINGS:
+  #why there are duplicates in landcover
+  #whether riparian is generally forested like you assumed
+
 ## COMBINED DATA
 
 veg <- full_join(bio, nute, by="PlotVisit") %>%
   rename(VisitDate = Date) %>%
   select(PlotVisit, PlotID, VisitDate, Biomass, ForageBiomass, GDM)
 
-rmt.veg <- full_join(veg, rmt, by = "PlotVisit") 
+rmt.veg <- full_join(veg, rmt, by = "PlotVisit") %>%
+  full_join(landcov, by = "PlotVisit")
 # remove "outliers" (2 huge sagebrush)
 rmt.veg <- rmt.veg[!rmt.veg$PlotVisit == "401.2014-07-18",]
 rmt.veg <- rmt.veg[!rmt.veg$PlotVisit == "376.2014-07-17",]
@@ -45,7 +76,9 @@ rmt.veg <- rmt.veg[!rmt.veg$PlotVisit == "376.2014-07-17",]
 #rmt.veg[rmt.veg$EVI %in% NA,] #nope
 #rmt.veg[rmt.veg$Biomass %in% NA,] #nope
 #rmt.veg[rmt.veg$GDM %in% NA,] #yup
-rmt.veg$GDM[is.na(rmt.veg$GDM)] <- 0 #make them 0s
+rmt.veg$GDM[is.na(rmt.veg$GDM)] <- 0 #make NAs 0s
+##BELOW CODE IS TEMPORARY UNTIL GET UPDATED DATA FROM BRADY
+rmt.veg <- subset(rmt.veg, PlotVisit != "326.2015-09-23") #wrong lat/long on this plot
 
 ## VISUALIZATIONS
 
@@ -77,7 +110,7 @@ plot(log(GDM) ~ NDVI, data = rmt.veg)
 plot(log(Biomass) ~ EVI, data = rmt.veg)
 plot(log(GDM) ~ EVI, data = rmt.veg)
 
-## REGRESSIONS
+## REGRESSIONS - NO TREE/LAND COVER
 
 bio.ndvi <- lm(log(Biomass) ~ NDVI, data=rmt.veg); summary(bio.ndvi)
 bio.evi <- lm(log(Biomass) ~ EVI, data=rmt.veg); summary(bio.evi)
@@ -134,75 +167,26 @@ names(Cand.set) <- c("Biomass", "ForageBiomass", "GDM")
 aictable <- aictab(Cand.set, second.ord=TRUE)
 aicresults <- print(aictable, digits = 2, LL = FALSE) #Biomass, of course
 
-############
-## ADDING ELEV AND LANDCOVER TO MODELS
+## REGRESSIONS AND AICc - WITH TREE/LAND COVER
 
-#did landcov in arcmap; couldn't get it to work in r 
-landcov <- read.csv(file = "plots-landcov.txt") 
-landcov$Date <- as.Date(landcov$Date, format = "%m/%d/%Y")
-landcov <- landcov %>%
-  subset(Type == "Phenology") %>%
-  mutate(PlotVisit = paste(PlotID, ".", Date, sep = "")) %>%
-  subset(PlotVisit != "326.2015-09-23") %>%
-  rename(CovClass = RASTERVALU) %>%
-  dplyr::select(PlotVisit, CovClass) %>%
-  mutate(LandCov = ifelse(CovClass == 0, "Mask", 
-                                     ifelse(CovClass == 1, "Badlands",
-                                     ifelse(CovClass == 2, "Riparian",
-                                     ifelse(CovClass == 3, "Forest",
-                                     ifelse(CovClass == 4, "Shrub",
-                                     ifelse(CovClass == 5, "Sagebrush",
-                                     ifelse(CovClass == 6, "Grassland",
-                                     ifelse(CovClass == 7, "Agricultural",
-                                            NA)))))))))
+bio.ndvi <- lm(log(Biomass) ~ NDVI, data=rmt.veg); summary(bio.ndvi)
+bio.land <- lm(log(Biomass) ~ NDVI+LandCov, data=rmt.veg); summary(bio.land)
+bio.land.int <- lm(log(Biomass) ~ NDVI*LandCov, data=rmt.veg); summary(bio.land.int)
+bio.tree <- lm(log(Biomass) ~ NDVI+TreeCov, data=rmt.veg); summary(bio.tree)
+bio.tree.int <- lm(log(Biomass) ~ NDVI*TreeCov, data=rmt.veg); summary(bio.tree.int)
 
-all.phen <- remote.phen %>%
-  subset(PlotVisit != "326.2015-09-23") %>% #wrong lat/long on this plot
-  full_join(landcov, by = "PlotVisit")
-
-library(raster)
-  
-elevSE <- raster("C:/Users/kristin.barker/Documents/ArcGIS/Backgrounds/NED/NEDn46w114/grdn46w114_13")
-elevSW <- raster("C:/Users/kristin.barker/Documents/ArcGIS/Backgrounds/NED/NEDn46w115/grdn46w115_13")
-elevNE <- raster("C:/Users/kristin.barker/Documents/ArcGIS/Backgrounds/NED/NEDn47w114/grdn47w114_13")
-elevNW <- raster("C:/Users/kristin.barker/Documents/ArcGIS/Backgrounds/NED/NEDn47w115/grdn47w115_13")
-#landcov <- raster("C:/Users/kristin.barker/Documents/NSERP/GIS/HabitatTypes/MSDI_Reclass_MTtiff/MSDI_RC_MT.tif")
-xy <- data.frame("x"=all.phen$Longitude, "y"=all.phen$Latitude)
-
-all.phen$elevNE <- extract(elevNE, xy); all.phen$elevNE[is.na(all.phen$elevNE)] <- 0
-all.phen$elevNW <- extract(elevNW, xy); all.phen$elevNW[is.na(all.phen$elevNW)] <- 0
-all.phen <- all.phen %>%
-  mutate(Elevm = elevNE+elevNW) %>%
-  dplyr::select(-c(elevNW, elevNE))
-
-###########
-##MODELS
-herb1 <- lm(sqrt(HerbBiomass) ~ EVI, data=all.phen); summary(herb)
-herb2 <- lm(sqrt(HerbBiomass) ~ EVI+Elevm, data=all.phen); summary(herb2)
-herb3 <- lm(sqrt(HerbBiomass) ~ EVI+LandCov, data=all.phen); summary(herb3)
-herb4 <- lm(sqrt(HerbBiomass) ~ EVI+Elevm+LandCov, data=all.phen); summary(herb4)
-
-lm1 <- c(herb1$coefficients[1], summary(herb1)$adj.r.squared, summary(herb1)$sigma)
-lm2 <- c(herb2$coefficients[1], summary(herb2)$adj.r.squared, summary(herb2)$sigma)
-lm3 <- c(herb3$coefficients[1], summary(herb3)$adj.r.squared, summary(herb3)$sigma)
-lm4 <- c(herb4$coefficients[1], summary(herb4)$adj.r.squared, summary(herb4)$sigma)
-
-tprep <- rbind(lm1, lm2, lm3, lm4)
-tab2 <- as.data.frame(tprep, row.names = c("EVI", "EVI+Elevm", "EVI+LandCov", "EVI+Elevm+LandCov"))
-#tab <- rename(tab, NDVIcoeff = NDVI)
-tab2 <- rename(tab2, AdjRsquared = V2)
-tab2 <- rename(tab2, StdError = V3)
-View(tab2)
-
-library(AICcmodavg)
 Cand.set <- list( )
-Cand.set[[1]] <- lm(sqrt(HerbBiomass) ~ EVI, data=all.phen)
-Cand.set[[2]] <- lm(sqrt(HerbBiomass) ~ EVI+Elevm, data=all.phen)
-Cand.set[[3]] <- lm(sqrt(HerbBiomass) ~ EVI+LandCov, data=all.phen)
-Cand.set[[4]] <- lm(sqrt(HerbBiomass) ~ EVI+Elevm+LandCov, data=all.phen)
-names(Cand.set) <- c("EVI", 
-                     "EVI+Elevm", 
-                     "EVI+LandCov", 
-                     "EVI+Elevm+LandCov")
+Cand.set[[1]] <- lm(log(Biomass) ~ NDVI, data=rmt.veg)
+Cand.set[[2]] <- lm(log(Biomass) ~ NDVI+LandCov, data=rmt.veg)
+Cand.set[[3]] <- lm(log(Biomass) ~ NDVI*LandCov, data=rmt.veg)
+Cand.set[[4]] <- lm(log(Biomass) ~ NDVI+TreeCov, data=rmt.veg)
+Cand.set[[5]] <- lm(log(Biomass) ~ NDVI*TreeCov, data=rmt.veg)
+names(Cand.set) <- c("NDVI", 
+                     "NDVI+LandCov",
+                     "NDVI*LandCov",
+                     "NDVI+TreeCov",
+                     "NDVI*TreeCov")
 aictable <- aictab(Cand.set, second.ord=TRUE)
 aicresults <- print(aictable, digits = 2, LL = FALSE)
+
+

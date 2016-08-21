@@ -372,6 +372,17 @@ setdiff(bio$PlotVisit, nute$PlotVisit)
 ##for all these plots, either the species were ided as forage by the lab but were >95 cumave
 ##or the forage plants didn't occur in the quadrats with clip plots
 
+## checking plot numbers
+setdiff(landcov$PlotVisit, veg$PlotVisit)
+setdiff(veg$PlotVisit, landcov$PlotVisit)
+landcov[duplicated(landcov$PlotVisit),]
+landcov <- unique( landcov[ , 1:4 ] )
+
+## wondering whether all landcover types are represented in phen plots
+phen <- read.csv(file = "plots-landcov.txt")  %>%
+  filter(Type == "Phenology") 
+unique(phen$RASTERVALU)
+# no badlands or sagebrush, that's alright i think
 
 ######################################################
 
@@ -379,9 +390,29 @@ setdiff(bio$PlotVisit, nute$PlotVisit)
 #### DELETED CODE
 ########
 
+# only calling forest treecover (not riparian)
+%>%
+  mutate(TreeCov = ifelse(CovClass == 3, 1, 0))#forest = tree cover
+
+# adding elev to models
+library(raster)
+
+elevSE <- raster("C:/Users/kristin.barker/Documents/ArcGIS/Backgrounds/NED/NEDn46w114/grdn46w114_13")
+elevSW <- raster("C:/Users/kristin.barker/Documents/ArcGIS/Backgrounds/NED/NEDn46w115/grdn46w115_13")
+elevNE <- raster("C:/Users/kristin.barker/Documents/ArcGIS/Backgrounds/NED/NEDn47w114/grdn47w114_13")
+elevNW <- raster("C:/Users/kristin.barker/Documents/ArcGIS/Backgrounds/NED/NEDn47w115/grdn47w115_13")
+#landcov <- raster("C:/Users/kristin.barker/Documents/NSERP/GIS/HabitatTypes/MSDI_Reclass_MTtiff/MSDI_RC_MT.tif")
+xy <- data.frame("x"=alldata$Longitude, "y"=alldata$Latitude)
+
+alldata$elevNE <- extract(elevNE, xy); alldata$elevNE[is.na(alldata$elevNE)] <- 0
+alldata$elevNW <- extract(elevNW, xy); alldata$elevNW[is.na(alldata$elevNW)] <- 0
+alldata <- alldata %>%
+  mutate(Elevm = elevNE+elevNW) %>%
+  dplyr::select(-c(elevNW, elevNE))
+
+##
+
  %>% full_join(biomass, by = "PlotVisit") #apparently buggy; crashes r
-
-
 
 
 ##NDVI
