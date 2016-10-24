@@ -26,7 +26,8 @@ library(AICcmodavg)
 ## DATA
 
 bio <- read.csv("biomass-plot.csv")
-nute <- read.csv("gdm-plot.csv")
+nute <- read.csv("gdm-plot.csv") %>%
+  select(c(PlotVisit, GDM))
 rmt <- read.csv("remote-plot.csv")
 
 #did landcov in arcmap; couldn't get it to work in r 
@@ -67,9 +68,10 @@ veg <- full_join(bio, nute, by="PlotVisit") %>%
 
 rmt.veg <- full_join(veg, rmt, by = "PlotVisit") %>%
   full_join(landcov, by = "PlotVisit")
-# remove "outliers" (2 huge sagebrush)
+# remove "outliers" (2 huge sagebrush; one tons of huckleberry)
 rmt.veg <- rmt.veg[!rmt.veg$PlotVisit == "401.2014-07-18",]
 rmt.veg <- rmt.veg[!rmt.veg$PlotVisit == "376.2014-07-17",]
+rmt.veg <- rmt.veg[!rmt.veg$PlotVisit == "220.2015-08-03",]
 
 # check for NAs
 #rmt.veg[rmt.veg$NDVI %in% NA,] #nope
@@ -88,13 +90,6 @@ hist(rmt.veg$NDVI)
 hist(rmt.veg$EVI)
 hist(rmt.veg$Biomass)
 hist(rmt.veg$GDM)
-
-# transformations
-par(mfrow=c(2,2))
-hist(log(rmt.veg$Biomass))
-hist(log(rmt.veg$ForageBiomass))
-hist(rmt.veg$GDM)
-hist(log(rmt.veg$GDM))
 
 # transformed distributions
 par(mfrow=c(2,2))
