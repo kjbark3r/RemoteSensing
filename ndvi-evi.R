@@ -28,6 +28,9 @@ remote <- read.csv(file = "NSERP_AllPlots_NDVI-EVI.csv", as.is = TRUE) %>%
   filter(Type == "Biomass" | Type == "Phenology") # veg plots only
 remote$Date <- as.Date(as.POSIXct((remote$Date+21600000)/1000, origin="1970-01-01", tz = "UTC"))
 remote$PlotVisit <- paste(remote$PlotID, ".", remote$Date, sep = "")
+#remove 2 plots that had lat/long typos (or can ask Brady to rerun if seems impt)
+remote <- remote[!remote$PlotVisit == "727.2015-08-12",]
+remote <- remote[!remote$PlotVisit == "1105.2015-08-11",]
 
 # ndvi, long form
 ndvi <- remote %>%
@@ -96,6 +99,6 @@ latlong <- latlong %>%
 rmt <- ndvi %>%
   select(-RemoteDate) %>%
   full_join(evi, by = "PlotVisit") %>%
-  full_join(latlong, by = "PlotVisit") %>% 
+  left_join(latlong, by = "PlotVisit") %>% 
   select(PlotVisit, RemoteDate, NDVI, EVI, Latitude, Longitude)  
 write.csv(rmt, file="remote-plot.csv", row.names=F)

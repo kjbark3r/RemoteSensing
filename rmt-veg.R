@@ -4,6 +4,8 @@
 ############# NSERP KJB  Jul-Aug 2016  #################
 ########################################################
 
+#### SETUP ####
+
 ## WD
 wd_workcomp <- "C:\\Users\\kristin.barker\\Documents\\GitHub\\RemoteSensing"
 wd_laptop <- "C:\\Users\\kjbark3r\\Documents\\GitHub\\RemoteSensing"
@@ -23,14 +25,13 @@ rm(wd_workcomp, wd_laptop)
 library(dplyr)
 library(AICcmodavg)
 
-## DATA
+#### DATA ####
 
-bio <- read.csv("biomass-plot.csv")
-nute <- read.csv("gdm-plot.csv")
-rmt <- read.csv("remote-plot.csv")
+bio <- read.csv("biomass-plot.csv") # from Vegetation/biomass.R
+nute <- read.csv("gdm-plot.csv") # from Vegetation/biomass.R
+rmt <- read.csv("remote-plot.csv") # from RemoteSensing/ndvi-evi.R
+landcov <- read.csv(file = "plots-landcov.txt") # from arcmap 
 
-#did landcov in arcmap; couldn't get it to work in r 
-landcov <- read.csv(file = "plots-landcov.txt") 
 landcov$Date <- as.Date(landcov$Date, format = "%m/%d/%Y")
 landcov <- landcov %>%
   filter(Type == "Phenology" | Type == "Biomass") %>%
@@ -49,116 +50,83 @@ landcov <- landcov %>%
                           NA))))))))) %>%
   mutate(TreeCov = ifelse(CovClass == 2, 1, #riparian and forested
                           ifelse(CovClass == 3, 1, 0))) #=treecover
-
-
 #fix plot that had date typo in database
+#bc this is easier than redoing it in arcmap
 landcov$PlotVisit[landcov$PlotVisit=="344.2014-05-27"] <- "344.2014-05-21"
-landcov <- unique(landcov[]) #remove duplicates
+#and remove phenology duplicates
+landcov <- landcov[!duplicated(landcov),]
 
-#KRISTIN CHECK THESE THINGS:
-  #why there are duplicates in landcover
-  #whether riparian is generally forested like you assumed
+#### COMBINED DATA ####
 
-## COMBINED DATA
-
-veg <- full_join(bio, nute, by="PlotVisit") %>%
+veg <- full_join(bio, nute, by="PlotVisit") %>% # biomass & GDM per plot visit
   rename(VisitDate = Date) %>%
-  select(PlotVisit, PlotID, VisitDate, Biomass, ForageBiomass, GDM)
+  dplyr::select(PlotVisit, PlotID, VisitDate, Biomass, ForageBiomass, GDM)
 
-rmt.veg <- full_join(veg, rmt, by = "PlotVisit") %>%
-  full_join(landcov, by = "PlotVisit")
-# remove "outliers" (2 huge sagebrush)
-rmt.veg <- rmt.veg[!rmt.veg$PlotVisit == "401.2014-07-18",]
-rmt.veg <- rmt.veg[!rmt.veg$PlotVisit == "376.2014-07-17",]
+rmt.veg <- right_join(veg, rmt, by = "PlotVisit") # add NDVI/EVI
+rmt.veg <- left_join(rmt.veg, landcov, by = "PlotVisit") # and landcover
+
+#remove 4 incorrect NDVI values (unclear why, but values are definitely too low) 
+rmt.veg <- rmt.veg[!rmt.veg$PlotVisit == "37.2015-08-20",]
+rmt.veg <- rmt.veg[!rmt.veg$PlotVisit == "35.2015-08-20",]
+rmt.veg <- rmt.veg[!rmt.veg$PlotVisit == "36.2015-08-20",]
+rmt.veg <- rmt.veg[!rmt.veg$PlotVisit == "39.2015-08-20",]
 
 # check for NAs
 #rmt.veg[rmt.veg$NDVI %in% NA,] #nope
 #rmt.veg[rmt.veg$EVI %in% NA,] #nope
 #rmt.veg[rmt.veg$Biomass %in% NA,] #nope
 #rmt.veg[rmt.veg$GDM %in% NA,] #yup
-rmt.veg$GDM[is.na(rmt.veg$GDM)] <- 0 #make NAs 0s
-##BELOW CODE IS TEMPORARY UNTIL GET UPDATED DATA FROM BRADY
-rmt.veg <- subset(rmt.veg, PlotVisit != "326.2015-09-23") #wrong lat/long on this plot
+rmt.veg$GDM[is.na(rmt.veg$GDM)] <- 0 #make GDM NAs 0s
 
-## VISUALIZATIONS
+#### VISUALIZATIONS ####
 
 # distributions (raw)
-par(mfrow=c(2,2))
-hist(rmt.veg$NDVI)
-hist(rmt.veg$EVI)
-hist(rmt.veg$Biomass)
-hist(rmt.veg$GDM)
+par(mfrow=c(3,2))
+hist(rmt.veg$NDVI, main="NDVI")
+hist(rmt.veg$EVI, main="EVI")
+hist(rmt.veg$Biomass, main="Biomass")
+hist(rmt.veg$ForageBiomass, main="Forage Biomass")
+hist(rmt.veg$GDM, main="Avail Nute")
+frame()
 
-# transformations
-par(mfrow=c(2,2))
-hist(log(rmt.veg$Biomass))
-hist(log(rmt.veg$ForageBiomass))
-hist(rmt.veg$GDM)
-hist(log(rmt.veg$GDM))
+# distributions - transformed
+par(mfrow=c(1,5))
+hist(rmt.veg$NDVI, main="NDVI")
+hist(log(rmt.veg$EVI), main="Log EVI")
+hist(log(rmt.veg$Biomass), main="Log Biomass")
+hist(log(rmt.veg$ForageBiomass), main="Log Forage Biomass")
+hist(log(rmt.veg$GDM), main="Log Avail Nute")
 
-# transformed distributions
-par(mfrow=c(2,2))
-hist(rmt.veg$NDVI)
-hist(rmt.veg$EVI)
-hist(log(rmt.veg$Biomass))
-hist(log(rmt.veg$GDM)) 
+# plotting relationships
+par(mfrow=c(3,1))
+scatter.smooth(log(rmt.veg$Biomass) ~ rmt.veg$NDVI)
+scatter.smooth(log(rmt.veg$ForageBiomass+0.05) ~ rmt.veg$NDVI)
+scatter.smooth(log(rmt.veg$GDM+0.05) ~ rmt.veg$NDVI)
 
-# relationships
-par(mfrow=c(2,2))
-plot(log(Biomass) ~ NDVI, data = rmt.veg)
-plot(log(GDM) ~ NDVI, data = rmt.veg)
-plot(log(Biomass) ~ EVI, data = rmt.veg)
-plot(log(GDM) ~ EVI, data = rmt.veg)
+#### NDVI or EVI? ####
 
-## REGRESSIONS - NO TREE/LAND COVER
-
-bio.ndvi <- lm(log(Biomass) ~ NDVI, data=rmt.veg); summary(bio.ndvi)
-bio.evi <- lm(log(Biomass) ~ EVI, data=rmt.veg); summary(bio.evi)
-for.ndvi <- lm(log(ForageBiomass+0.05) ~ NDVI, data=rmt.veg); summary(for.ndvi)
-for.evi <- lm(log(ForageBiomass+0.05) ~ EVI, data=rmt.veg); summary(for.evi)
-gdm.ndvi <- lm(log(GDM+0.05) ~ NDVI, data=rmt.veg); summary(gdm.ndvi)
-gdm.evi <- lm(log(GDM+0.05) ~ EVI, data=rmt.veg); summary(gdm.evi)
-
-lm1 <- c(bio.ndvi$coefficients[1], summary(bio.ndvi)$adj.r.squared, summary(bio.ndvi)$sigma)
-lm2 <- c(bio.evi$coefficients[1], summary(bio.evi)$adj.r.squared, summary(bio.evi)$sigma)
-lm3 <- c(for.ndvi$coefficients[1], summary(for.ndvi)$adj.r.squared, summary(for.ndvi)$sigma)
-lm4 <- c(for.evi$coefficients[1], summary(for.evi)$adj.r.squared, summary(for.evi)$sigma)
-lm5 <- c(gdm.ndvi$coefficients[1], summary(gdm.ndvi)$adj.r.squared, summary(gdm.ndvi)$sigma)
-lm6 <- c(gdm.evi$coefficients[1], summary(gdm.evi)$adj.r.squared, summary(gdm.evi)$sigma)
-
-tprep <- rbind(lm1, lm2, lm3, lm4, lm5, lm6)
-tab <- as.data.frame(tprep, row.names = c("Biomass-NDVI", "Biomass-EVI", "ForageBiomass-NDVI",
-                                          "ForageBiomass-EVI", "GDM-NDVI", "GDM-EVI"))
-#tab <- rename(tab, NDVIcoeff = NDVI)
-tab <- rename(tab, AdjRsquared = V2)
-tab <- rename(tab, StdError = V3)
-View(tab)
-
-## AIC 
-
-# ndvi or evi?
-
-library(AICcmodavg)
 Cand.set <- list( )
 Cand.set[[1]] <- lm(log(Biomass) ~ NDVI, data=rmt.veg)
-Cand.set[[2]] <- lm(log(Biomass) ~ EVI, data=rmt.veg)
+Cand.set[[2]] <- lm(log(Biomass) ~ log(EVI), data=rmt.veg)
 names(Cand.set) <- c("Biomass-NDVI", "Biomass-EVI")
 aictable <- aictab(Cand.set, second.ord=TRUE)
 aicresults <- print(aictable, digits = 2, LL = FALSE) #NDVI
 
-Cand.set[[1]] <- lm(log(ForageBiomass+0.05) ~ NDVI, data=rmt.veg)
-Cand.set[[2]] <- lm(log(ForageBiomass+0.05) ~ EVI, data=rmt.veg)
+Cand.set[[1]] <- glm(log(ForageBiomass+0.05) ~ NDVI, data=rmt.veg)
+Cand.set[[2]] <- glm(log(ForageBiomass+0.05) ~ log(EVI), data=rmt.veg)
 names(Cand.set) <- c("ForageBiomass-NDVI", "ForageBiomass-EVI")
 aictable <- aictab(Cand.set, second.ord=TRUE)
 aicresults <- print(aictable, digits = 2, LL = FALSE) #NDVI
 
-Cand.set[[1]] <- lm(log(GDM+0.05) ~ NDVI, data=rmt.veg)
-Cand.set[[2]] <- lm(log(GDM+0.05) ~ EVI, data=rmt.veg)
+Cand.set[[1]] <- glm(log(GDM+0.05) ~ NDVI, data=rmt.veg)
+Cand.set[[2]] <- glm(log(GDM+0.05) ~ log(EVI), data=rmt.veg)
 names(Cand.set) <- c("GDM-NDVI", "GDM-EVI")
 aictable <- aictab(Cand.set, second.ord=TRUE)
 aicresults <- print(aictable, digits = 2, LL = FALSE) #NDVI
 
-# which has best reln with ndvi (not sure this is valid mathematically...)
+# NDVI FTW
+
+# which has best reln with ndvi (prob not valid mathematically...)
 
 Cand.set[[1]] <- lm(NDVI ~ log(Biomass+0.05), data=rmt.veg)
 Cand.set[[2]] <- lm(NDVI ~ log(ForageBiomass+0.05), data=rmt.veg)
@@ -167,13 +135,45 @@ names(Cand.set) <- c("Biomass", "ForageBiomass", "GDM")
 aictable <- aictab(Cand.set, second.ord=TRUE)
 aicresults <- print(aictable, digits = 2, LL = FALSE) #Biomass, of course
 
-## REGRESSIONS AND AICc - WITH TREE/LAND COVER
+#### REGRESSIONS - STRAIGHT NDVI; LINEAR OR QUADRATIC ####
 
-bio.ndvi <- lm(log(Biomass) ~ NDVI, data=rmt.veg); summary(bio.ndvi)
-bio.land <- lm(log(Biomass) ~ NDVI+LandCov, data=rmt.veg); summary(bio.land)
-bio.land.int <- lm(log(Biomass) ~ NDVI*LandCov, data=rmt.veg); summary(bio.land.int)
-bio.tree <- lm(log(Biomass) ~ NDVI+TreeCov, data=rmt.veg); summary(bio.tree)
-bio.tree.int <- lm(log(Biomass) ~ NDVI*TreeCov, data=rmt.veg); summary(bio.tree.int)
+# biomass
+
+Cand.set <- list( )
+Cand.set[[1]] <- lm(log(Biomass) ~ NDVI, data=rmt.veg)
+Cand.set[[2]] <- lm(log(Biomass) ~ NDVI+I(NDVI^2), data=rmt.veg)
+names(Cand.set) <- c("NDVI", "NDVI^2")
+aictable <- aictab(Cand.set, second.ord=TRUE)
+aicresults <- print(aictable, digits = 2, LL = FALSE)
+
+# forage biomass
+
+Cand.set <- list( )
+Cand.set[[1]] <- lm(log(ForageBiomass+0.05) ~ NDVI, data=rmt.veg)
+Cand.set[[2]] <- lm(log(ForageBiomass+0.05) ~ NDVI+I(NDVI^2), data=rmt.veg)
+names(Cand.set) <- c("NDVI", "NDVI^2")
+aictable <- aictab(Cand.set, second.ord=TRUE)
+aicresults <- print(aictable, digits = 2, LL = FALSE)
+
+# available nutrition
+
+Cand.set <- list( )
+Cand.set[[1]] <- lm(log(ForageBiomass+0.05) ~ NDVI, data=rmt.veg)
+Cand.set[[2]] <- lm(log(ForageBiomass+0.05) ~ NDVI+I(NDVI^2), data=rmt.veg)
+names(Cand.set) <- c("NDVI", "NDVI^2")
+aictable <- aictab(Cand.set, second.ord=TRUE)
+aicresults <- print(aictable, digits = 2, LL = FALSE)
+
+# not enough additional support for quadratic to justify using it
+
+#### REGRESSIONS - WITH TREE/LAND COVER ####Cand.set <- list( )
+Cand.set[[1]] <- lm(log(GDM+0.05) ~ NDVI, data=rmt.veg)
+Cand.set[[2]] <- lm(log(GDM+0.05) ~ NDVI+I(NDVI^2), data=rmt.veg)
+names(Cand.set) <- c("NDVI", "NDVI^2")
+aictable <- aictab(Cand.set, second.ord=TRUE)
+aicresults <- print(aictable, digits = 2, LL = FALSE)
+
+# biomass
 
 Cand.set <- list( )
 Cand.set[[1]] <- lm(log(Biomass) ~ NDVI, data=rmt.veg)
@@ -189,4 +189,95 @@ names(Cand.set) <- c("NDVI",
 aictable <- aictab(Cand.set, second.ord=TRUE)
 aicresults <- print(aictable, digits = 2, LL = FALSE)
 
+# forage biomass
 
+Cand.set <- list( )
+Cand.set[[1]] <- lm(log(ForageBiomass+0.05) ~ NDVI, data=rmt.veg)
+Cand.set[[2]] <- lm(log(ForageBiomass+0.05) ~ NDVI+LandCov, data=rmt.veg)
+Cand.set[[3]] <- lm(log(ForageBiomass+0.05) ~ NDVI*LandCov, data=rmt.veg)
+Cand.set[[4]] <- lm(log(ForageBiomass+0.05) ~ NDVI+TreeCov, data=rmt.veg)
+Cand.set[[5]] <- lm(log(ForageBiomass+0.05) ~ NDVI*TreeCov, data=rmt.veg)
+names(Cand.set) <- c("NDVI", 
+                     "NDVI+LandCov",
+                     "NDVI*LandCov",
+                     "NDVI+TreeCov",
+                     "NDVI*TreeCov")
+aictable <- aictab(Cand.set, second.ord=TRUE)
+aicresults <- print(aictable, digits = 2, LL = FALSE)
+
+# avail nute
+
+Cand.set <- list( )
+Cand.set[[1]] <- lm(log(GDM+0.05) ~ NDVI, data=rmt.veg)
+Cand.set[[2]] <- lm(log(GDM+0.05) ~ NDVI+LandCov, data=rmt.veg)
+Cand.set[[3]] <- lm(log(GDM+0.05) ~ NDVI*LandCov, data=rmt.veg)
+Cand.set[[4]] <- lm(log(GDM+0.05) ~ NDVI+TreeCov, data=rmt.veg)
+Cand.set[[5]] <- lm(log(GDM+0.05) ~ NDVI*TreeCov, data=rmt.veg)
+names(Cand.set) <- c("NDVI", 
+                     "NDVI+LandCov",
+                     "NDVI*LandCov",
+                     "NDVI+TreeCov",
+                     "NDVI*TreeCov")
+aictable <- aictab(Cand.set, second.ord=TRUE)
+aicresults <- print(aictable, digits = 2, LL = FALSE)
+
+gdm.lc <- lm(log(GDM+0.05) ~ NDVI+LandCov, data=rmt.veg); summary(gdm.lc)
+
+#### OLD/DELETED/MAYBE STILL HELPFUL CODE ####
+
+## REGRESSIONS AND AICc - QUADRATIC RELATIONSHIP FOR GDM
+# not so sure this is mathematically valid, but... totes doing it anyway
+Cand.set <- list( )
+Cand.set[[1]] <- lm(NDVI ~ log(GDM+0.05), data=rmt.veg)
+Cand.set[[2]] <- lm(NDVI ~ log(GDM+0.05) + (log(GDM+0.05))^2, data=rmt.veg)
+names(Cand.set) <- c("GDM", "GDM^2")
+aictable <- aictab(Cand.set, second.ord=TRUE)
+aicresults <- print(aictable, digits = 2, LL = FALSE) 
+
+gdm <- lm(log(GDM+0.05) ~ NDVI, data=rmt.veg)
+summary(gdm)
+gdm.quadiplus <- lm(log(GDM+0.05) + I(log(GDM+0.05)^2) ~ NDVI, data=rmt.veg)
+summary(gdm.quadiplus)
+
+# plotting
+par(mfrow=c(3,1))
+scatter.smooth(log(rmt.veg$GDM+0.05) ~ rmt.veg$NDVI)
+# not sure which of the below makes more sense (or if they're even that different)
+scatter.smooth((log(rmt.veg$GDM+0.05))^2 ~ rmt.veg$NDVI))
+scatter.smooth(log(rmt.veg$GDM+0.05)+(log(rmt.veg$GDM+0.05))^2 ~ rmt.veg$NDVI)
+
+bio.ndvi <- lm(log(Biomass) ~ NDVI, data=rmt.veg); summary(bio.ndvi); plot(bio.ndvi)
+bio.land <- lm(log(Biomass) ~ NDVI+LandCov, data=rmt.veg); summary(bio.land)
+bio.land.int <- lm(log(Biomass) ~ NDVI*LandCov, data=rmt.veg); summary(bio.land.int)
+bio.tree <- lm(log(Biomass) ~ NDVI+TreeCov, data=rmt.veg); summary(bio.tree)
+bio.tree.int <- lm(log(Biomass) ~ NDVI*TreeCov, data=rmt.veg); summary(bio.tree.int)
+
+# the ones below were me trying to figure out how to write the quadratic
+#gdm.quad <- lm(log(GDM+0.05) + (log(GDM+0.05)^2) ~ NDVI, data=rmt.veg)
+#summary(gdm.quad)
+#gdm.quadi <- lm(I(log(GDM+0.05)^2) ~ NDVI, data=rmt.veg)
+#summary(gdm.quadi)
+
+
+### NDVI/VEG RELATIONSHIP - NO TREE/LAND COVER ###
+
+bio.ndvi <- lm(log(Biomass) ~ NDVI, data=rmt.veg); summary(bio.ndvi)
+#bio.evi <- lm(log(Biomass) ~ EVI, data=rmt.veg); summary(bio.evi)
+for.ndvi <- lm(log(ForageBiomass+0.05) ~ NDVI, data=rmt.veg); summary(for.ndvi)
+#for.evi <- lm(log(ForageBiomass+0.05) ~ EVI, data=rmt.veg); summary(for.evi)
+gdm.ndvi <- lm(log(GDM+0.05) ~ NDVI, data=rmt.veg); summary(gdm.ndvi)
+#gdm.evi <- lm(log(GDM+0.05) ~ EVI, data=rmt.veg); summary(gdm.evi)
+
+lm1 <- c(bio.ndvi$coefficients[1], bio.ndvi$coefficients[2], summary(bio.ndvi)$adj.r.squared, summary(bio.ndvi)$sigma)
+#lm2 <- c(bio.evi$coefficients[1], summary(bio.evi)$adj.r.squared, summary(bio.evi)$sigma)
+lm3 <- c(for.ndvi$coefficients[1], for.ndvi$coefficients[2], summary(for.ndvi)$adj.r.squared, summary(for.ndvi)$sigma)
+#lm4 <- c(for.evi$coefficients[1], summary(for.evi)$adj.r.squared, summary(for.evi)$sigma)
+lm5 <- c(gdm.ndvi$coefficients[1], gdm.ndvi$coefficients[2], summary(gdm.ndvi)$adj.r.squared, summary(gdm.ndvi)$sigma)
+#lm6 <- c(gdm.evi$coefficients[1], summary(gdm.evi)$adj.r.squared, summary(gdm.evi)$sigma)
+
+tprep <- rbind(lm1, lm3, lm5)
+tab <- as.data.frame(tprep, row.names = c("Biomass", "ForageBiomass", "GDM"))
+tab <- rename(tab, NDVIcoeff = NDVI)
+tab <- rename(tab, AdjRsquared = V3)
+tab <- rename(tab, StdError = V4)
+View(tab)
